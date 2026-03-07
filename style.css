@@ -22,12 +22,19 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
 
 body {
     background-color: var(--bg-deep-black);
     color: var(--text-light);
     font-family: var(--font-body);
-    overflow-x: hidden;
     position: relative;
 }
 
@@ -196,6 +203,9 @@ section {
     font-size: 3.5rem;
     text-align: center;
     margin-bottom: 1.5rem;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .text-center { text-align: center; }
@@ -590,6 +600,7 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
+    max-width: 100%;
 }
 
 .comic-card {
@@ -598,6 +609,8 @@ nav a:hover {
     padding: 2rem;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .comic-card::after {
@@ -648,12 +661,31 @@ nav a:hover {
 
 .event-card {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.event-card .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.event-card .btn {
+    margin-top: auto;
+    align-self: flex-start; /* reset to original left alignment */
 }
 
 .event-card h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: var(--electric-blue);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    word-break: normal;
+    hyphens: auto;
 }
 
 .event-card .dept {
@@ -698,6 +730,7 @@ nav a:hover {
     justify-content: center;
     gap: 4rem;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .pass-card {
@@ -705,6 +738,7 @@ nav a:hover {
     min-width: 300px;
     max-width: 400px;
     text-align: center;
+    margin: 0 1rem;
 }
 
 .pass-card h3 { font-size: 2.5rem; margin-bottom: 1rem; }
@@ -1242,6 +1276,8 @@ select option { background: var(--bg-deep-black); color: white; }
         padding: 1rem 1.5rem !important; 
         flex-direction: row !important; 
         justify-content: space-between !important;
+        height: 70px !important;
+        z-index: 102 !important;
     }
     
     .hamburger {
@@ -1254,6 +1290,7 @@ select option { background: var(--bg-deep-black); color: white; }
         left: -100%;
         width: 100%;
         height: calc(100vh - 70px);
+        z-index: 100;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(10px);
         flex-direction: column !important;
@@ -1287,6 +1324,8 @@ select option { background: var(--bg-deep-black); color: white; }
     .grid-2 { grid-template-columns: 1fr !important; }
     .grid-container { grid-template-columns: 1fr !important; }
     .flex-container { flex-direction: column !important; gap: 2rem !important; }
+    .pass-card { min-width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+    .nav-logo-img { height: 45px !important; }
     
     .comic-panel { padding: 1.5rem !important; }
     
@@ -1317,5 +1356,9 @@ select option { background: var(--bg-deep-black); color: white; }
     /* Responsive SVGs */
     .corner-web { width: 150px !important; height: 150px !important; opacity: 0.3 !important; }
     .logo-web { width: 80px !important; height: 80px !important; }
+    
+    /* Fix Glitch Text Blurriness on Mobile */
+    .glitch::before { left: 1px !important; text-shadow: -1px 0 var(--neon-red) !important; animation: none !important; }
+    .glitch::after { left: -1px !important; text-shadow: 1px 0 #550000 !important; animation: none !important; }
 }
 
