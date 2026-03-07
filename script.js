@@ -178,3 +178,86 @@ document.addEventListener('DOMContentLoaded', () => {
         passTypeEl.addEventListener('change', calculateTotal);
     }
 });
+
+// Mobile Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
+// ==========================================
+// SPIDER-VERSE WEB NAVIGATION ANIMATION
+// ==========================================
+const navCanvas = document.getElementById('nav-web-canvas');
+
+// Ensure canvas covers entire scrollable document height
+function resizeNavCanvas() {
+    if (navCanvas) {
+        navCanvas.style.height = document.documentElement.scrollHeight + 'px';
+    }
+}
+window.addEventListener('resize', resizeNavCanvas);
+window.addEventListener('load', resizeNavCanvas);
+
+document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetSection = document.querySelector(targetId);
+        if (!targetSection) return;
+
+        // Origin point: center of clicked link
+        const linkRect = this.getBoundingClientRect();
+        const startX = linkRect.left + linkRect.width / 2;
+        const startY = linkRect.top + linkRect.height / 2 + window.scrollY;
+
+        // Destination point: top center of the target section
+        const targetRect = targetSection.getBoundingClientRect();
+        const endX = targetRect.left + targetRect.width / 2;
+        const endY = targetRect.top + window.scrollY + 50; // Offset slightly into the section
+
+        // Control point for Quadratic Bezier curve to make it arc like a gravity-affected web
+        const cpX = (startX + endX) / 2 + (Math.random() * 200 - 100); // Random slight arc
+        const cpY = Math.min(startY, endY) - Math.abs(endY - startY) * 0.2; // Arc upwards
+
+        // Create the SVG Path
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        const d = `M ${startX} ${startY} Q ${cpX} ${cpY} ${endX} ${endY}`;
+        path.setAttribute('d', d);
+        path.setAttribute('class', 'shooting-web');
+        
+        // Setup drawing animation lengths
+        navCanvas.appendChild(path);
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+
+        // Start smooth scroll
+        window.scrollTo({
+            top: targetRect.top + window.scrollY - 70, // offset for navbar
+            behavior: 'smooth'
+        });
+
+        // Cleanup DOM after animation finishes (0.6s shoot + 0.4s fade = ~1s total)
+        setTimeout(() => {
+            if (navCanvas.contains(path)) {
+                navCanvas.removeChild(path);
+            }
+        }, 1100);
+    });
+});

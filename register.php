@@ -13,6 +13,7 @@ try {
         $team_name = htmlspecialchars($_POST['team_name']);
         $leader_name = htmlspecialchars($_POST['leader_name']);
         $member2 = htmlspecialchars($_POST['member2']);
+        $member2_phone = isset($_POST['member2_phone']) ? htmlspecialchars($_POST['member2_phone']) : '';
         $member3 = htmlspecialchars($_POST['member3']);
         $member4 = htmlspecialchars($_POST['member4']);
         $college = htmlspecialchars($_POST['college']);
@@ -49,14 +50,15 @@ try {
             $amount = $team_size * 400;
         }
 
-        $sql = "INSERT INTO registrations (team_name, leader_name, member2, member3, member4, college, department, phone, email, pass_type, selected_events, amount, payment_status) 
-                VALUES (:team_name, :leader_name, :member2, :member3, :member4, :college, :department, :phone, :email, :pass_type, :events_json, :amount, 'Pending')";
+        $sql = "INSERT INTO registrations (team_name, leader_name, member2, member2_phone, member3, member4, college, department, phone, email, pass_type, selected_events, amount, payment_status) 
+                VALUES (:team_name, :leader_name, :member2, :member2_phone, :member3, :member4, :college, :department, :phone, :email, :pass_type, :events_json, :amount, 'Pending')";
         
         $stmt = $pdo->prepare($sql);
         
         $stmt->bindParam(':team_name', $team_name);
         $stmt->bindParam(':leader_name', $leader_name);
         $stmt->bindParam(':member2', $member2);
+        $stmt->bindParam(':member2_phone', $member2_phone);
         $stmt->bindParam(':member3', $member3);
         $stmt->bindParam(':member4', $member4);
         $stmt->bindParam(':college', $college);

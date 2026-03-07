@@ -129,6 +129,9 @@ try {
                             <td>
                                 <strong><?= htmlspecialchars($reg['leader_name']) ?></strong><br>
                                 <small><?= htmlspecialchars($reg['phone']) ?><br><?= htmlspecialchars($reg['email']) ?></small>
+                                <?php if (!empty($reg['member2_phone'])): ?>
+                                    <br><small style="color:#00e5ff;">M2 Phone: <?= htmlspecialchars($reg['member2_phone']) ?></small>
+                                <?php endif; ?>
                             </td>
                             <td><?= htmlspecialchars($reg['college']) ?><br><small>(<?= htmlspecialchars($reg['department']) ?>)</small></td>
                             <td style="text-transform:uppercase;"><?= htmlspecialchars($reg['pass_type']) ?></td>

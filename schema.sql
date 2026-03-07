@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS registrations (
     team_name VARCHAR(100) NOT NULL,
     leader_name VARCHAR(100) NOT NULL,
     member2 VARCHAR(100) DEFAULT NULL,
+    member2_phone VARCHAR(20) DEFAULT NULL,
     member3 VARCHAR(100) DEFAULT NULL,
     member4 VARCHAR(100) DEFAULT NULL,
     college VARCHAR(255) NOT NULL,

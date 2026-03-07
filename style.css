@@ -216,9 +216,38 @@ section {
     z-index: 100;
 }
 
+.nav-logo-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav-logo {
     font-size: 2.5rem;
     margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-web {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    stroke: var(--neon-red);
+    filter: drop-shadow(0 0 5px var(--neon-red));
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: pulse-web 4s infinite alternate;
+}
+
+@keyframes pulse-web {
+    0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.4; }
+    100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
 }
 
 nav ul {
@@ -241,6 +270,37 @@ nav a {
 nav a:hover {
     color: var(--neon-red);
     text-shadow: 0 0 10px var(--neon-red);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 5px var(--neon-red);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background: var(--neon-red);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background: var(--neon-red);
 }
 
 /* =============== BUTTONS =============== */
@@ -835,13 +895,262 @@ select option { background: var(--bg-deep-black); color: white; }
     font-family: var(--font-ui);
 }
 
-/* =============== RESPONSIVE =============== */
-@media (max-width: 768px) {
-    .navbar { padding: 1rem; flex-direction: column; gap: 1rem; }
-    .hero-title { font-size: 5rem; }
-    .hero-subtitle { font-size: 1.5rem; }
-    .hero-college { font-size: 1.2rem; }
-    .glitch { font-size: 2.5rem; }
-    .glitch-heavy { font-size: 4rem; }
-    .grid-2 { grid-template-columns: 1fr; }
+/* =============== SPIDER-VERSE THEME =============== */
+.spider-web-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        radial-gradient(circle at top left, transparent 20%, rgba(255, 0, 0, 0.05) 20%, rgba(255, 0, 0, 0.05) 21%, transparent 21%),
+        radial-gradient(circle at top left, transparent 40%, rgba(255, 0, 0, 0.05) 40%, rgba(255, 0, 0, 0.05) 41%, transparent 41%),
+        radial-gradient(circle at top left, transparent 60%, rgba(255, 0, 0, 0.05) 60%, rgba(255, 0, 0, 0.05) 61%, transparent 61%),
+        radial-gradient(circle at top left, transparent 80%, rgba(255, 0, 0, 0.05) 80%, rgba(255, 0, 0, 0.05) 81%, transparent 81%),
+        linear-gradient(45deg, transparent 49%, rgba(0, 229, 255, 0.05) 49%, rgba(0, 229, 255, 0.05) 51%, transparent 51%),
+        linear-gradient(-45deg, transparent 49%, rgba(0, 229, 255, 0.05) 49%, rgba(0, 229, 255, 0.05) 51%, transparent 51%);
+    background-size: 200px 200px, 200px 200px, 200px 200px, 200px 200px, 100% 100%, 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.8;
 }
+
+.spider-section {
+    position: relative;
+}
+
+.spider-section::after {
+    content: '';
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 6rem;
+    background: linear-gradient(to bottom, transparent, var(--neon-red), transparent);
+    z-index: 1;
+    animation: flow-line 3s infinite linear;
+}
+
+@keyframes flow-line {
+    0% { transform: translateX(-50%) translateY(-10px); opacity: 0; }
+    50% { opacity: 1; box-shadow: 0 0 10px var(--neon-red); }
+    100% { transform: translateX(-50%) translateY(10px); opacity: 0; }
+}
+
+.glowing-border {
+    border: 2px solid var(--neon-red);
+    box-shadow: 0 0 15px rgba(255,0,0,0.3), inset 0 0 15px rgba(255,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glowing-border::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--electric-blue), transparent);
+    animation: scan-line 4s infinite linear;
+}
+
+@keyframes scan-line {
+    0% { left: -100%; top: 0; }
+    25% { left: 100%; top: 0; }
+    25.001% { right: 0; top: -100%; width: 2px; height: 50%; background: linear-gradient(180deg, transparent, var(--neon-purple), transparent); }
+    50% { right: 0; top: 100%; }
+    50.001% { right: -100%; bottom: 0; width: 50%; height: 2px; background: linear-gradient(270deg, transparent, var(--neon-red), transparent); }
+    75% { right: 100%; bottom: 0; }
+    75.001% { left: 0; bottom: -100%; width: 2px; height: 50%; background: linear-gradient(0deg, transparent, var(--electric-blue), transparent); }
+    100% { left: 0; bottom: 100%; }
+}
+
+/* Event Card Hover Enhancement - Web Spider */
+.event-card {
+    overflow: hidden;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.event-card:hover::before {
+    opacity: 1;
+}
+
+/* Deep Integration SVG Styles */
+.cyber-web {
+    pointer-events: none; /* Never block clicks */
+}
+
+/* Corner Webs for Hero */
+.corner-web {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    stroke: var(--neon-red);
+    filter: drop-shadow(0 0 8px var(--neon-red));
+    opacity: 0.45;
+    z-index: 1;
+}
+
+.corner-web.top-left {
+    top: 0;
+    left: 0;
+}
+
+.corner-web.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+/* Section Dividers */
+.section-divider {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    margin: -1rem 0; /* Merge seamlessly between sections */
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+}
+
+.divider-web {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    stroke: var(--electric-blue);
+    filter: drop-shadow(0 0 5px var(--electric-blue));
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* =============== SPIDER-VERSE NAV ANIMATION =============== */
+.nav-web-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: visible;
+}
+
+.shooting-web {
+    fill: none;
+    stroke: var(--neon-red);
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px var(--neon-red)) drop-shadow(0 0 20px var(--neon-red));
+    /* stroke-dasharray and stroke-dashoffset will be set dynamically via JS */
+    animation: shoot-web 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards, web-fade 0.4s 0.6s ease-out forwards;
+}
+
+@keyframes shoot-web {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes web-fade {
+    to {
+        opacity: 0;
+    }
+}
+
+/* =============== RESPONSIVE =============== */
+/* =============== RESPONSIVE =============== */
+@media screen and (max-width: 768px) {
+    .navbar { 
+        padding: 1rem 1.5rem !important; 
+        flex-direction: row !important; 
+        justify-content: space-between !important;
+    }
+    
+    .hamburger {
+        display: flex !important;
+    }
+    
+    #nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.4s ease-in-out;
+        border-top: 2px solid var(--neon-red);
+        display: flex !important;
+    }
+    
+    #nav-menu.active {
+        left: 0 !important;
+    }
+    
+    nav ul {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        text-align: center;
+    }
+    
+    nav a {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-title { font-size: 3.5rem !important; }
+    .hero-subtitle { font-size: 1.2rem !important; }
+    .hero-college { font-size: 1rem !important; margin-bottom: 2rem !important; }
+    .section-title { font-size: 2.2rem !important; }
+    .glitch-heavy { font-size: 3rem !important; }
+    
+    .grid-2 { grid-template-columns: 1fr !important; }
+    .grid-container { grid-template-columns: 1fr !important; }
+    .flex-container { flex-direction: column !important; gap: 2rem !important; }
+    
+    .comic-panel { padding: 1.5rem !important; }
+    
+    .btn {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0.5rem 0 !important;
+        padding: 1.2rem 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    .footer-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 2rem !important;
+    }
+    
+    .footer-contacts {
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .modal-content { width: 95% !important; margin: 10% auto !important; }
+    .modal-body { flex-direction: column !important; }
+    .poster { height: 200px !important; width: 100% !important; }
+    
+    /* Responsive SVGs */
+    .corner-web { width: 150px !important; height: 150px !important; opacity: 0.3 !important; }
+    .logo-web { width: 80px !important; height: 80px !important; }
+}
+
