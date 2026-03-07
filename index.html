@@ -22,18 +22,6 @@
 
     <header class="navbar">
         <div class="nav-logo-container" style="position: relative; display: inline-block;">
-            <!-- Logo Decorator Web Layer 1 (Outer) -->
-            <svg class="cyber-web logo-web logo-web-outer" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="80" fill="none" stroke-width="1.5" stroke-dasharray="8 8"/>
-                <circle cx="100" cy="100" r="40" fill="none" stroke-width="1"/>
-                <path d="M100 0 L100 200 M0 100 L200 100 M29 29 L171 171 M29 171 L171 29" fill="none" stroke-width="1.5"/>
-            </svg>
-            <!-- Logo Decorator Web Layer 2 (Inner) -->
-            <svg class="cyber-web logo-web logo-web-inner" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="100,20 180,100 100,180 20,100" fill="none" stroke-width="1.5"/>
-                <polygon points="100,50 150,100 100,150 50,100" fill="none" stroke-width="1.5"/>
-                <path d="M50 50 Q100 0 150 50 Q200 100 150 150 Q100 200 50 150 Q0 100 50 50 Z" fill="none" stroke-width="1"/>
-            </svg>
             <!-- Replace 'logo.png' with your actual image path -->
             <img src="images/logo.png" alt="THIGAZH Logo" class="nav-logo-img">
         </div>
@@ -57,6 +45,35 @@
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <!-- Hero Web Decorators -->
+            <!-- Classic Top Center Spider Web -->
+            <div class="hero-top-web-container">
+                <svg class="top-center-web" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.5" fill="none" stroke-linecap="round">
+                        <!-- Radial threads -->
+                        <path d="M250,-20 L250,230" />
+                        <path d="M250,-20 L150,220" />
+                        <path d="M250,-20 L350,220" />
+                        <path d="M250,-20 L60,180" />
+                        <path d="M250,-20 L440,180" />
+                        <path d="M250,-20 L0,110" />
+                        <path d="M250,-20 L500,110" />
+                        
+                        <!-- Spiral threads -->
+                        <path d="M250,30 Q200,35 180,28 Q120,15 80,-10" />
+                        <path d="M250,30 Q300,35 320,28 Q380,15 420,-10" />
+                        
+                        <path d="M250,70 Q190,80 155,65 Q95,45 35,-5" />
+                        <path d="M250,70 Q310,80 345,65 Q405,45 465,-5" />
+                        
+                        <path d="M250,120 Q180,135 125,110 Q70,80 0,30" />
+                        <path d="M250,120 Q320,135 375,110 Q430,80 500,30" />
+                        
+                        <path d="M250,170 Q170,190 105,155 Q45,120 -15,70" />
+                        <path d="M250,170 Q330,190 395,155 Q455,120 515,70" />
+                    </g>
+                </svg>
+            </div>
+
             <svg class="cyber-web corner-web top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0 L200 0 L0 200 Z M0 50 Q50 50 50 0 M0 100 Q100 100 100 0 M0 150 Q150 150 150 0" fill="none" stroke-width="2"/>
                 <line x1="0" y1="0" x2="160" y2="40" stroke-width="1"/>
@@ -69,7 +86,14 @@
             </svg>
 
             <div class="hero-content">
-                <h1 class="hero-title metallic-red-text fiery-glow" data-text="THIGAZH 2K26">THIGAZH 2K26</h1>
+                <div class="spider-thread-container">
+                    <div class="descending-drop">
+                        <div class="swinging-pendulum">
+                            <div class="web-thread"></div>
+                            <h1 class="hero-title metallic-red-text fiery-glow" data-text="THIGAZH 2K26">THIGAZH 2K26</h1>
+                        </div>
+                    </div>
+                </div>
                 <h2 class="hero-subtitle">Organized by the <span class="highlight">School of Computing</span></h2>
                 <h3 class="hero-college">Erode Sengunthar Engineering College</h3>
                 <div class="hero-actions">

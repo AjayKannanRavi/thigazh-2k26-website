@@ -187,7 +187,7 @@ h1, h2, h3, h4 {
 }
 
 section {
-    padding: 6rem 0;
+    padding: 3rem 0;
     position: relative;
     z-index: 2;
 }
@@ -195,7 +195,7 @@ section {
 .section-title {
     font-size: 3.5rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .text-center { text-align: center; }
@@ -419,6 +419,64 @@ nav a:hover {
     margin-bottom: 3rem;
 }
 
+/* =============== HERO SPIDER WEB ANIMATION =============== */
+.hero-top-web-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    max-width: 100vw;
+    height: 300px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.top-center-web {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
+.spider-thread-container {
+    position: relative;
+    display: inline-block;
+    z-index: 11;
+}
+
+.descending-drop {
+    animation: descendFromWeb 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.swinging-pendulum {
+    position: relative;
+    transform-origin: 50% -40vh;
+    animation: webSwing 4s ease-in-out infinite alternate;
+}
+
+.web-thread {
+    position: absolute;
+    bottom: 80%; /* Sink slightly into text so it looks attached */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100vh;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1));
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    z-index: -1;
+}
+
+@keyframes descendFromWeb {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes webSwing {
+    0% { transform: rotate(-4deg); }
+    100% { transform: rotate(4deg); }
+}
+
 /* =============== ABOUT & COMMON PANELS =============== */
 .comic-panel {
     background: var(--bg-darker);
@@ -464,7 +522,7 @@ nav a:hover {
     font-size: 2.5rem;
     color: var(--electric-blue);
     text-align: center;
-    margin: 4rem 0 2rem 0;
+    margin: 2rem 0 1.5rem 0;
     text-transform: uppercase;
     text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
     border-bottom: 2px dashed #333;
@@ -1124,7 +1182,7 @@ select option { background: var(--bg-deep-black); color: white; }
     width: 100%;
     height: 50px;
     position: relative;
-    margin: -1rem 0; /* Merge seamlessly between sections */
+    margin: -2rem 0; /* Merge seamlessly between sections */
     z-index: 5;
     display: flex;
     justify-content: center;
