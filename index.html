@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIGAZH 2K26 | Erode Sengunthar Engineering College</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Overlay Effects -->
+    <div class="halftone-overlay"></div>
+    <div class="vignette-overlay"></div>
+    <canvas id="particle-canvas"></canvas>
+
+    <header class="navbar">
+        <div class="nav-logo metallic-red-text" data-text="THIGAZH">THIGAZH</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#pricing">Passes</a></li>
+                <li><a href="#registration">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title metallic-red-text fiery-glow" data-text="THIGAZH 2K26">THIGAZH 2K26</h1>
+                <h2 class="hero-subtitle">Organized by the <span class="highlight">School of Computing</span></h2>
+                <h3 class="hero-college">Erode Sengunthar Engineering College</h3>
+                <div class="hero-actions">
+                    <a href="#events" class="btn primary-btn g-btn">EXPLORE EVENTS</a>
+                    <a href="#registration" class="btn secondary-btn g-btn">REGISTER NOW</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container comic-panel">
+                <h2 class="section-title glitch" data-text="ABOUT THE EVENT">ABOUT THE EVENT</h2>
+                
+                <div class="about-intro">
+                    <p class="about-text">
+                        <strong>THIGAZH 2K26</strong> is a dynamic technical event organized under the <strong>School of Computing at Erode Sengunthar Engineering College</strong>.
+                    </p>
+                    <p class="about-text">
+                        The event is conducted in collaboration with four premier departments:
+                    </p>
+                    <ul class="dept-list">
+                        <li><span>&#9658;</span> Computer Science and Engineering (CSE)</li>
+                        <li><span>&#9658;</span> Information Technology (IT)</li>
+                        <li><span>&#9658;</span> Artificial Intelligence and Data Science (AIDS)</li>
+                        <li><span>&#9658;</span> M.Tech Computer Science</li>
+                    </ul>
+                    <p class="about-text">
+                        These departments collaboratively conduct technical events as part of THIGAZH 2K26, bringing together innovation, coding excellence, and creativity.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Prize Pool Section -->
+        <section id="prize-pool" class="prize-section">
+            <div class="container text-center">
+                <h2 class="section-title glitch" data-text="TOTAL PRIZE POOL">TOTAL PRIZE POOL</h2>
+                <div class="prize-amount glitch-heavy" data-text="₹60,000">₹60,000</div>
+                <p class="prize-subtext">Compete in teams of 1 to 4 members to claim ultimate glory.</p>
+            </div>
+        </section>
+
+        <!-- Event Structure Section -->
+        <section id="structure" class="structure-section">
+            <h2 class="section-title glitch" data-text="EVENT SCHEDULE">EVENT SCHEDULE</h2>
+            <div class="container grid-container">
+                <div class="comic-card structure-card day-1">
+                    <h3>DAY 1</h3>
+                    <p class="desc">Two premier technical events conducted by departments under the School of Computing.</p>
+                    <ul class="schedule-list">
+                        <li><span>Codeathon 💻</span></li>
+                        <li><span>Project Expo 🚀</span></li>
+                    </ul>
+                </div>
+                <div class="comic-card structure-card day-2">
+                    <h3>DAY 2</h3>
+                    <p class="desc">Two premier technical events conducted by departments under the School of Computing.</p>
+                    <ul class="schedule-list">
+                        <li><span>Console-Based App 🖥️</span></li>
+                        <li><span>Tech Innovation</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="events-section">
+            <h2 class="section-title glitch" data-text="TECHNICAL BATTLES">TECHNICAL BATTLES</h2>
+            <div class="container grid-container">
+                
+                <!-- Event Card 1 -->
+                <div class="comic-card event-card" onclick="openModal('modal-cse')">
+                    <div class="card-content">
+                        <h3>Codeathon 💻</h3>
+                        <p class="desc">A high-stakes competitive coding event assessing logical thinking, efficiency, and debugging.</p>
+                        <button class="btn secondary-btn">Explore</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="comic-card event-card" onclick="openModal('modal-it')">
+                    <div class="card-content">
+                        <h3>Project Expo 🚀</h3>
+                        <p class="desc">Showcase your innovative technical projects and practical real-world applications.</p>
+                        <button class="btn secondary-btn">Explore</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="comic-card event-card" onclick="openModal('modal-aids')">
+                    <div class="card-content">
+                        <h3>Console-Based App 🖥️</h3>
+                        <p class="desc">Develop functional console software focusing on logic building and system design.</p>
+                        <button class="btn secondary-btn">Explore</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="comic-card event-card" onclick="openModal('modal-mtech')">
+                    <div class="card-content">
+                        <h3>Tech Innovation</h3>
+                        <p class="desc">Advanced technical paper presentation and futuristic innovation showcase.</p>
+                        <button class="btn secondary-btn">Explore</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Events Section ends here. Removed Gallery. -->
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <h2 class="section-title glitch" data-text="GET YOUR PASS">GET YOUR PASS</h2>
+            <div class="container flex-container">
+                
+                <!-- Pass 1 -->
+                <div class="comic-card pass-card standard-pass">
+                    <h3>ROYAL PASS</h3>
+                    <div class="animated-price">₹250 <span class="per-head">/head</span></div>
+                    <div class="price" style="font-size:1.2rem; margin-bottom:1rem;">1 EVENT</div>
+                    <p>Access to ANY single event of your choice.</p>
+                    <a href="#registration" class="btn secondary-btn" onclick="selectPass('royal')">Select Royal</a>
+                </div>
+
+                <!-- Pass 2 -->
+                <div class="comic-card pass-card royal-pass premium-glow">
+                    <h3>ELITE PASS</h3>
+                    <div class="animated-price elite-animated-price">₹400 <span class="per-head">/head</span></div>
+                    <div class="price" style="font-size:1.2rem; margin-bottom:1rem;">2 EVENTS</div>
+                    <p>Access to ONE event on Day 1 and ONE event on Day 2.</p>
+                    <a href="#registration" class="btn primary-btn g-btn" onclick="selectPass('elite')">Select Elite</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Registration Section -->
+        <section id="registration" class="registration-section">
+            <h2 class="section-title glitch" data-text="SQUAD REGISTRATION">SQUAD REGISTRATION</h2>
+            <div class="container form-container comic-panel glowing-border">
+                <form id="regForm" action="register.php" method="POST">
+                    
+                    <div class="input-group">
+                         <label for="team_name">Team Name</label>
+                         <input type="text" id="team_name" name="team_name" required placeholder="e.g. Web-Slingers">
+                    </div>
+
+                    <div class="input-group">
+                         <label for="college">College Name</label>
+                         <input type="text" id="college" name="college" required placeholder="Erode Sengunthar Engineering College">
+                    </div>
+
+                    <div class="input-group">
+                         <label for="department">Department</label>
+                         <input type="text" id="department" name="department" required placeholder="e.g. CSE">
+                    </div>
+
+                    <h3 class="form-subtitle">Team Members (1-4 Members)</h3>
+                    
+                    <div class="input-group">
+                         <label for="leader_name">Team Leader Name (Required)</label>
+                         <input type="text" id="leader_name" name="leader_name" required>
+                    </div>
+
+                    <div class="input-group grid-2">
+                        <div>
+                             <label for="member2">Member 2 (Optional)</label>
+                             <input type="text" id="member2" name="member2">
+                        </div>
+                        <div>
+                             <label for="member3">Member 3 (Optional)</label>
+                             <input type="text" id="member3" name="member3">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                         <label for="member4">Member 4 (Optional)</label>
+                         <input type="text" id="member4" name="member4">
+                    </div>
+
+                    <h3 class="form-subtitle">Contact Details (Leader)</h3>
+                    <div class="input-group grid-2">
+                        <div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <h3 class="form-subtitle">Accommodation Options</h3>
+                    <div class="comic-panel" style="padding: 1.5rem; margin-bottom: 2rem; border-color: var(--metallic-silver); box-shadow: 4px 4px 0px #555;">
+                        <p style="color:var(--text-light); font-size: 1rem; margin-bottom: 0.5rem;"><strong>Need a place to stay?</strong></p>
+                        <p style="color:var(--text-muted); font-size: 0.9rem; line-height: 1.5;">Accommodation is available for long-distance participants. Please note that accommodation charges apply separately and are not included in the event registration fee. Prices will be disclosed upon arrival at the college.</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="pass_type">Select Pass Type</label>
+                        <select id="pass_type" name="pass_type" required onchange="updateEventSelects()">
+                            <option value="">-- Select Pass --</option>
+                            <option value="royal">Royal Pass (1 Event)</option>
+                            <option value="elite">Elite Pass (2 Events - One from each day)</option>
+                        </select>
+                    </div>
+
+                    <div id="events-selection-area">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div class="live-total-box comic-panel" style="padding: 1.5rem; margin: 2rem 0; border-color: var(--neon-red); text-align: center;">
+                        <h3 style="color:var(--text-light); font-size: 1.1rem; margin-bottom: 0.5rem; font-family:var(--font-ui);">Total Amount to Pay</h3>
+                        <div id="live-total" style="font-size: 2.8rem; color: var(--neon-red); font-family: var(--font-heading); text-shadow: 0 0 10px rgba(255,0,0,0.5);">₹0</div>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn primary-btn g-btn">Proceed to Payment</button>
+                    <div id="form-msg"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-college-info">
+                <h3 class="footer-title">Erode Sengunthar Engineering College</h3>
+                <p>Thudupathi, Perundurai, Erode - 638057</p>
+                <p>Tamil Nadu, India</p>
+            </div>
+            <div class="footer-contacts">
+                <div class="contact-group">
+                    <h4>Staff Coordinators</h4>
+                    <p>Dr. Example Name (CSE) - 9876543210</p>
+                    <p>Prof. Example Name (IT) - 9876543211</p>
+                </div>
+                <div class="contact-group">
+                    <h4>Student Coordinators</h4>
+                    <p>Student Name 1 - 9876543212</p>
+                    <p>Student Name 2 - 9876543213</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 THIGAZH | School of Computing | Erode Sengunthar Engineering College.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- CSE Modal -->
+    <div id="modal-cse" class="modal">
+        <div class="modal-content comic-panel">
+            <span class="close" onclick="closeModal('modal-cse')">&times;</span>
+            <h2 class="glitch" data-text="Codeathon 💻">Codeathon 💻</h2>
+            <div class="modal-body">
+                <div class="poster cse-poster"></div>
+                <div class="details">
+                    <p><strong>Description:</strong> A competitive coding event designed to test participants’ programming and problem-solving abilities.</p>
+                    <p><strong>Structure:</strong> Consists of three challenging rounds analyzing problems, developing algorithms, and writing optimized code.</p>
+                    <p><strong>Evaluates:</strong> Logical thinking, efficiency, and debugging.</p>
+                    <p><strong>Team Size:</strong> 1 - 4 Members</p>
+                    <p><strong>Schedule:</strong> Day 1</p>
+                    <p><strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.</p>
+                    <p><strong>Contact:</strong> Coordinator (9876543210)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- IT Modal -->
+    <div id="modal-it" class="modal">
+        <div class="modal-content comic-panel">
+            <span class="close" onclick="closeModal('modal-it')">&times;</span>
+            <h2 class="glitch" data-text="Project Expo 🚀">Project Expo 🚀</h2>
+            <div class="modal-body">
+                <div class="poster it-poster"></div>
+                <div class="details">
+                    <p><strong>Description:</strong> A platform for teams to showcase their innovative technical projects and ideas.</p>
+                    <p><strong>Structure:</strong> Present the concept, design, and practical applications of your project.</p>
+                    <p><strong>Evaluates:</strong> Innovation, usability, feasibility, and real-world impact.</p>
+                    <p><strong>Team Size:</strong> 1 - 4 Members</p>
+                    <p><strong>Schedule:</strong> Day 1</p>
+                    <p><strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.</p>
+                    <p><strong>Contact:</strong> Coordinator (9876543211)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AIDS Modal -->
+    <div id="modal-aids" class="modal">
+        <div class="modal-content comic-panel">
+            <span class="close" onclick="closeModal('modal-aids')">&times;</span>
+            <h2 class="glitch" data-text="Console-Based App">Console-Based App</h2>
+            <div class="modal-body">
+                <div class="poster aids-poster"></div>
+                <div class="details">
+                    <p><strong>Description:</strong> Develop functional console-based software applications focusing on structured problem solving.</p>
+                    <p><strong>Structure:</strong> Design and build applications using core programming logic and system design formatting.</p>
+                    <p><strong>Evaluates:</strong> Ability to convert concepts into working solutions.</p>
+                    <p><strong>Team Size:</strong> 1 - 4 Members</p>
+                    <p><strong>Schedule:</strong> Day 2</p>
+                    <p><strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.</p>
+                    <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MTech Modal -->
+    <div id="modal-mtech" class="modal">
+        <div class="modal-content comic-panel">
+            <span class="close" onclick="closeModal('modal-mtech')">&times;</span>
+            <h2 class="glitch" data-text="M.Tech Event">M.Tech Event</h2>
+            <div class="modal-body">
+                <div class="poster mtech-poster"></div>
+                <div class="details">
+                    <p><strong>Description:</strong> Technical paper presentation and hardware showcase.</p>
+                    <p><strong>Rules:</strong> 10 mins presentation + 5 mins Q&A.</p>
+                    <p><strong>Team Size:</strong> 1 - 4 Members</p>
+                    <p><strong>Schedule:</strong> Day 2</p>
+                    <p><strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.</p>
+                    <p><strong>Contact:</strong> Coordinator (9876543213)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
