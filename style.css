@@ -230,24 +230,53 @@ section {
     z-index: 2;
 }
 
+.nav-logo-img {
+    height: 60px; /* Adjust this value based on your actual PNG dimensions */
+    width: auto;
+    position: relative;
+    z-index: 2;
+}
+
 .logo-web {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    stroke: var(--neon-red);
-    filter: drop-shadow(0 0 5px var(--neon-red));
     z-index: 1;
     pointer-events: none;
-    opacity: 0.6;
-    animation: pulse-web 4s infinite alternate;
 }
 
-@keyframes pulse-web {
-    0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.4; }
-    100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+.logo-web-outer {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+    margin-top: -75px;
+    stroke: var(--neon-red);
+    filter: drop-shadow(0 0 8px var(--neon-red));
+    opacity: 0.6;
+    animation: rotate-web-outer 15s linear infinite;
+}
+
+.logo-web-inner {
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    stroke: var(--electric-blue);
+    filter: drop-shadow(0 0 6px var(--electric-blue));
+    opacity: 0.8;
+    animation: rotate-web-inner 10s linear infinite reverse;
+}
+
+@keyframes rotate-web-outer {
+    0% { transform: rotate(0deg) scale(0.9); opacity: 0.4; }
+    50% { transform: rotate(180deg) scale(1.1); opacity: 0.7; }
+    100% { transform: rotate(360deg) scale(0.9); opacity: 0.4; }
+}
+
+@keyframes rotate-web-inner {
+    0% { transform: rotate(0deg) scale(1.1); opacity: 0.8; }
+    50% { transform: rotate(180deg) scale(0.9); opacity: 0.5; }
+    100% { transform: rotate(360deg) scale(1.1); opacity: 0.8; }
 }
 
 nav ul {
@@ -965,6 +994,28 @@ select option { background: var(--bg-deep-black); color: white; }
     100% { left: 0; bottom: 100%; }
 }
 
+/* Highlight Nav Item */
+.highlight-register-nav {
+    color: var(--neon-red) !important;
+    text-shadow: 0 0 10px var(--neon-red);
+    animation: text-pulse 2s infinite alternate;
+}
+
+@keyframes text-pulse {
+    from { text-shadow: 0 0 5px var(--neon-red); }
+    to { text-shadow: 0 0 15px var(--neon-red), 0 0 30px #ff0000; }
+}
+
+/* Highlight Registration Section */
+.registration-section .container {
+    animation: section-box-pulse 3s infinite alternate;
+}
+
+@keyframes section-box-pulse {
+    from { box-shadow: 0 0 15px rgba(255,0,0,0.3), inset 0 0 15px rgba(255,0,0,0.1); }
+    to { box-shadow: 0 0 30px rgba(255,0,0,0.6), inset 0 0 30px rgba(255,0,0,0.3); border-color: #ff3333; }
+}
+
 /* Event Card Hover Enhancement - Web Spider */
 .event-card {
     overflow: hidden;
@@ -1000,6 +1051,7 @@ select option { background: var(--bg-deep-black); color: white; }
     filter: drop-shadow(0 0 8px var(--neon-red));
     opacity: 0.45;
     z-index: 1;
+    animation: web-breathe-red 6s ease-in-out infinite alternate;
 }
 
 .corner-web.top-left {
@@ -1010,6 +1062,61 @@ select option { background: var(--bg-deep-black); color: white; }
 .corner-web.bottom-right {
     bottom: 0;
     right: 0;
+}
+
+/* Pervasive Animated Background Webs */
+.bg-web {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    stroke: var(--electric-blue);
+    filter: drop-shadow(0 0 10px var(--electric-blue));
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+    animation: web-breathe-blue 8s ease-in-out infinite alternate;
+}
+
+.bg-web-red {
+    stroke: var(--neon-red);
+    filter: drop-shadow(0 0 10px var(--neon-red));
+    animation: web-breathe-red 8s ease-in-out infinite alternate;
+}
+
+.bg-web-left {
+    top: -100px;
+    left: -150px;
+}
+
+.bg-web-right {
+    bottom: -100px;
+    right: -150px;
+    animation-delay: 2s; /* Desync animation */
+}
+
+.bg-web-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.1;
+    animation: web-breathe-center 10s ease-in-out infinite alternate;
+}
+
+@keyframes web-breathe-blue {
+    0% { transform: scale(0.95) rotate(-2deg); opacity: 0.1; filter: drop-shadow(0 0 5px var(--electric-blue)); }
+    100% { transform: scale(1.05) rotate(2deg); opacity: 0.3; filter: drop-shadow(0 0 15px var(--electric-blue)); }
+}
+
+@keyframes web-breathe-red {
+    0% { transform: scale(0.95) rotate(2deg); opacity: 0.1; filter: drop-shadow(0 0 5px var(--neon-red)); }
+    100% { transform: scale(1.05) rotate(-2deg); opacity: 0.3; filter: drop-shadow(0 0 15px var(--neon-red)); }
+}
+
+@keyframes web-breathe-center {
+    0% { transform: translate(-50%, -50%) scale(0.95) rotate(-5deg); opacity: 0.05; }
+    100% { transform: translate(-50%, -50%) scale(1.05) rotate(5deg); opacity: 0.15; }
 }
 
 /* Section Dividers */
