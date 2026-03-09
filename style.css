@@ -4,7 +4,7 @@
   --bg-darker: #050000;
   --neon-red: #ff0000;
   --neon-orange: #ff3c00;
-  --electric-blue: #00e5ff;
+  --electric-blue: #447bbe;
   --neon-purple: #9d00ff;
   --metallic-silver: #e0e0e0;
   --text-light: #ffffff;
@@ -468,16 +468,16 @@ nav a:hover {
   color: var(--electric-blue);
   border: 2px solid var(--electric-blue);
   box-shadow:
-    inset 0 0 10px rgba(0, 229, 255, 0.3),
-    0 0 10px rgba(0, 229, 255, 0.3);
+    inset 0 0 10px rgba(68, 123, 190, 0.3),
+    0 0 10px rgba(68, 123, 190, 0.3);
 }
 
 .secondary-btn:hover {
   background: var(--electric-blue);
   color: var(--bg-deep-black);
   box-shadow:
-    inset 0 0 20px rgba(0, 229, 255, 0.8),
-    0 0 25px rgba(0, 229, 255, 0.8);
+    inset 0 0 20px rgba(68, 123, 190, 0.8),
+    0 0 25px rgba(68, 123, 190, 0.8);
 }
 
 /* =============== HERO SECTION =============== */
@@ -487,11 +487,39 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
+  position: relative;
+  overflow: hidden;
   background: radial-gradient(
     circle at center,
     rgba(255, 0, 0, 0.15) 0%,
     transparent 60%
   );
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15); /* Lighter overlay for brighter video */
+  z-index: 1;
+}
+
+.hero-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+  opacity: 0.85; /* Increased opacity to make video brighter */
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -522,7 +550,7 @@ nav a:hover {
 .hero-college {
   font-size: 1.8rem;
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 800; /* Increased font weight to make it bolder */
   color: var(--electric-blue);
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -690,7 +718,7 @@ nav a:hover {
   text-align: center;
   margin: 2rem 0 1.5rem 0;
   text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  text-shadow: 0 0 10px rgba(68, 123, 190, 0.5);
   border-bottom: 2px dashed #333;
   padding-bottom: 1rem;
 }
@@ -821,6 +849,24 @@ nav a:hover {
 .schedule-list span {
   color: var(--electric-blue);
   font-weight: 700;
+}
+
+/* Event Specific Grid Layout */
+#events .grid-container {
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  #events .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #events .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .event-card {
@@ -1259,15 +1305,15 @@ select option {
     linear-gradient(
       45deg,
       transparent 49%,
-      rgba(0, 229, 255, 0.05) 49%,
-      rgba(0, 229, 255, 0.05) 51%,
+      rgba(68, 123, 190, 0.05) 49%,
+      rgba(68, 123, 190, 0.05) 51%,
       transparent 51%
     ),
     linear-gradient(
       -45deg,
       transparent 49%,
-      rgba(0, 229, 255, 0.05) 49%,
-      rgba(0, 229, 255, 0.05) 51%,
+      rgba(68, 123, 190, 0.05) 49%,
+      rgba(68, 123, 190, 0.05) 51%,
       transparent 51%
     );
   background-size:
@@ -1454,7 +1500,7 @@ select option {
   height: 200%;
   background: radial-gradient(
     circle,
-    rgba(0, 229, 255, 0.1) 0%,
+    rgba(68, 123, 190, 0.1) 0%,
     transparent 60%
   );
   opacity: 0;

@@ -106,12 +106,13 @@ function updateEventSelects() {
     
     const day1Events = [
         {val: 'codeathon', name: 'Codeathon 💻 - Day 1'},
-        {val: 'project_expo', name: 'Project Expo 🚀 - Day 1'}
+        {val: 'project_expo', name: 'Project Expo 🚀 - Day 1'},
+        {val: 'mindsynth', name: 'Intelligent Solution Design (MindSynth) 🧠 - Day 1'}
     ];
 
     const day2Events = [
         {val: 'console_app', name: 'Console-Based App 🖥️ - Day 2'},
-        {val: 'tech_innovation', name: 'Tech Innovation - Day 2'}
+        {val: 'arachnid', name: 'Reverse Engineering Challenge (Arachnid Cipher) 🕷️ - Day 2'}
     ];
 
     const allEvents = [...day1Events, ...day2Events];
@@ -141,6 +142,28 @@ function updateEventSelects() {
     }
     
     calculateTotal();
+}
+
+// Pre-select Event from Modal
+function preSelectEvent(eventVal, passType) {
+    // Select the pass type
+    const passSelect = document.getElementById('pass_type');
+    if (passSelect) {
+        passSelect.value = passType;
+        // Trigger the update for the event dropdowns
+        updateEventSelects();
+        
+        // Find the newly generated dropdown for the events and set its value
+        setTimeout(() => {
+            const eventDropdowns = document.querySelectorAll('#events-selection-area select');
+            if (eventDropdowns.length > 0) {
+                // If it's a Royal pass, there's only one select dropdown to update
+                if (passType === 'royal') {
+                    eventDropdowns[0].value = eventVal;
+                }
+            }
+        }, 50); // Small timeout to ensure DOM update is complete
+    }
 }
 
 // Calculate Total Pricing
@@ -261,3 +284,4 @@ document.querySelectorAll('.navbar a[href^="#"]').forEach(link => {
         }, 1100);
     });
 });
+

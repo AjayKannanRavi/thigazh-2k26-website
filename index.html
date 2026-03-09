@@ -99,6 +99,7 @@
                     <div class="descending-drop">
                         <div class="swinging-pendulum">
                             <div class="web-thread"></div>
+                            <!-- Changes here -->
                             <h1 class="hero-title metallic-red-text fiery-glow" data-text="THIGAZH 2K26">
                                 THIGAZH 2K26
                             </h1>
@@ -110,8 +111,8 @@
                 </h2>
                 <h3 class="hero-college">Erode Sengunthar Engineering College</h3>
                 <div class="hero-date-box">
-                    <div class="hero-month">MARCH</div>
-                    <div class="hero-days">24 - 25</div>
+                    <div class="hero-month">APRIL</div>
+                    <div class="hero-days">01 - 02</div>
                 </div>
                 <div class="hero-actions">
                     <a href="#events" class="btn primary-btn g-btn">EXPLORE EVENTS</a>
@@ -236,7 +237,6 @@
                     </p>
                     <ul class="schedule-list">
                         <li><span>Console-Based App</span></li>
-                        <li><span>Tech Innovation</span></li>
                     </ul>
                 </div>
             </div>
@@ -291,13 +291,27 @@
                     </div>
                 </div>
 
-                <!-- Event Card 4 -->
-                <div class="comic-card event-card" onclick="openModal('modal-mtech')">
+
+
+                <!-- Event Card 5 -->
+                <div class="comic-card event-card" onclick="openModal('modal-mindsynth')">
                     <div class="card-content">
-                        <h3>Tech Innovation</h3>
+                        <h3>Intelligent Solution Design (MindSynth)</h3>
                         <p class="desc">
-                            Advanced technical paper presentation and futuristic innovation
-                            showcase.
+                            Develop AI-driven solutions to solve real-world problems using machine learning concepts and
+                            responsible AI guardrails.
+                        </p>
+                        <button class="btn secondary-btn">Explore</button>
+                    </div>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="comic-card event-card" onclick="openModal('modal-arachnid')">
+                    <div class="card-content">
+                        <h3>Reverse Engineering Challenge (Arachnid Cipher)</h3>
+                        <p class="desc">
+                            Analyze given outputs, datasets, or code fragments to identify the underlying logic or
+                            algorithm used to generate them.
                         </p>
                         <button class="btn secondary-btn">Explore</button>
                     </div>
@@ -566,6 +580,9 @@
                         <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
                     </p>
                     <p><strong>Contact:</strong> Coordinator (9876543210)</p>
+                    <a href="#registration" class="btn primary-btn"
+                        onclick="preSelectEvent('codeathon', 'royal'); closeModal('modal-cse')">Register for this
+                        Event</a>
                 </div>
             </div>
         </div>
@@ -597,6 +614,9 @@
                         <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
                     </p>
                     <p><strong>Contact:</strong> Coordinator (9876543211)</p>
+                    <a href="#registration" class="btn primary-btn"
+                        onclick="preSelectEvent('project_expo', 'royal'); closeModal('modal-it')">Register for this
+                        Event</a>
                 </div>
             </div>
         </div>
@@ -628,30 +648,79 @@
                         <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
                     </p>
                     <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+                    <a href="#registration" class="btn primary-btn"
+                        onclick="preSelectEvent('console_app', 'royal'); closeModal('modal-aids')">Register for this
+                        Event</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MTech Modal -->
-    <div id="modal-mtech" class="modal">
+
+
+    <!-- MindSynth Modal -->
+    <div id="modal-mindsynth" class="modal">
         <div class="modal-content comic-panel">
-            <span class="close" onclick="closeModal('modal-mtech')">&times;</span>
-            <h2 class="glitch" data-text="M.Tech Event">M.Tech Event</h2>
+            <span class="close" onclick="closeModal('modal-mindsynth')">&times;</span>
+            <h2 data-text="Intelligent Solution Design">Intelligent Solution Design (MindSynth)</h2>
             <div class="modal-body">
-                <div class="poster mtech-poster"></div>
+                <div class="poster mindsynth-poster"></div>
                 <div class="details">
                     <p>
-                        <strong>Description:</strong> Technical paper presentation and
-                        hardware showcase.
+                        <strong>Description:</strong> Develop AI-driven solutions to solve real-world problems using
+                        machine learning concepts and responsible AI guardrails.
                     </p>
-                    <p><strong>Rules:</strong> 10 mins presentation + 5 mins Q&A.</p>
+                    <p>
+                        <strong>Structure:</strong> Teams analyze the problem statement and design an intelligent model
+                        or prototype capable of generating meaningful insights or predictions.
+                    </p>
+                    <p>
+                        <strong>Evaluates:</strong> Innovation, AI model approach, technical implementation, and the
+                        quality of inferences produced.
+                    </p>
+                    <p><strong>Team Size:</strong> 1 - 4 Members</p>
+                    <p><strong>Schedule:</strong> Day 1</p>
+                    <p>
+                        <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
+                    </p>
+                    <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+                    <a href="#registration" class="btn primary-btn"
+                        onclick="preSelectEvent('mindsynth', 'royal'); closeModal('modal-mindsynth')">Register for this
+                        Event</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Arachnid Cipher Modal -->
+    <div id="modal-arachnid" class="modal">
+        <div class="modal-content comic-panel">
+            <span class="close" onclick="closeModal('modal-arachnid')">&times;</span>
+            <h2 data-text="Reverse Engineering Challenge">Reverse Engineering Challenge (Arachnid Cipher)</h2>
+            <div class="modal-body">
+                <div class="poster arachnid-poster"></div>
+                <div class="details">
+                    <p>
+                        <strong>Description:</strong> Analyze given outputs, datasets, or code fragments to identify the
+                        underlying logic or algorithm used to generate them.
+                    </p>
+                    <p>
+                        <strong>Structure:</strong> Participants investigate patterns, debug code, and reconstruct the
+                        original approach through analytical reasoning.
+                    </p>
+                    <p>
+                        <strong>Evaluates:</strong> Problem-solving ability, debugging skills, logical reasoning, and
+                        accuracy of the reconstructed solution.
+                    </p>
                     <p><strong>Team Size:</strong> 1 - 4 Members</p>
                     <p><strong>Schedule:</strong> Day 2</p>
                     <p>
                         <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
                     </p>
-                    <p><strong>Contact:</strong> Coordinator (9876543213)</p>
+                    <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+                    <a href="#registration" class="btn primary-btn"
+                        onclick="preSelectEvent('arachnid', 'royal'); closeModal('modal-arachnid')">Register for this
+                        Event</a>
                 </div>
             </div>
         </div>

@@ -1,8 +1,16 @@
 <?php
-$host = 'localhost';
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+$host = '127.0.0.1';
 $dbname = 'thigazh_db';
 $user = 'root'; 
-$pass = 'Ajay@111';
+$pass = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
@@ -11,6 +19,7 @@ try {
     // Handle Verification Approval
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verify_id'])) {
         $verify_id = (int)$_POST['verify_id'];
+        
         $updateStmt = $pdo->prepare("UPDATE registrations SET payment_status = 'Completed' WHERE id = :id");
         $updateStmt->execute(['id' => $verify_id]);
         
@@ -19,8 +28,149 @@ try {
         exit;
     }
 
-    // Fetch all records ordered by newest first
-    $stmt = $pdo->query("SELECT * FROM registrations ORDER BY created_at DESC");
+    // Handle Export to Excel
+    if (isset($_GET['export']) && $_GET['export'] == 'excel') {
+        // Prevent deprecation warnings from breaking the Excel file
+        ini_set('display_errors', 0);
+        error_reporting(0);
+        
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename="thigazh_registrations_'.date('Y-m-d').'.xls"');
+        // Handle Search Configure for Export
+        $export_search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        $export_status = isset($_GET['status_filter']) ? $_GET['status_filter'] : '';
+        
+        $export_query = "SELECT * FROM registrations WHERE 1=1";
+        $export_params = [];
+        
+        if ($export_search !== '') {
+            $export_query .= " AND (id LIKE :search OR pass_type LIKE :search OR team_name LIKE :search OR leader_name LIKE :search OR college LIKE :search OR phone LIKE :search OR email LIKE :search)";
+            $export_params[':search'] = "%$export_search%";
+        }
+        
+        if ($export_status !== '') {
+            $export_query .= " AND payment_status = :status";
+            $export_params[':status'] = $export_status;
+        }
+        
+        $export_query .= " ORDER BY created_at DESC";
+        $exportStmt = $pdo->prepare($export_query);
+        $exportStmt->execute($export_params);
+        // Output an HTML table that Excel will interpret perfectly
+        echo '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+        echo '<head>';
+        echo '<!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Registrations</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->';
+        echo '<style> .text-cell { mso-number-format:"\@"; } </style>';
+        echo '</head><body>';
+        echo '<table border="1">';
+        echo '<tr>
+                <th style="background-color:#000000; color:#ffffff;">ID</th>
+                <th style="background-color:#000000; color:#ffffff;">Team Name</th>
+                <th style="background-color:#000000; color:#ffffff;">Leader Name</th>
+                <th style="background-color:#000000; color:#ffffff;">Leader Phone</th>
+                <th style="background-color:#000000; color:#ffffff;">Leader Email</th>
+                <th style="background-color:#000000; color:#ffffff;">Member 2</th>
+                <th style="background-color:#000000; color:#ffffff;">Member 2 Phone</th>
+                <th style="background-color:#000000; color:#ffffff;">Member 3</th>
+                <th style="background-color:#000000; color:#ffffff;">Member 4</th>
+                <th style="background-color:#000000; color:#ffffff;">College</th>
+                <th style="background-color:#000000; color:#ffffff;">Department</th>
+                <th style="background-color:#000000; color:#ffffff;">Pass Type</th>
+                <th style="background-color:#000000; color:#ffffff;">Events</th>
+                <th style="background-color:#000000; color:#ffffff;">Amount</th>
+                <th style="background-color:#000000; color:#ffffff;">Payment Status</th>
+                <th style="background-color:#000000; color:#ffffff;">Transaction ID</th>
+                <th style="background-color:#000000; color:#ffffff;">Registration Date</th>
+              </tr>';
+              
+        while ($row = $exportStmt->fetch(PDO::FETCH_ASSOC)) {
+            $events = json_decode($row['selected_events'], true);
+            $events_str = is_array($events) ? implode(', ', $events) : $row['selected_events'];
+            
+            echo '<tr>';
+            echo '<td>' . $row['id'] . '</td>';
+            echo '<td>' . htmlspecialchars($row['team_name']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['leader_name']) . '</td>';
+            echo '<td class="text-cell">' . htmlspecialchars($row['phone']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['email']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['member2']) . '</td>';
+            echo '<td class="text-cell">' . htmlspecialchars($row['member2_phone']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['member3']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['member4']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['college']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['department']) . '</td>';
+            echo '<td style="text-transform:uppercase;">' . htmlspecialchars($row['pass_type']) . '</td>';
+            echo '<td>' . htmlspecialchars($events_str) . '</td>';
+            echo '<td>₹' . $row['amount'] . '</td>';
+            echo '<td>' . htmlspecialchars($row['payment_status']) . '</td>';
+            echo '<td class="text-cell">' . htmlspecialchars($row['transaction_id']) . '</td>';
+            echo '<td>' . $row['created_at'] . '</td>';
+            echo '</tr>';
+        }
+        
+        echo '</table></body></html>';
+        exit;
+    }
+
+    // Handle Export to Excel
+    // Handle SQL Database Backup
+    if (isset($_GET['export']) && $_GET['export'] == 'sql') {
+        // Prevent errors breaking the SQL download
+        ini_set('display_errors', 0);
+        error_reporting(0);
+        
+        $backup_file = "thigazh_db_backup_" . date('Y-m-d_H-i-s') . ".sql";
+        $command = "mysqldump --user={$user} --password={$pass} --host={$host} {$dbname} > /tmp/{$backup_file} 2>/dev/null";
+        system($command);
+        
+        if (file_exists("/tmp/{$backup_file}")) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($backup_file).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize("/tmp/{$backup_file}"));
+            readfile("/tmp/{$backup_file}");
+            unlink("/tmp/{$backup_file}"); // Clean up
+            exit;
+        } else {
+            echo "<script>alert('Failed to generate database backup. Ensure mysqldump is installed and accessible.'); window.history.back();</script>";
+            exit;
+        }
+    }
+    
+    // Handle Deletion
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+        $delete_id = (int)$_POST['delete_id'];
+        $delStmt = $pdo->prepare("DELETE FROM registrations WHERE id = :id");
+        $delStmt->execute(['id' => $delete_id]);
+        
+        header("Location: view_data.php");
+        exit;
+    }
+
+    // Handle Search and Filter
+    $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+    $status_filter = isset($_GET['status_filter']) ? $_GET['status_filter'] : '';
+    
+    $query = "SELECT * FROM registrations WHERE 1=1";
+    $params = [];
+    
+    if ($search !== '') {
+        $query .= " AND (id LIKE :search OR pass_type LIKE :search OR team_name LIKE :search OR leader_name LIKE :search OR college LIKE :search OR phone LIKE :search OR email LIKE :search)";
+        $params[':search'] = "%$search%";
+    }
+    
+    if ($status_filter !== '') {
+        $query .= " AND payment_status = :status";
+        $params[':status'] = $status_filter;
+    }
+    
+    $query .= " ORDER BY created_at DESC";
+    
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($params);
     $registrations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
     die("Database Error: " . $e->getMessage());
@@ -98,10 +248,77 @@ try {
         .screenshot-btn:hover, .verify-btn:hover { background: #fff; }
         
         .empty-message { text-align: center; padding: 2rem; color: #888; }
+        
+        .controls-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .search-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .search-input, .status-select {
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .search-input:focus, .status-select:focus {
+            outline: none;
+            border-color: #00e5ff;
+        }
+        .btn-action {
+            padding: 0.5rem 1rem;
+            background: #00e5ff;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: var(--font-ui);
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .btn-action:hover { background: #fff; }
+        .btn-export { background: #ffcc00; }
     </style>
 </head>
 <body>
     <h1>Data Base Registrations</h1>
+
+    <div class="controls-container">
+        <form class="search-form" method="GET" action="view_data.php">
+            <input type="text" name="search" class="search-input" placeholder="Search pass, ID, team, leader..." value="<?= htmlspecialchars($search) ?>">
+            <select name="status_filter" class="status-select">
+                <option value="">All Statuses</option>
+                <option value="Pending" <?= $status_filter === 'Pending' ? 'selected' : '' ?>>Pending</option>
+                <option value="Pending Verification" <?= $status_filter === 'Pending Verification' ? 'selected' : '' ?>>Pending Verification</option>
+                <option value="Completed" <?= $status_filter === 'Completed' ? 'selected' : '' ?>>Completed</option>
+            </select>
+            <button type="submit" class="btn-action">Filter</button>
+            <?php if ($search !== '' || $status_filter !== ''): ?>
+                <a href="view_data.php" class="btn-action" style="background: #ff003c; color: #fff;">Clear</a>
+            <?php endif; ?>
+        </form>
+        
+        <?php
+            // Build the export URL with current filter parameters
+            $export_params = ['export' => 'excel'];
+            if ($search !== '') $export_params['search'] = $search;
+            if ($status_filter !== '') $export_params['status_filter'] = $status_filter;
+            $export_url = 'view_data.php?' . http_build_query($export_params);
+        ?>
+        <a href="<?= htmlspecialchars($export_url) ?>" class="btn-action btn-export" style="background: #00ff88;">Export Excel</a>
+        <a href="view_data.php?export=sql" class="btn-action" style="background: #00e5ff; color: #000;">Backup SQL</a>
+        <a href="logout.php" class="btn-action" style="background: #333; color: #fff;">Logout</a>
+    </div>
 
     <div class="table-container">
         <table>
@@ -109,7 +326,7 @@ try {
                 <tr>
                     <th>ID</th>
                     <th>Team Name</th>
-                    <th>Leader (Contact)</th>
+                    <th>Team Details</th>
                     <th>College/Dept</th>
                     <th>Pass Type</th>
                     <th>Events</th>
@@ -118,6 +335,7 @@ try {
                     <th>Txn ID</th>
                     <th>Screenshot</th>
                     <th>Time</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,10 +345,16 @@ try {
                             <td>#<?= $reg['id'] ?></td>
                             <td><?= htmlspecialchars($reg['team_name']) ?></td>
                             <td>
-                                <strong><?= htmlspecialchars($reg['leader_name']) ?></strong><br>
-                                <small><?= htmlspecialchars($reg['phone']) ?><br><?= htmlspecialchars($reg['email']) ?></small>
-                                <?php if (!empty($reg['member2_phone'])): ?>
-                                    <br><small style="color:#00e5ff;">M2 Phone: <?= htmlspecialchars($reg['member2_phone']) ?></small>
+                                <strong>L: </strong><?= htmlspecialchars($reg['leader_name']) ?> <small>(<?= htmlspecialchars($reg['phone']) ?>, <?= htmlspecialchars($reg['email']) ?>)</small><br>
+                                <?php if (!empty($reg['member2'])): ?>
+                                    <strong>M2: </strong><?= htmlspecialchars($reg['member2']) ?> 
+                                    <?php if (!empty($reg['member2_phone'])): ?><small>(<?= htmlspecialchars($reg['member2_phone']) ?>)</small><?php endif; ?><br>
+                                <?php endif; ?>
+                                <?php if (!empty($reg['member3'])): ?>
+                                    <strong>M3: </strong><?= htmlspecialchars($reg['member3']) ?><br>
+                                <?php endif; ?>
+                                <?php if (!empty($reg['member4'])): ?>
+                                    <strong>M4: </strong><?= htmlspecialchars($reg['member4']) ?><br>
                                 <?php endif; ?>
                             </td>
                             <td><?= htmlspecialchars($reg['college']) ?><br><small>(<?= htmlspecialchars($reg['department']) ?>)</small></td>
@@ -170,6 +394,13 @@ try {
                                 <?php endif; ?>
                             </td>
                             <td><small><?= $reg['created_at'] ?></small></td>
+                            <td>
+                                <a href="edit_data.php?id=<?= $reg['id'] ?>" class="verify-btn" style="background: #ffcc00; color: #000; margin-bottom: 5px; display: block; text-align: center;">Edit</a>
+                                <form method="POST" style="margin: 0;">
+                                    <input type="hidden" name="delete_id" value="<?= $reg['id'] ?>">
+                                    <button type="submit" class="verify-btn" style="background: #ff003c; color: #fff; width: 100%;" onclick="return confirm('Are you sure you want to delete this registration? This cannot be undone.');">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
