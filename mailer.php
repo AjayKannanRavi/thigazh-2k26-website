@@ -30,8 +30,6 @@ function getThigazhEmailTemplate($title, $content) {
             .footer { background-color: #0a0a0f; padding: 25px; text-align: center; font-size: 13px; color: #666; border-top: 1px solid #222; }
             .btn { display: inline-block; padding: 12px 25px; background-color: #ff003c; color: #ffffff !important; text-decoration: none; border-radius: 4px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; }
             .highlight { color: #ff003c; font-weight: bold; }
-            .otp-code { display: block; width: fit-content; margin: 30px auto; padding: 15px 30px; background: #1a1a3a; border: 2px dashed #ff003c; font-family: 'Orbitron', sans-serif; font-size: 32px; color: #ffffff; letter-spacing: 10px; border-radius: 4px; text-shadow: 0 0 10px #ff003c; }
-            .otp-expiry-notice { font-size: 13px; color: #888; text-align: center; font-style: italic; }
         </style>
     </head>
     <body>

@@ -82,7 +82,7 @@ try {
         
         // Send Verification Email ONLY IF status just changed to 'Completed'
         if ($old_data['payment_status'] !== 'Completed' && $payment_status === 'Completed') {
-            $admin_email = 'real.kiransurya@gmail.com';
+            $admin_email = ADMIN_EMAIL;
             
             // Fetch the updated record to get json events
             $stmt_new = $pdo->prepare("SELECT selected_events FROM registrations WHERE id = :id");
@@ -147,11 +147,11 @@ try {
     $reg = $stmt->fetch(PDO::FETCH_ASSOC);
     
     if (!$reg) {
-        die("Record not found!");
+        showErrorPage("Record Not Found", "The registration record you are trying to edit does not exist.");
     }
     
 } catch(PDOException $e) {
-    die("Database Error: " . $e->getMessage());
+    showErrorPage("Database Error", $e->getMessage());
 }
 ?>
 <!DOCTYPE html>

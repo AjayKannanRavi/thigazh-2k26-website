@@ -236,7 +236,7 @@ try {
     $stmt->execute($params);
     $registrations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch(PDOException $e) {
-    die("Database Error: " . $e->getMessage());
+    showErrorPage("Database Error", $e->getMessage());
 }
 ?>
 <!DOCTYPE html>
@@ -354,7 +354,7 @@ try {
     </style>
 </head>
 <body>
-    <h1>Data Base Registrations</h1>
+    <h1 class="glitch" data-text="Admin Dashboard">Admin Dashboard</h1>
 
     <div class="controls-container">
         <form class="search-form" method="GET" action="view_data.php">
@@ -378,6 +378,7 @@ try {
             if ($status_filter !== '') $export_params['status_filter'] = $status_filter;
             $export_url = 'view_data.php?' . http_build_query($export_params);
         ?>
+        <a href="add_data.php" class="btn-action" style="background: #ff003c; color: #fff;">+ Add Record</a>
         <a href="<?= htmlspecialchars($export_url) ?>" class="btn-action btn-export" style="background: #00ff88;">Export Excel</a>
         <a href="view_data.php?export=sql" class="btn-action" style="background: #00e5ff; color: #000;">Backup SQL</a>
         <a href="logout.php" class="btn-action" style="background: #333; color: #fff;">Logout</a>

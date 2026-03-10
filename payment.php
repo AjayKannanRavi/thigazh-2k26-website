@@ -1,3 +1,4 @@
+<?php
 require_once 'config.php';
 require_once 'mailer.php';
 
@@ -11,23 +12,8 @@ try {
     
     $id = isset($_GET['id']) ? (int)$_GET['id'] : (int)$_POST['pay_id'];
     
-    // Check if verified
-    $checkStmt = $pdo->prepare("SELECT is_verified FROM registrations WHERE id = :id");
-    $checkStmt->execute(['id' => $id]);
-    $reg = $checkStmt->fetch(PDO::FETCH_ASSOC);
-    
-    if (!$reg) {
-        header("Location: register.php");
-        exit;
-    }
-    
-    if (!$reg['is_verified']) {
-        header("Location: verify_otp.php?id=" . $id);
-        exit;
-    }
-
 } catch(PDOException $e) {
-    die("Database Error: " . $e->getMessage());
+    showErrorPage("Database Error", $e->getMessage());
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
@@ -46,10 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         if (move_uploaded_file($_FILES['payment_screenshot']['tmp_name'], $target_file)) {
             $screenshot_path = $target_file;
         } else {
-            die("<script>alert('Failed to upload screenshot!'); window.history.back();</script>");
+            showErrorPage("Upload Failed", "Failed to upload your payment screenshot. Please try again or check the file size.");
         }
     } else {
-        die("<script>alert('Please upload a screenshot!'); window.history.back();</script>");
+        showErrorPage("Screenshot Missing", "Please upload a clear screenshot of your payment confirmation to proceed.");
     }
 
     $stmt = $pdo->prepare("UPDATE registrations SET payment_status = 'Pending Verification', transaction_id = :txn_id, screenshot_path = :screenshot WHERE id = :id");
@@ -81,15 +67,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         $event_list .= "</ul>";
 
         // Participant Email Content
-        $subject_user = "Registration Received - THIGAZH 2K26";
+        $subject_user = "Registration Received - Waiting for Confirmation";
         $body_user = "<p>Hello <b>{$user['leader_name']}</b>,</p>
-                     <p>We've successfully received your payment details for <b>Team: {$user['team_name']}</b>. Your registration is currently under review by our team.</p>
+                     <p>Your registration for <b>Team: {$user['team_name']}</b> has been successfully submitted!</p>
+                     <p>We've received your payment details and screenshot. Our team is now verifying your records.</p>
                      <div class='event-list'>
                         <p><strong>Registered Events:</strong></p>
                         $event_list
                      </div>
-                     <p>Total Amount Paid: <span class='highlight'>₹{$user['amount']}</span></p>
-                     <p>We will notify you immediately once your payment is verified and your official event pass is generated.</p>";
+                     <p>Total Amount: <span class='highlight'>₹{$user['amount']}</span></p>
+                     <p>Status: <span class='highlight'>Waiting for Confirmation</span></p>
+                     <p>We will notify you immediately once your verification is completed.</p>";
         
         // Admin Email Content
         $subject_admin = "ACTION REQUIRED: New Registration [{$user['team_name']}]";
@@ -128,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 if (!$id) {
-    die("<h2 style='color:red; text-align:center; padding: 2rem; font-family: sans-serif;'>Invalid Payment Session!</h2>");
+    showErrorPage("Invalid Session", "The payment link is invalid or has expired. Please try registering again.");
 }
 
 $stmt = $pdo->prepare("SELECT * FROM registrations WHERE id = :id");
@@ -136,11 +124,11 @@ $stmt->execute(['id' => $id]);
 $reg = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$reg) {
-    die("<h2 style='color:red; text-align:center; padding: 2rem; font-family: sans-serif;'>Registration not found!</h2>");
+    showErrorPage("Not Found", "We couldn't find your registration record. Please contact the help desk.");
 }
 
 if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pending Verification') {
-    die("<h2 style='color:#00e5ff; text-align:center; padding: 2rem; font-family: sans-serif; background: #0a0a0a;'>Already Submitted! Verification in progress.</h2>");
+    showErrorPage("Submission Received", "You have already submitted your payment proof! Our team is verifying your registration.");
 }
 ?>
 <!DOCTYPE html>

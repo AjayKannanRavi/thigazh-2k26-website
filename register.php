@@ -31,14 +31,14 @@ try {
         $events_json = json_encode($selected_events);
 
         if(empty($team_name) || empty($leader_name) || empty($college) || empty($phone) || empty($email) || empty($pass_type)) {
-             die("<script>alert('Please fill out all required fields!'); window.history.back();</script>");
+             showErrorPage("Missing Fields", "Please fill out all required fields to proceed with your registration.");
         }
 
         // Check for duplicate email
         $checkEmail = $pdo->prepare("SELECT id FROM registrations WHERE email = :email");
         $checkEmail->execute(['email' => $email]);
         if ($checkEmail->fetch()) {
-            die("<script>alert('This email is already registered! If you haven't received your pass, please contact admin.'); window.history.back();</script>");
+            showErrorPage("Email Registered", "This email is already registered! If you haven't received your pass, please contact admin.");
         }
         
         // Calculate Amount Based on Team Size & Pass Type
@@ -73,39 +73,25 @@ try {
         $stmt->bindParam(':events_json', $events_json);
         $stmt->bindParam(':amount', $amount, PDO::PARAM_INT);
         
+        error_log("Attempting to insert registration for: $email");
         $stmt->execute();
-        
         $last_id = $pdo->lastInsertId();
+        error_log("Insert successful. ID: $last_id");
         
-        // --- OTP GENERATION ---
-        // Generating a cryptographically secure 6-digit random number
-        $otp = random_int(100000, 999999);
-        $expires_at = date('Y-m-d H:i:s', strtotime('+5 minutes'));
-        
-        $otpStmt = $pdo->prepare("INSERT INTO otp_verifications (registration_id, otp_code, expires_at) VALUES (:reg_id, :otp, :expires)");
-        $otpStmt->execute([
-            'reg_id' => $last_id,
-            'otp' => $otp,
-            'expires' => $expires_at
-        ]);
-        
-        // --- SEND OTP EMAIL ---
-        $subject = "Verify Your Email - THIGAZH 2K26";
-        $body = "<p>Hello <b>$leader_name</b>,</p>
-                 <p>Thank you for starting your registration for THIGAZH 2K26. To ensure your security and complete your registration, please enter the following verification code:</p>
-                 <div class='otp-code'>$otp</div>
-                 <p class='otp-expiry-notice'>This code will expire in 5 minutes.</p>
-                 <p>If you did not request this code, please ignore this email.</p>";
-        
-        if (sendThigazhMail($email, $leader_name, $subject, $body)) {
-            // Redirect to verify OTP page
-            header("Location: verify_otp.php?id=" . $last_id);
-            exit;
-        } else {
-             die("<script>alert('Failed to send verification email. Please try again or check your email address.'); window.history.back();</script>");
-        }
+        // Redirect directly to payment page
+        error_log("Redirecting to payment.php for ID: $last_id");
+        header("Location: payment.php?id=" . $last_id);
+        exit;
+    } else {
+        // Redirect to index.html if accessed directly via GET
+        header("Location: index.html#registration");
+        exit;
     }
 } catch(PDOException $e) {
-    die("Database Error: " . $e->getMessage());
+    error_log("DATABASE ERROR in register.php: " . $e->getMessage());
+    showErrorPage("Database Error", $e->getMessage());
+} catch(Exception $e) {
+    error_log("GENERAL ERROR in register.php: " . $e->getMessage());
+    showErrorPage("System Error", $e->getMessage());
 }
 ?>
