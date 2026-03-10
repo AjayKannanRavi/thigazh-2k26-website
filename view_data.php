@@ -1,27 +1,24 @@
 <?php
 session_start();
+require_once 'config.php';
+require_once 'mailer.php';
 
 // --- 1. PREVENT BROWSER CACHING SECURELY ---
-// This stops the "back button" from showing the page after logout
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
-header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
 
 // --- 2. SESSION TIMEOUT SECURITY ---
-// Set timeout duration (e.g., 2 hours = 7200 seconds)
 $timeout_duration = 7200;
-
 if (isset($_SESSION['LAST_ACTIVITY'])) {
     if ((time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
-        // Last request was more than the timeout duration ago
-        session_unset();     // Unset $_SESSION variable for the run-time 
-        session_destroy();   // Destroy session data in storage
+        session_unset();
+        session_destroy();
         header("Location: login.php?msg=timeout");
         exit;
     }
 }
-// Always update last activity time stamp
 $_SESSION['LAST_ACTIVITY'] = time();
 
 // --- 3. VERIFY LOGIN STATUS ---
@@ -30,21 +27,64 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit;
 }
 
-$host = '127.0.0.1';
-$dbname = 'thigazh_db';
-$user = 'root'; 
-$pass = '';
-
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    $pdo = getDBConnection();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // Handle Verification Approval
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verify_id'])) {
         $verify_id = (int)$_POST['verify_id'];
         
-        $updateStmt = $pdo->prepare("UPDATE registrations SET payment_status = 'Completed' WHERE id = :id");
-        $updateStmt->execute(['id' => $verify_id]);
+        // 1. Fetch details BEFORE updating for the email
+        $userStmt = $pdo->prepare("SELECT * FROM registrations WHERE id = :id");
+        $userStmt->execute(['id' => $verify_id]);
+        $user = $userStmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && $user['payment_status'] !== 'Completed') {
+            // 2. Update Status
+            $updateStmt = $pdo->prepare("UPDATE registrations SET payment_status = 'Completed' WHERE id = :id");
+            $updateStmt->execute(['id' => $verify_id]);
+
+            // 3. Send Emails
+            $admin_email = ADMIN_EMAIL;
+            $events = json_decode($user['selected_events'], true);
+            $event_list = "<ul>";
+            if (is_array($events)) {
+                foreach ($events as $event) {
+                    if (is_array($event)) {
+                        foreach ($event as $e) $event_list .= "<li>" . htmlspecialchars($e) . "</li>";
+                    } else {
+                        $event_list .= "<li>" . htmlspecialchars($event) . "</li>";
+                    }
+                }
+            }
+            $event_list .= "</ul>";
+
+            $subject_user = "Registration Verified! - THIGAZH 2K26";
+            $body_user = "<p>Congratulations <b>{$user['leader_name']}</b>!</p>
+                         <p>Your payment for <b>Team: {$user['team_name']}</b> has been successfully verified by our team.</p>
+                         <div class='event-list'>
+                            <p><strong>Your Confirmed Events:</strong></p>
+                            $event_list
+                         </div>
+                         <p><b>Pass Type:</b> <span class='highlight'>" . strtoupper($user['pass_type']) . " Pass</span></p>
+                         <p>Please keep this email handy as your digital confirmation. We are excited to see your team at the event!</p>";
+            
+            $subject_admin = "REGISTRATION APPROVED: {$user['team_name']}";
+            $body_admin = "<p>You have successfully approved the registration for <b>{$user['team_name']}</b>.</p>
+                          <div class='event-list'>
+                            <p><b>Final Details:</b></p>
+                            <ul>
+                                <li><b>Team Name:</b> {$user['team_name']}</li>
+                                <li><b>Leader:</b> {$user['leader_name']} ({$user['email']})</li>
+                                <li><b>Events Confirmed:</b> $event_list</li>
+                                <li><b>Status:</b> <span class='highlight'>Completed (Verified)</span></li>
+                            </ul>
+                          </div>";
+
+            sendThigazhMail($user['email'], $user['leader_name'], $subject_user, $body_user);
+            sendThigazhMail($admin_email, "Admin - THIGAZH", $subject_admin, $body_admin);
+        }
         
         // Refresh the page to show the update
         header("Location: view_data.php");
@@ -209,7 +249,7 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #050510;
+            background-color: #0a0a23;
             color: #ddd;
             font-family: 'Montserrat', sans-serif;
             margin: 0;

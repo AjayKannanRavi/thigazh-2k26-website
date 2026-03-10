@@ -1,0 +1,609 @@
+2026-03-10 09:43:39 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-2ae83f783dbsm148655755ad.42 - gsmtp
+
+2026-03-10 09:43:39 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:43:40 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:43:40 [1] CLIENT -> SERVER: STARTTLS
+
+2026-03-10 09:43:40 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-03-10 09:43:40 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:43:41 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:43:41 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2026-03-10 09:43:41 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-03-10 09:43:41 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:43:42 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-03-10 09:43:42 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:43:42 [2] SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2026-03-10 09:43:42 [1] CLIENT -> SERVER: MAIL FROM:<real.kiransurya@gmail.com>
+
+2026-03-10 09:43:43 [2] SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-2ae83f783dbsm148655755ad.42 - gsmtp
+
+2026-03-10 09:43:43 [1] CLIENT -> SERVER: RCPT TO:<harihari58139@gmail.com>
+
+2026-03-10 09:43:43 [2] SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-2ae83f783dbsm148655755ad.42 - gsmtp
+
+2026-03-10 09:43:43 [1] CLIENT -> SERVER: DATA
+
+2026-03-10 09:43:44 [2] SERVER -> CLIENT: 354 Go ahead d9443c01a7336-2ae83f783dbsm148655755ad.42 - gsmtp
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: Date: Tue, 10 Mar 2026 09:43:38 +0000
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: To: GOvaalu <harihari58139@gmail.com>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: From: THIGAZH 2K26 <real.kiransurya@gmail.com>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: Subject: Registration Pending Verification - THIGAZH 2K26
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: Message-ID: <LNi0HwzuMSG9h0lSEYwHYMuGTeTE6PIY0QuI0fndlo@localhost>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: MIME-Version: 1.0
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: <h2>Hello GOvaalu,</h2>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER:                      <p>We have successfully received your payment details for <b>Team: VibeCoders</b>.</p>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER:                      <p><b>Registered Events:</b></p>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER:                      <ul><li>project_expo</li><li>console_app</li></ul>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER:                      <p><b>Registration Status:</b> Pending Verification</p>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER:                      <p>We will notify you once an admin verifies your payment and issues your event pass.</p>
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:43:44 [1] CLIENT -> SERVER: .
+
+2026-03-10 09:43:45 [2] SERVER -> CLIENT: 250 2.0.0 OK  1773135825 d9443c01a7336-2ae83f783dbsm148655755ad.42 - gsmtp
+
+2026-03-10 09:43:45 [1] CLIENT -> SERVER: QUIT
+
+2026-03-10 09:43:45 [2] SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-2ae83f783dbsm148655755ad.42 - gsmtp
+
+2026-03-10 09:43:46 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-2ae83e57b1fsm196092585ad.12 - gsmtp
+
+2026-03-10 09:43:46 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:43:47 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:43:47 [1] CLIENT -> SERVER: STARTTLS
+
+2026-03-10 09:43:47 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-03-10 09:43:47 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:43:48 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:43:48 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2026-03-10 09:43:48 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-03-10 09:43:48 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:43:49 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-03-10 09:43:49 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:43:49 [2] SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2026-03-10 09:43:49 [1] CLIENT -> SERVER: MAIL FROM:<real.kiransurya@gmail.com>
+
+2026-03-10 09:43:50 [2] SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-2ae83e57b1fsm196092585ad.12 - gsmtp
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: RCPT TO:<real.kiransurya@gmail.com>
+
+2026-03-10 09:43:50 [2] SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-2ae83e57b1fsm196092585ad.12 - gsmtp
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: DATA
+
+2026-03-10 09:43:50 [2] SERVER -> CLIENT: 354 Go ahead d9443c01a7336-2ae83e57b1fsm196092585ad.12 - gsmtp
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: Date: Tue, 10 Mar 2026 09:43:45 +0000
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: To: Admin - THIGAZH <real.kiransurya@gmail.com>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: From: THIGAZH 2K26 <real.kiransurya@gmail.com>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: Subject: NEW REGISTRATION: VibeCoders (Pending Verification)
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: Message-ID: <n9OJjJBCWAloj3fWXSNqKUxjB094FUAazVEFkvjEiGo@localhost>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: MIME-Version: 1.0
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: <h2>New Registration Received</h2>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Team Name:</b> VibeCoders</p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Leader:</b> GOvaalu (harihari58139@gmail.com)</p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Phone:</b> 9489783476</p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Pass Type:</b> ELITE</p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Amount:</b> ₹400</p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Transaction ID:</b> 1098643982787783</p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><b>Selected Events:</b></p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <ul><li>project_expo</li><li>console_app</li></ul>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER:                       <p><a href='http://your-site-url/view_data.php'>Click here to Verify in Admin Panel</a></p>
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:43:50 [1] CLIENT -> SERVER: .
+
+2026-03-10 09:43:51 [2] SERVER -> CLIENT: 250 2.0.0 OK  1773135831 d9443c01a7336-2ae83e57b1fsm196092585ad.12 - gsmtp
+
+2026-03-10 09:43:51 [1] CLIENT -> SERVER: QUIT
+
+2026-03-10 09:43:52 [2] SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-2ae83e57b1fsm196092585ad.12 - gsmtp
+
+
+2026-03-10 09:55:54 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+2026-03-10 09:55:55 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-2ae840b6639sm202795305ad.86 - gsmtp
+
+2026-03-10 09:55:55 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:55:55 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:55:55 [1] CLIENT -> SERVER: STARTTLS
+
+2026-03-10 09:55:56 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-03-10 09:55:56 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:55:57 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:55:57 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2026-03-10 09:55:57 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-03-10 09:55:57 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:55:58 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-03-10 09:55:58 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:55:58 [2] SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2026-03-10 09:55:58 [1] CLIENT -> SERVER: MAIL FROM:<real.kiransurya@gmail.com>
+
+2026-03-10 09:55:59 [2] SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-2ae840b6639sm202795305ad.86 - gsmtp
+
+2026-03-10 09:55:59 [1] CLIENT -> SERVER: RCPT TO:<inbox.kiran123@gmail.com>
+
+2026-03-10 09:55:59 [2] SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-2ae840b6639sm202795305ad.86 - gsmtp
+
+2026-03-10 09:55:59 [1] CLIENT -> SERVER: DATA
+
+2026-03-10 09:56:00 [2] SERVER -> CLIENT: 354 Go ahead d9443c01a7336-2ae840b6639sm202795305ad.86 - gsmtp
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: Date: Tue, 10 Mar 2026 09:55:54 +0000
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: To: Devadas <inbox.kiran123@gmail.com>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: From: THIGAZH 2K26 <real.kiransurya@gmail.com>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: Subject: Registration Pending Verification - THIGAZH 2K26
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: Message-ID: <xFOjAdovEABDJ6mkxgYbw0VggtvbJCLcS5hLqcug@localhost>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: MIME-Version: 1.0
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: <h2>Hello Devadas,</h2>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER:                      <p>We have successfully received your payment details for <b>Team: DC</b>.</p>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER:                      <p><b>Registered Events:</b></p>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER:                      <ul><li>project_expo</li><li>console_app</li></ul>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER:                      <p><b>Registration Status:</b> Pending Verification</p>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER:                      <p>We will notify you once an admin verifies your payment and issues your event pass.</p>
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:56:00 [1] CLIENT -> SERVER: .
+
+2026-03-10 09:56:01 [2] SERVER -> CLIENT: 250 2.0.0 OK  1773136561 d9443c01a7336-2ae840b6639sm202795305ad.86 - gsmtp
+
+2026-03-10 09:56:01 [1] CLIENT -> SERVER: QUIT
+
+2026-03-10 09:56:02 [2] SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-2ae840b6639sm202795305ad.86 - gsmtp
+
+
+2026-03-10 09:56:02 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+2026-03-10 09:56:02 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 41be03b00d2f7-c739e182d72sm11271351a12.25 - gsmtp
+
+2026-03-10 09:56:02 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:56:03 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:56:03 [1] CLIENT -> SERVER: STARTTLS
+
+2026-03-10 09:56:03 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-03-10 09:56:03 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:56:04 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:56:04 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2026-03-10 09:56:04 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-03-10 09:56:04 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:56:05 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-03-10 09:56:05 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:56:05 [2] SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2026-03-10 09:56:05 [1] CLIENT -> SERVER: MAIL FROM:<real.kiransurya@gmail.com>
+
+2026-03-10 09:56:06 [2] SERVER -> CLIENT: 250 2.1.0 OK 41be03b00d2f7-c739e182d72sm11271351a12.25 - gsmtp
+
+2026-03-10 09:56:06 [1] CLIENT -> SERVER: RCPT TO:<real.kiransurya@gmail.com>
+
+2026-03-10 09:56:06 [2] SERVER -> CLIENT: 250 2.1.5 OK 41be03b00d2f7-c739e182d72sm11271351a12.25 - gsmtp
+
+2026-03-10 09:56:06 [1] CLIENT -> SERVER: DATA
+
+2026-03-10 09:56:07 [2] SERVER -> CLIENT: 354 Go ahead 41be03b00d2f7-c739e182d72sm11271351a12.25 - gsmtp
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: Date: Tue, 10 Mar 2026 09:56:02 +0000
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: To: Admin - THIGAZH <real.kiransurya@gmail.com>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: From: THIGAZH 2K26 <real.kiransurya@gmail.com>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: Subject: NEW REGISTRATION: DC (Pending Verification)
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: Message-ID: <nHbVgODUW75sDHenYrpM7wC4LgJQ0DeCrxcDzMLPc@localhost>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: MIME-Version: 1.0
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: <h2>New Registration Received</h2>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Team Name:</b> DC</p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Leader:</b> Devadas (inbox.kiran123@gmail.com)</p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Phone:</b> 94897 83476</p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Pass Type:</b> ELITE</p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Amount:</b> ₹800</p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Transaction ID:</b> 9098643890187398</p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><b>Selected Events:</b></p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <ul><li>project_expo</li><li>console_app</li></ul>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER:                       <p><a href='http://your-site-url/view_data.php'>Click here to Verify in Admin Panel</a></p>
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:56:07 [1] CLIENT -> SERVER: .
+
+2026-03-10 09:56:08 [2] SERVER -> CLIENT: 250 2.0.0 OK  1773136568 41be03b00d2f7-c739e182d72sm11271351a12.25 - gsmtp
+
+2026-03-10 09:56:08 [1] CLIENT -> SERVER: QUIT
+
+2026-03-10 09:56:08 [2] SERVER -> CLIENT: 221 2.0.0 closing connection 41be03b00d2f7-c739e182d72sm11271351a12.25 - gsmtp
+
+
+2026-03-10 09:56:59 [POST] Approval request for ID: 5
+2026-03-10 09:56:59 [DB] Proceeding to approve ID: 5 (Status: Pending Verification)
+
+2026-03-10 09:56:59 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+2026-03-10 09:56:59 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 41be03b00d2f7-c739e0c7427sm11769654a12.9 - gsmtp
+
+2026-03-10 09:56:59 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:57:00 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:57:00 [1] CLIENT -> SERVER: STARTTLS
+
+2026-03-10 09:57:00 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-03-10 09:57:01 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:57:02 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:57:02 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2026-03-10 09:57:02 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-03-10 09:57:02 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:57:03 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-03-10 09:57:03 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:57:03 [2] SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2026-03-10 09:57:03 [1] CLIENT -> SERVER: MAIL FROM:<real.kiransurya@gmail.com>
+
+2026-03-10 09:57:04 [2] SERVER -> CLIENT: 250 2.1.0 OK 41be03b00d2f7-c739e0c7427sm11769654a12.9 - gsmtp
+
+2026-03-10 09:57:04 [1] CLIENT -> SERVER: RCPT TO:<inbox.kiran123@gmail.com>
+
+2026-03-10 09:57:04 [2] SERVER -> CLIENT: 250 2.1.5 OK 41be03b00d2f7-c739e0c7427sm11769654a12.9 - gsmtp
+
+2026-03-10 09:57:04 [1] CLIENT -> SERVER: DATA
+
+2026-03-10 09:57:05 [2] SERVER -> CLIENT: 354 Go ahead 41be03b00d2f7-c739e0c7427sm11769654a12.9 - gsmtp
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: Date: Tue, 10 Mar 2026 09:56:59 +0000
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: To: Devadas <inbox.kiran123@gmail.com>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: From: THIGAZH 2K26 <real.kiransurya@gmail.com>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: Subject: Registration Verified! - THIGAZH 2K26
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: Message-ID: <uMWWtgu5zweO56oL46dkiva0ITkOqn7P7mNjwDD5Q@localhost>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: MIME-Version: 1.0
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: <h2>Congratulations, Devadas!</h2>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER:                          <p>Your payment for <b>Team: DC</b> has been successfully verified.</p>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER:                          <p><b>Confirmed Events:</b></p>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER:                          <ul><li>project_expo</li><li>console_app</li></ul>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER:                          <p><b>Pass Type:</b> ELITE Pass</p>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER:                          <p>Keep this email handy as your confirmation. We look forward to seeing you at the event!</p>
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:57:05 [1] CLIENT -> SERVER: .
+
+2026-03-10 09:57:06 [2] SERVER -> CLIENT: 250 2.0.0 OK  1773136626 41be03b00d2f7-c739e0c7427sm11769654a12.9 - gsmtp
+
+2026-03-10 09:57:06 [1] CLIENT -> SERVER: QUIT
+
+2026-03-10 09:57:06 [2] SERVER -> CLIENT: 221 2.0.0 closing connection 41be03b00d2f7-c739e0c7427sm11769654a12.9 - gsmtp
+
+
+2026-03-10 09:57:06 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+2026-03-10 09:57:07 [2] SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 41be03b00d2f7-c739e0f15f5sm11786154a12.15 - gsmtp
+
+2026-03-10 09:57:07 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:57:07 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:57:07 [1] CLIENT -> SERVER: STARTTLS
+
+2026-03-10 09:57:08 [2] SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-03-10 09:57:08 [1] CLIENT -> SERVER: EHLO localhost
+
+2026-03-10 09:57:09 [2] SERVER -> CLIENT: 250-smtp.gmail.com at your service, [103.114.208.147]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-03-10 09:57:09 [1] CLIENT -> SERVER: AUTH LOGIN
+
+2026-03-10 09:57:09 [2] SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-03-10 09:57:09 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:57:09 [2] SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-03-10 09:57:09 [1] CLIENT -> SERVER: [credentials hidden]
+2026-03-10 09:57:10 [2] SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2026-03-10 09:57:10 [1] CLIENT -> SERVER: MAIL FROM:<real.kiransurya@gmail.com>
+
+2026-03-10 09:57:10 [2] SERVER -> CLIENT: 250 2.1.0 OK 41be03b00d2f7-c739e0f15f5sm11786154a12.15 - gsmtp
+
+2026-03-10 09:57:10 [1] CLIENT -> SERVER: RCPT TO:<real.kiransurya@gmail.com>
+
+2026-03-10 09:57:11 [2] SERVER -> CLIENT: 250 2.1.5 OK 41be03b00d2f7-c739e0f15f5sm11786154a12.15 - gsmtp
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: DATA
+
+2026-03-10 09:57:11 [2] SERVER -> CLIENT: 354 Go ahead 41be03b00d2f7-c739e0f15f5sm11786154a12.15 - gsmtp
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: Date: Tue, 10 Mar 2026 09:57:06 +0000
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: To: Admin - THIGAZH <real.kiransurya@gmail.com>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: From: THIGAZH 2K26 <real.kiransurya@gmail.com>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: Subject: REGISTRATION APPROVED: DC
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: Message-ID: <NQfFGeeUnF157Xj0Pd5eZGSC6PXTpNOKvfpHPAzfvMQ@localhost>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: MIME-Version: 1.0
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: <h2>Registration Approved (Quick Action)</h2>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER:                           <p><b>Team Name:</b> DC</p>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER:                           <p><b>Leader:</b> Devadas (inbox.kiran123@gmail.com)</p>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER:                           <p><b>Events:</b></p>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER:                           <ul><li>project_expo</li><li>console_app</li></ul>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER:                           <p><b>Status:</b> Completed (Verified)</p>
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: 
+
+2026-03-10 09:57:11 [1] CLIENT -> SERVER: .
+
+2026-03-10 09:57:12 [2] SERVER -> CLIENT: 250 2.0.0 OK  1773136632 41be03b00d2f7-c739e0f15f5sm11786154a12.15 - gsmtp
+
+2026-03-10 09:57:12 [1] CLIENT -> SERVER: QUIT
+
+2026-03-10 09:57:13 [2] SERVER -> CLIENT: 221 2.0.0 closing connection 41be03b00d2f7-c739e0f15f5sm11786154a12.15 - gsmtp
+
+
+2026-03-10 09:57:13 [POST] Approval request for ID: 5
+
+2026-03-10 10:05:13 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-10 10:05:20 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:05:26 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-10 10:05:36 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:05:44 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-10 10:05:50 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:06:36 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-10 10:06:46 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:11:41 [CALL] sendThigazhMail triggered for: harihari58139@gmail.com
+
+2026-03-10 10:11:52 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:12:48 [CALL] sendThigazhMail triggered for: harihari58139@gmail.com
+
+2026-03-10 10:12:57 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:19:02 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-10 10:19:16 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:19:24 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-10 10:19:34 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-10 10:20:10 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-10 10:20:22 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com

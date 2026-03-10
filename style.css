@@ -1,7 +1,7 @@
 /* =============== VARIABLES (CYBERPUNK / SPIDER-VERSE THEME) =============== */
 :root {
-  --bg-deep-black: #000000;
-  --bg-darker: #050000;
+  --bg-deep-black: #0a0a23;
+  --bg-darker: #0d0d2b;
   --neon-red: #ff0000;
   --neon-orange: #ff3c00;
   --electric-blue: #447bbe;
@@ -40,6 +40,35 @@ body {
   font-family: var(--font-body);
   position: relative;
 }
+
+/* Thwip Web Effect */
+.thwip-web {
+  position: absolute;
+  top: 50vh; /* Start from center screen horizontally */
+  left: 50vw; /* Start from center screen vertically */
+  width: 0px;
+  height: 2px;
+  background: white;
+  box-shadow: 0 0 8px white, 0 0 15px var(--electric-blue);
+  z-index: 9999;
+  pointer-events: none;
+  transform-origin: 0 50%; /* Scale from the left edge */
+  opacity: 0;
+}
+
+.thwip-impact {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="2"/><path d="M50 0V100M0 50H100M15 15L85 85M15 85L85 15" stroke="white" stroke-width="2"/></svg>');
+  background-size: cover;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 10000;
+  filter: drop-shadow(0 0 10px white);
+}
+
 
 /* Halftone Pattern Overlay */
 .halftone-overlay {

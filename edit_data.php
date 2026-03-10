@@ -1,5 +1,7 @@
 <?php
 session_start();
+require_once 'config.php';
+require_once 'mailer.php';
 
 // --- 1. PREVENT BROWSER CACHING SECURELY ---
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
@@ -8,13 +10,11 @@ header('Pragma: no-cache');
 header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
 
 // --- 2. SESSION TIMEOUT SECURITY ---
-// Set timeout duration (e.g., 2 hours = 7200 seconds)
 $timeout_duration = 7200;
-
 if (isset($_SESSION['LAST_ACTIVITY'])) {
     if ((time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
-        session_unset();     
-        session_destroy();   
+        session_unset();
+        session_destroy();
         header("Location: login.php?msg=timeout");
         exit;
     }
@@ -27,14 +27,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit;
 }
 
-$host = '127.0.0.1';
-$dbname = 'thigazh_db';
-$user = 'root'; 
-$pass = '';
-
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = getDBConnection();
     
     if (!isset($_GET['id'])) {
         header("Location: view_data.php");
@@ -59,6 +53,11 @@ try {
         $amount = (int)$_POST['amount'];
         $payment_status = htmlspecialchars($_POST['payment_status']);
         
+        // Fetch old status BEFORE updating to compare
+        $stmt_old = $pdo->prepare("SELECT payment_status FROM registrations WHERE id = :id");
+        $stmt_old->execute(['id' => $id]);
+        $old_data = $stmt_old->fetch(PDO::FETCH_ASSOC);
+
         $sql = "UPDATE registrations SET 
                 team_name = :team_name, leader_name = :leader_name, 
                 member2 = :member2, member2_phone = :member2_phone, 
@@ -80,6 +79,63 @@ try {
             'payment_status' => $payment_status,
             'id' => $id
         ]);
+        
+        // Send Verification Email ONLY IF status just changed to 'Completed'
+        if ($old_data['payment_status'] !== 'Completed' && $payment_status === 'Completed') {
+            $admin_email = 'real.kiransurya@gmail.com';
+            
+            // Fetch the updated record to get json events
+            $stmt_new = $pdo->prepare("SELECT selected_events FROM registrations WHERE id = :id");
+            $stmt_new->execute(['id' => $id]);
+            $new_data = $stmt_new->fetch(PDO::FETCH_ASSOC);
+            
+            $events = json_decode($new_data['selected_events'], true);
+            $event_list = "<ul>";
+            if (is_array($events)) {
+                foreach ($events as $event) {
+                    if (is_array($event)) {
+                        foreach ($event as $e) $event_list .= "<li>" . htmlspecialchars($e) . "</li>";
+                    } else {
+                        $event_list .= "<li>" . htmlspecialchars($event) . "</li>";
+                    }
+                }
+            }
+            $event_list .= "</ul>";
+
+            // Participant Email Content
+            $subject_user = "Registration Verified! - THIGAZH 2K26";
+            $body_user = "<p>Congratulations <b>$leader_name</b>!</p>
+                         <p>Your payment for <b>Team: $team_name</b> has been successfully verified by our team.</p>
+                         <div class='event-list'>
+                            <p><strong>Your Confirmed Events:</strong></p>
+                            $event_list
+                         </div>
+                         <p><b>Pass Type:</b> <span class='highlight'>" . strtoupper($pass_type) . " Pass</span></p>
+                         <p>Please keep this email handy as your digital confirmation. We are excited to see your team at the event!</p>";
+            
+            // Admin Email Content
+            $subject_admin = "REGISTRATION APPROVED: $team_name";
+            $body_admin = "<p>The registration for <b>$team_name</b> has been manually approved.</p>
+                          <div class='event-list'>
+                            <p><b>Final Details:</b></p>
+                            <ul>
+                                <li><b>Team Name:</b> $team_name</li>
+                                <li><b>Leader:</b> $leader_name ($email)</li>
+                                <li><b>Events Confirmed:</b> $event_list</li>
+                                <li><b>Status:</b> <span class='highlight'>Completed (Verified)</span></li>
+                            </ul>
+                          </div>";
+
+            // Send to Participant
+            $sent_user = sendThigazhMail($email, $leader_name, $subject_user, $body_user);
+            
+            // Send to Admin (for record)
+            $sent_admin = sendThigazhMail($admin_email, "Admin - THIGAZH", $subject_admin, $body_admin);
+            
+            if (!$sent_user || !$sent_admin) {
+                echo "<script>alert('Warning: Some notification emails could not be sent. Check mail_log.txt if possible.');</script>";
+            }
+        }
         
         echo "<script>alert('Record updated successfully!'); window.location.href = 'view_data.php';</script>";
         exit;
@@ -107,7 +163,7 @@ try {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #050510;
+            background-color: #0a0a23;
             color: #ddd;
             font-family: 'Montserrat', sans-serif;
             margin: 0;

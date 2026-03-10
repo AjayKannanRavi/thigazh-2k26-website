@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'config.php';
 
 // Check if already logged in
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #050510;
+            background-color: #0a0a23;
             color: #ddd;
             font-family: 'Montserrat', sans-serif;
             margin: 0;

@@ -1,12 +1,31 @@
-<?php
-$host = '127.0.0.1';
-$dbname = 'thigazh_db';
-$user = 'root'; 
-$pass = '';
+require_once 'config.php';
+require_once 'mailer.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = getDBConnection();
+    
+    if (!isset($_GET['id']) && !isset($_POST['pay_id'])) {
+        header("Location: register.php");
+        exit;
+    }
+    
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : (int)$_POST['pay_id'];
+    
+    // Check if verified
+    $checkStmt = $pdo->prepare("SELECT is_verified FROM registrations WHERE id = :id");
+    $checkStmt->execute(['id' => $id]);
+    $reg = $checkStmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$reg) {
+        header("Location: register.php");
+        exit;
+    }
+    
+    if (!$reg['is_verified']) {
+        header("Location: verify_otp.php?id=" . $id);
+        exit;
+    }
+
 } catch(PDOException $e) {
     die("Database Error: " . $e->getMessage());
 }
@@ -39,6 +58,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         'screenshot' => $screenshot_path,
         'id' => $pay_id
     ]);
+    
+    // 3. Fetch user's full registration details to send email
+    $user_stmt = $pdo->prepare("SELECT * FROM registrations WHERE id = :id");
+    $user_stmt->execute(['id' => $pay_id]);
+    $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($user) {
+        $admin_email = ADMIN_EMAIL;
+        $events = json_decode($user['selected_events'], true);
+        $event_list = "<ul>";
+        if (is_array($events)) {
+            foreach ($events as $event) {
+                // If it's a nested array (like Elite pass day1/day2), flatten it
+                if (is_array($event)) {
+                    foreach ($event as $e) $event_list .= "<li>" . htmlspecialchars($e) . "</li>";
+                } else {
+                    $event_list .= "<li>" . htmlspecialchars($event) . "</li>";
+                }
+            }
+        }
+        $event_list .= "</ul>";
+
+        // Participant Email Content
+        $subject_user = "Registration Received - THIGAZH 2K26";
+        $body_user = "<p>Hello <b>{$user['leader_name']}</b>,</p>
+                     <p>We've successfully received your payment details for <b>Team: {$user['team_name']}</b>. Your registration is currently under review by our team.</p>
+                     <div class='event-list'>
+                        <p><strong>Registered Events:</strong></p>
+                        $event_list
+                     </div>
+                     <p>Total Amount Paid: <span class='highlight'>₹{$user['amount']}</span></p>
+                     <p>We will notify you immediately once your payment is verified and your official event pass is generated.</p>";
+        
+        // Admin Email Content
+        $subject_admin = "ACTION REQUIRED: New Registration [{$user['team_name']}]";
+        $body_admin = "<p>A new registration has been submitted and is awaiting your verification.</p>
+                      <div class='event-list'>
+                        <p><b>Team Profile:</b></p>
+                        <ul>
+                            <li><b>Team Name:</b> {$user['team_name']}</li>
+                            <li><b>Leader:</b> {$user['leader_name']} ({$user['email']})</li>
+                            <li><b>Phone:</b> {$user['phone']}</li>
+                            <li><b>Pass Type:</b> " . strtoupper($user['pass_type']) . "</li>
+                            <li><b>Amount:</b> ₹{$user['amount']}</li>
+                            <li><b>Txn ID:</b> $transaction_id</li>
+                        </ul>
+                      </div>
+                      <p><b>Selected Events:</b></p>
+                      $event_list";
+
+        // Send to Participant
+        $sent_user = sendThigazhMail($user['email'], $user['leader_name'], $subject_user, $body_user);
+        
+        // Send to Admin
+        $sent_admin = sendThigazhMail($admin_email, "Admin - THIGAZH", $subject_admin, $body_admin);
+
+        if (!$sent_user || !$sent_admin) {
+            echo "<script>alert('Warning: Some notification emails could not be sent. Check mail_log.txt for details.');</script>";
+        }
+    }
     
     echo "<script>
         alert('Payment Details Submitted! Your registration is now pending verification.');

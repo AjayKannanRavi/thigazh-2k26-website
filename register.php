@@ -1,12 +1,9 @@
 <?php
-$host = '127.0.0.1';
-$dbname = 'thigazh_db';
-$user = 'root'; 
-$pass = '';
+require_once 'config.php';
+require_once 'mailer.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = getDBConnection();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
@@ -35,6 +32,13 @@ try {
 
         if(empty($team_name) || empty($leader_name) || empty($college) || empty($phone) || empty($email) || empty($pass_type)) {
              die("<script>alert('Please fill out all required fields!'); window.history.back();</script>");
+        }
+
+        // Check for duplicate email
+        $checkEmail = $pdo->prepare("SELECT id FROM registrations WHERE email = :email");
+        $checkEmail->execute(['email' => $email]);
+        if ($checkEmail->fetch()) {
+            die("<script>alert('This email is already registered! If you haven't received your pass, please contact admin.'); window.history.back();</script>");
         }
         
         // Calculate Amount Based on Team Size & Pass Type
@@ -73,10 +77,33 @@ try {
         
         $last_id = $pdo->lastInsertId();
         
-        // Redirect to payment portal
-        header("Location: payment.php?id=" . $last_id);
-        exit;
+        // --- OTP GENERATION ---
+        // Generating a cryptographically secure 6-digit random number
+        $otp = random_int(100000, 999999);
+        $expires_at = date('Y-m-d H:i:s', strtotime('+5 minutes'));
         
+        $otpStmt = $pdo->prepare("INSERT INTO otp_verifications (registration_id, otp_code, expires_at) VALUES (:reg_id, :otp, :expires)");
+        $otpStmt->execute([
+            'reg_id' => $last_id,
+            'otp' => $otp,
+            'expires' => $expires_at
+        ]);
+        
+        // --- SEND OTP EMAIL ---
+        $subject = "Verify Your Email - THIGAZH 2K26";
+        $body = "<p>Hello <b>$leader_name</b>,</p>
+                 <p>Thank you for starting your registration for THIGAZH 2K26. To ensure your security and complete your registration, please enter the following verification code:</p>
+                 <div class='otp-code'>$otp</div>
+                 <p class='otp-expiry-notice'>This code will expire in 5 minutes.</p>
+                 <p>If you did not request this code, please ignore this email.</p>";
+        
+        if (sendThigazhMail($email, $leader_name, $subject, $body)) {
+            // Redirect to verify OTP page
+            header("Location: verify_otp.php?id=" . $last_id);
+            exit;
+        } else {
+             die("<script>alert('Failed to send verification email. Please try again or check your email address.'); window.history.back();</script>");
+        }
     }
 } catch(PDOException $e) {
     die("Database Error: " . $e->getMessage());
