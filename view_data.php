@@ -1,7 +1,30 @@
 <?php
 session_start();
 
-// Check if user is logged in
+// --- 1. PREVENT BROWSER CACHING SECURELY ---
+// This stops the "back button" from showing the page after logout
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+
+// --- 2. SESSION TIMEOUT SECURITY ---
+// Set timeout duration (e.g., 2 hours = 7200 seconds)
+$timeout_duration = 7200;
+
+if (isset($_SESSION['LAST_ACTIVITY'])) {
+    if ((time() - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+        // Last request was more than the timeout duration ago
+        session_unset();     // Unset $_SESSION variable for the run-time 
+        session_destroy();   // Destroy session data in storage
+        header("Location: login.php?msg=timeout");
+        exit;
+    }
+}
+// Always update last activity time stamp
+$_SESSION['LAST_ACTIVITY'] = time();
+
+// --- 3. VERIFY LOGIN STATUS ---
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: login.php");
     exit;

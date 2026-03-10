@@ -8,6 +8,9 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
 }
 
 $error = '';
+if (isset($_GET['msg']) && $_GET['msg'] === 'timeout') {
+    $error = "Your session expired due to inactivity. Please log in again.";
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
@@ -19,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($username === $admin_user && $password === $admin_pass) {
         $_SESSION['admin_logged_in'] = true;
+        $_SESSION['LAST_ACTIVITY'] = time(); // Reset activity time on fresh login
         
         // Redirect to admin panel
         header("Location: view_data.php");

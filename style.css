@@ -289,7 +289,7 @@ section {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -315,7 +315,7 @@ section {
 }
 
 .nav-logo-img {
-  height: 60px; /* Adjust this value based on your actual PNG dimensions */
+  height: 50px; /* Adjust this value based on your actual PNG dimensions */
   width: auto;
   position: relative;
   z-index: 2;
@@ -391,7 +391,7 @@ nav a {
   color: var(--metallic-silver);
   text-decoration: none;
   font-family: var(--font-ui);
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: 700;
   position: relative;
@@ -1821,5 +1821,27 @@ select option {
     left: -1px !important;
     text-shadow: 1px 0 #550000 !important;
     animation: none !important;
+  }
+}
+
+/* Spider-Man Animation */
+#spiderman-vid {
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: 600px;
+  height: auto;
+  transform: rotate(180deg);
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: screen; /* This removes the black background! */
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  #spiderman-vid {
+    width: 350px;
+    right: -20px;
+    top: -50px;
   }
 }
