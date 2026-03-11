@@ -24,8 +24,8 @@ define('ADMIN_EMAIL', 'real.kiransurya@gmail.com');
 
 // SMTP Credentials
 define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_USER', 'real.kiransurya@gmail.com');
-define('SMTP_PASS', 'ycndvmnmenksqfcb');
+define('SMTP_USER', 'thigazh2k26@gmail.com');
+define('SMTP_PASS', 'sjnzumnddxjdzrzh');
 define('SMTP_PORT', 587);
 
 /**
