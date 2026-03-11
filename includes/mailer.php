@@ -69,7 +69,7 @@ function getThigazhEmailTemplate($title, $content) {
 }
 
 function sendThigazhMail($to_email, $to_name, $subject, $body_content, $is_html_content = true) {
-    file_put_contents('mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
+    file_put_contents(__DIR__ . '/../mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
     $mail = new PHPMailer(true);
     try {
         // SMTP Configuration

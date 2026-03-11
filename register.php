@@ -1,6 +1,6 @@
 <?php
-require_once 'config.php';
-require_once 'mailer.php';
+require_once 'includes/config.php';
+require_once 'includes/mailer.php';
 
 try {
     $pdo = getDBConnection();
