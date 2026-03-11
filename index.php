@@ -39,8 +39,10 @@
  <ul>
  <li><a href="#hero">Home</a></li>
  <li><a href="#about">About</a></li>
+  <li><a href="#services">Services</a></li>
  <li><a href="#events">Events</a></li>
  <li><a href="#pricing">Passes</a></li>
+  <li><a href="#location">Location</a></li>
  <li>
  <a href="#registration" class="highlight-register-nav">Register</a>
  </li>
@@ -177,7 +179,7 @@
  <span>&#9658;</span> Artificial Intelligence and Data Science
  (AIDS)
  </li>
- <li><span>&#9658;</span> M.Tech Computer Science</li>
+ <li><span>&#9658;</span> M.Tech Computer Science and Engineering</li>
  </ul>
  <p class="about-text">
  These departments collaboratively conduct technical events as part
@@ -187,6 +189,86 @@
  </div>
  </div>
  </section>
+
+
+  <!-- Services Section -->
+  <section id="services" class="services-section spider-section">
+    <svg class="bg-web bg-web-right bg-web-red" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M200 200 L0 200 L200 0 Z M200 150 Q150 150 150 200 M200 100 Q100 100 100 200 M200 50 Q50 50 50 200"
+        fill="none" stroke-width="2" />
+      <line x1="200" y1="200" x2="40" y2="160" stroke-width="1" />
+      <line x1="200" y1="200" x2="160" y2="40" stroke-width="1" />
+    </svg>
+    <h2 class="section-title glitch" data-text="SERVICES">SERVICES</h2>
+    <div class="container services-container">
+      <!-- Left: Service Items -->
+      <div class="services-list">
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="service-text">
+            <h3>Certificates</h3>
+            <p>All participants will receive a participation certificate. Winners will be awarded cash prizes and exciting prizes.</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="9" y1="7" x2="15" y2="7"/>
+              <line x1="9" y1="11" x2="15" y2="11"/>
+              <line x1="9" y1="15" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div class="service-text">
+            <h3>Registration</h3>
+            <p>Online registration will close on March 30th. Spot registration will be available for all events.</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              <line x1="6" y1="1" x2="6" y2="4"/>
+              <line x1="10" y1="1" x2="10" y2="4"/>
+              <line x1="14" y1="1" x2="14" y2="4"/>
+            </svg>
+          </div>
+          <div class="service-text">
+            <h3>Food will be Provided</h3>
+            <p>Refreshment and lunch will be provided for all participants throughout the event.</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4l3 5v3h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <div class="service-text">
+            <h3>Transport Facility</h3>
+            <p>Transport facilities are arranged for participants at Perundurai Bus Stand from 8 o'clock onwards. Our students will welcome you.</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- Right: College Image -->
+      <div class="services-image">
+        <img src="assets/images/college.jpg" alt="Erode Sengunthar Engineering College Entrance" class="college-img" />
+      </div>
+    </div>
+  </section>
 
  <!-- Prize Pool Section -->
  <section id="prize-pool" class="prize-section spider-section">
@@ -201,8 +283,8 @@
  <h2 class="section-title glitch" data-text="TOTAL PRIZE POOL">
  TOTAL PRIZE POOL
  </h2>
- <div class="prize-amount glitch-heavy" data-text="₹100K">
- ₹100K
+ <div class="prize-amount glitch-heavy" data-text="₹75K">
+ ₹75K
  </div>
  <p class="prize-subtext">
  Compete in teams of 1 to 4 members to claim ultimate glory.
@@ -229,18 +311,20 @@
  School of Computing.
  </p>
  <ul class="schedule-list">
- <li><span>Codeathon</span></li>
- <li><span>Project Expo</span></li>
+ <li><span>Console Craft</span></li>
+ <li><span>AI-Verse</span></li>
  </ul>
  </div>
  <div class="comic-card structure-card day-2">
  <h3>DAY 2</h3>
  <p class="desc">
- Two premier technical events conducted by departments under the
+ Three premier technical events conducted by departments under the
  School of Computing.
  </p>
  <ul class="schedule-list">
- <li><span>Console-Based App</span></li>
+ <li><span>CODE BŸTE</span></li>
+ <li><span>QUANTA</span></li>
+ <li><span>SPIDER VAULT</span></li>
  </ul>
  </div>
  </div>
@@ -259,63 +343,58 @@
  TECHNICAL BATTLES
  </h2>
  <div class="container grid-container">
- <!-- Event Card 1 -->
- <div class="comic-card event-card" onclick="openModal('modal-cse')">
+
+ <!-- Event Card 1: Console Craft -->
+ <div class="comic-card event-card" onclick="openModal('modal-consolecraft')">
  <div class="card-content">
- <h3>Codeathon</h3>
+ <h3>Console Craft</h3>
  <p class="desc">
- A high-stakes competitive coding event assessing logical
- thinking, efficiency, and debugging.
+ Build functional console-based applications that showcase logic, structure, and problem-solving creativity.
  </p>
  <button class="btn secondary-btn">Explore</button>
  </div>
  </div>
 
- <!-- Event Card 2 -->
- <div class="comic-card event-card" onclick="openModal('modal-it')">
+ <!-- Event Card 2: AI-Verse -->
+ <div class="comic-card event-card" onclick="openModal('modal-aiverse')">
  <div class="card-content">
- <h3>Project Expo</h3>
+ <h3>AI-Verse</h3>
  <p class="desc">
- Showcase your innovative technical projects and practical
- real-world applications.
- </p>
- <button class="btn secondary-btn">Explore</button>
- </div>
- </div>
-
- <!-- Event Card 3 -->
- <div class="comic-card event-card" onclick="openModal('modal-aids')">
- <div class="card-content">
- <h3>Console-Based App</h3>
- <p class="desc">
- Develop functional console software focusing on logic building
- and system design.
+ Design intelligent AI-driven solutions to tackle real-world challenges using machine learning concepts.
  </p>
  <button class="btn secondary-btn">Explore</button>
  </div>
  </div>
 
 
-
- <!-- Event Card 5 -->
- <div class="comic-card event-card" onclick="openModal('modal-mindsynth')">
+ <!-- Event Card 3: CODE BŸTE -->
+ <div class="comic-card event-card" onclick="openModal('modal-codebyte')">
  <div class="card-content">
- <h3>Intelligent Solution Design (MindSynth)</h3>
+ <h3>CODE BŸTE</h3>
  <p class="desc">
- Develop AI-driven solutions to solve real-world problems using machine learning concepts and
- responsible AI guardrails.
+ A high-stakes competitive coding event assessing logical thinking, efficiency, and debugging skills.
  </p>
  <button class="btn secondary-btn">Explore</button>
  </div>
  </div>
 
- <!-- Event Card 6 -->
- <div class="comic-card event-card" onclick="openModal('modal-arachnid')">
+ <!-- Event Card 4: QUANTA -->
+ <div class="comic-card event-card" onclick="openModal('modal-quanta')">
  <div class="card-content">
- <h3>Reverse Engineering Challenge (Arachnid Cipher)</h3>
+ <h3>QUANTA</h3>
  <p class="desc">
- Analyze given outputs, datasets, or code fragments to identify the underlying logic or
- algorithm used to generate them.
+ A mind-bending technical quiz spanning algorithms, data structures, AI, and emerging technologies.
+ </p>
+ <button class="btn secondary-btn">Explore</button>
+ </div>
+ </div>
+
+ <!-- Event Card 5: SPIDER VAULT -->
+ <div class="comic-card event-card" onclick="openModal('modal-spidervault')">
+ <div class="card-content">
+ <h3>SPIDER VAULT</h3>
+ <p class="desc">
+ Crack the code, reverse-engineer hidden logic, and escape the Spider Vault in this thrilling challenge.
  </p>
  <button class="btn secondary-btn">Explore</button>
  </div>
@@ -526,6 +605,50 @@
  </form>
  </div>
  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="location-section spider-section">
+    <svg class="bg-web bg-web-left bg-web-red" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0 L200 0 L0 200 Z M0 50 Q50 50 50 0 M0 100 Q100 100 100 0 M0 150 Q150 150 150 0" fill="none"
+        stroke-width="2" />
+      <line x1="0" y1="0" x2="160" y2="40" stroke-width="1" />
+      <line x1="0" y1="0" x2="40" y2="160" stroke-width="1" />
+    </svg>
+    <h2 class="section-title glitch" data-text="FIND US">FIND US</h2>
+    <div class="container location-container">
+      <div class="location-info">
+        <h3 class="location-college-name">Erode Sengunthar Engineering College</h3>
+        <p class="location-address">Thudupathi, Perundurai, Erode &mdash; 638057</p>
+        <p class="location-address">Tamil Nadu, India</p>
+        <div class="location-details">
+          <div class="location-detail-item">
+            <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Near Perundurai Bus Stand (~5 km)</span>
+          </div>
+          <div class="location-detail-item">
+            <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4l3 5v3h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+            <span>Transport arranged from Perundurai Bus Stand</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.296622868653!2d77.54792207502607!3d11.313016388870212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9132f4f89e445%3A0x81f682bd38f8a702!2sErode%20Sengunthar%20Engineering%20College!5e0!3m2!1sen!2sin!4v1773234503822!5m2!1sen!2sin"
+          width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Erode Sengunthar Engineering College Map">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
  </main>
 
  <footer class="main-footer">
@@ -557,179 +680,127 @@
  </footer>
 
  <!-- Modals -->
- <!-- CSE Modal -->
- <div id="modal-cse" class="modal">
+
+ <!-- Modal: Console Craft (Day 1) -->
+ <div id="modal-consolecraft" class="modal">
  <div class="modal-content comic-panel">
- <span class="close" onclick="closeModal('modal-cse')">&times;</span>
- <h2 class="glitch" data-text="Codeathon ">Codeathon</h2>
+ <span class="close" onclick="closeModal('modal-consolecraft')">&times;</span>
+ <h2 class="glitch" data-text="Console Craft">Console Craft</h2>
  <div class="modal-body">
- <div class="poster cse-poster"></div>
+ <div class="poster consolecraft-poster"></div>
  <div class="details">
- <p>
- <strong>Description:</strong> A competitive coding event designed
- to test participants’ programming and problem-solving abilities.
- </p>
- <p>
- <strong>Structure:</strong> Consists of three challenging rounds
- analyzing problems, developing algorithms, and writing optimized
- code.
- </p>
- <p>
- <strong>Evaluates:</strong> Logical thinking, efficiency, and
- debugging.
- </p>
+ <p><strong>Description:</strong> Build functional console-based applications that showcase logic, structure, and programming creativity under time pressure.</p>
+ <p><strong>Structure:</strong> Participants will be given problem statements and must develop a working console application within the allotted time.</p>
+ <p><strong>Evaluates:</strong> Programming logic, code quality, problem-solving approach, and application completeness.</p>
  <p><strong>Team Size:</strong> 1 - 4 Members</p>
  <p><strong>Schedule:</strong> Day 1</p>
- <p>
- <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
- </p>
+ <p><strong>Prize Pool Share:</strong> Part of the &#8377;100k overall pool.</p>
  <p><strong>Contact:</strong> Coordinator (9876543210)</p>
  <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('codeathon', 'royal'); closeModal('modal-cse')">Register for this
- Event</a>
+ onclick="preSelectEvent('console_craft', 'royal'); closeModal('modal-consolecraft')">Register for this Event</a>
  </div>
  </div>
  </div>
  </div>
 
- <!-- IT Modal -->
- <div id="modal-it" class="modal">
+ <!-- Modal: AI-Verse (Day 1) -->
+ <div id="modal-aiverse" class="modal">
  <div class="modal-content comic-panel">
- <span class="close" onclick="closeModal('modal-it')">&times;</span>
- <h2 class="glitch" data-text="Project Expo ">Project Expo</h2>
+ <span class="close" onclick="closeModal('modal-aiverse')">&times;</span>
+ <h2 class="glitch" data-text="AI-Verse">AI-Verse</h2>
  <div class="modal-body">
- <div class="poster it-poster"></div>
+ <div class="poster aiverse-poster"></div>
  <div class="details">
- <p>
- <strong>Description:</strong> A platform for teams to showcase
- their innovative technical projects and ideas.
- </p>
- <p>
- <strong>Structure:</strong> Present the concept, design, and
- practical applications of your project.
- </p>
- <p>
- <strong>Evaluates:</strong> Innovation, usability, feasibility,
- and real-world impact.
- </p>
+ <p><strong>Description:</strong> Design intelligent AI-driven solutions to tackle real-world challenges using machine learning concepts and responsible AI principles.</p>
+ <p><strong>Structure:</strong> Teams analyze a problem statement and design an intelligent model or prototype capable of generating meaningful insights or predictions.</p>
+ <p><strong>Evaluates:</strong> Innovation, AI model approach, technical implementation, and quality of inferences produced.</p>
  <p><strong>Team Size:</strong> 1 - 4 Members</p>
  <p><strong>Schedule:</strong> Day 1</p>
- <p>
- <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
- </p>
+ <p><strong>Prize Pool Share:</strong> Part of the &#8377;100k overall pool.</p>
  <p><strong>Contact:</strong> Coordinator (9876543211)</p>
  <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('project_expo', 'royal'); closeModal('modal-it')">Register for this
- Event</a>
+ onclick="preSelectEvent('ai_verse', 'royal'); closeModal('modal-aiverse')">Register for this Event</a>
  </div>
  </div>
  </div>
  </div>
 
- <!-- AIDS Modal -->
- <div id="modal-aids" class="modal">
+ <!-- Modal: CODE BŸTE (Day 2) -->
+ <div id="modal-codebyte" class="modal">
  <div class="modal-content comic-panel">
- <span class="close" onclick="closeModal('modal-aids')">&times;</span>
- <h2 class="glitch" data-text="Console-Based App">Console-Based App</h2>
+ <span class="close" onclick="closeModal('modal-codebyte')">&times;</span>
+ <h2 class="glitch" data-text="CODE BŸTE">CODE BŸTE</h2>
  <div class="modal-body">
- <div class="poster aids-poster"></div>
+ <div class="poster codebyte-poster"></div>
  <div class="details">
- <p>
- <strong>Description:</strong> Develop functional console-based
- software applications focusing on structured problem solving.
- </p>
- <p>
- <strong>Structure:</strong> Design and build applications using
- core programming logic and system design formatting.
- </p>
- <p>
- <strong>Evaluates:</strong> Ability to convert concepts into
- working solutions.
- </p>
+ <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1rem 1.2rem; margin-bottom: 1.2rem; font-size: 0.88rem; line-height: 1.75; color: var(--text-light);">
+ <p style="margin:0 0 0.5rem;">🕸️ <strong>Hey Coders! Your Friendly Neighborhood Spider-Man Here!</strong></p>
+ <p style="margin:0 0 0.5rem;">This mission is strictly <strong>SOLO</strong>. Just you and your brain! 🧠</p>
+ <p style="margin:0 0 0.3rem;">🕷️ <strong>Rules from the Web:</strong></p>
+ <ul style="margin:0 0 0.5rem 1.3rem; padding:0;">
+ <li>Individual participation only — prove your own superpowers!</li>
+ <li>3 thrilling rounds to test your logic, speed, and coding instincts.</li>
+ <li>Allowed languages: <strong>C, C++, Python, or Java</strong>.</li>
+ </ul>
+ <p style="margin:0;"><em>With great power comes great responsibility</em> — and a lot of fun! 🕸️</p>
+ </div>
+ <p><strong>Description:</strong> A competitive coding event designed to test participants' programming and problem-solving abilities.</p>
+ <p><strong>Structure:</strong> Three challenging rounds covering problem analysis, algorithm design, and optimized code writing.</p>
+ <p><strong>Evaluates:</strong> Logical thinking, efficiency, and debugging.</p>
+ <p><strong>Team Size:</strong> 1 (Solo only)</p>
+ <p><strong>Schedule:</strong> Day 2</p>
+ <p><strong>Prize Pool Share:</strong> Part of the &#8377;100k overall pool.</p>
+ <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+ <a href="#registration" class="btn primary-btn"
+ onclick="preSelectEvent('codebyte', 'royal'); closeModal('modal-codebyte')">Register for this Event</a>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Modal: QUANTA (Day 2) -->
+ <div id="modal-quanta" class="modal">
+ <div class="modal-content comic-panel">
+ <span class="close" onclick="closeModal('modal-quanta')">&times;</span>
+ <h2 class="glitch" data-text="QUANTA">QUANTA</h2>
+ <div class="modal-body">
+ <div class="poster quanta-poster"></div>
+ <div class="details">
+ <p><strong>Description:</strong> A mind-bending technical quiz spanning algorithms, data structures, AI, networking, and emerging technologies.</p>
+ <p><strong>Structure:</strong> Multiple rounds of rapid-fire questions, puzzles, and technical challenges that test breadth and depth of knowledge.</p>
+ <p><strong>Evaluates:</strong> Technical knowledge, speed of recall, problem-solving under pressure.</p>
  <p><strong>Team Size:</strong> 1 - 4 Members</p>
  <p><strong>Schedule:</strong> Day 2</p>
- <p>
- <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
- </p>
- <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+ <p><strong>Prize Pool Share:</strong> Part of the &#8377;100k overall pool.</p>
+ <p><strong>Contact:</strong> Coordinator (9876543213)</p>
  <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('console_app', 'royal'); closeModal('modal-aids')">Register for this
- Event</a>
+ onclick="preSelectEvent('quanta', 'royal'); closeModal('modal-quanta')">Register for this Event</a>
  </div>
  </div>
  </div>
  </div>
 
-
-
- <!-- MindSynth Modal -->
- <div id="modal-mindsynth" class="modal">
+ <!-- Modal: SPIDER VAULT (Day 2) -->
+ <div id="modal-spidervault" class="modal">
  <div class="modal-content comic-panel">
- <span class="close" onclick="closeModal('modal-mindsynth')">&times;</span>
- <h2 data-text="Intelligent Solution Design">Intelligent Solution Design (MindSynth)</h2>
+ <span class="close" onclick="closeModal('modal-spidervault')">&times;</span>
+ <h2 class="glitch" data-text="SPIDER VAULT">SPIDER VAULT</h2>
  <div class="modal-body">
- <div class="poster mindsynth-poster"></div>
+ <div class="poster spidervault-poster"></div>
  <div class="details">
- <p>
- <strong>Description:</strong> Develop AI-driven solutions to solve real-world problems using
- machine learning concepts and responsible AI guardrails.
- </p>
- <p>
- <strong>Structure:</strong> Teams analyze the problem statement and design an intelligent model
- or prototype capable of generating meaningful insights or predictions.
- </p>
- <p>
- <strong>Evaluates:</strong> Innovation, AI model approach, technical implementation, and the
- quality of inferences produced.
- </p>
- <p><strong>Team Size:</strong> 1 - 4 Members</p>
- <p><strong>Schedule:</strong> Day 1</p>
- <p>
- <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
- </p>
- <p><strong>Contact:</strong> Coordinator (9876543212)</p>
- <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('mindsynth', 'royal'); closeModal('modal-mindsynth')">Register for this
- Event</a>
- </div>
- </div>
- </div>
- </div>
-
- <!-- Arachnid Cipher Modal -->
- <div id="modal-arachnid" class="modal">
- <div class="modal-content comic-panel">
- <span class="close" onclick="closeModal('modal-arachnid')">&times;</span>
- <h2 data-text="Reverse Engineering Challenge">Reverse Engineering Challenge (Arachnid Cipher)</h2>
- <div class="modal-body">
- <div class="poster arachnid-poster"></div>
- <div class="details">
- <p>
- <strong>Description:</strong> Analyze given outputs, datasets, or code fragments to identify the
- underlying logic or algorithm used to generate them.
- </p>
- <p>
- <strong>Structure:</strong> Participants investigate patterns, debug code, and reconstruct the
- original approach through analytical reasoning.
- </p>
- <p>
- <strong>Evaluates:</strong> Problem-solving ability, debugging skills, logical reasoning, and
- accuracy of the reconstructed solution.
- </p>
+ <p><strong>Description:</strong> Crack the code, reverse-engineer hidden logic, and escape the Spider Vault in this thrilling cryptography and reverse-engineering challenge.</p>
+ <p><strong>Structure:</strong> Participants investigate patterns, decode encrypted data, and reconstruct the original approach through analytical reasoning.</p>
+ <p><strong>Evaluates:</strong> Problem-solving ability, debugging skills, logical reasoning, and accuracy of the reconstructed solution.</p>
  <p><strong>Team Size:</strong> 1 - 4 Members</p>
  <p><strong>Schedule:</strong> Day 2</p>
- <p>
- <strong>Prize Pool Share:</strong> Part of the ₹60k overall pool.
- </p>
- <p><strong>Contact:</strong> Coordinator (9876543212)</p>
+ <p><strong>Prize Pool Share:</strong> Part of the &#8377;100k overall pool.</p>
+ <p><strong>Contact:</strong> Coordinator (9876543214)</p>
  <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('arachnid', 'royal'); closeModal('modal-arachnid')">Register for this
- Event</a>
+ onclick="preSelectEvent('spider_vault', 'royal'); closeModal('modal-spidervault')">Register for this Event</a>
  </div>
  </div>
  </div>
  </div>
-
  <!-- Script -->
  <script src="assets/js/script.js"></script>
 </body>

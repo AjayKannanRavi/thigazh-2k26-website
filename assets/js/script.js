@@ -98,76 +98,102 @@ function selectPass(passType) {
  updateEventSelects();
 }
 
-// Dynamic Event Selects based on Pass
+const day1Events = [
+  { val: 'console_craft', name: 'Console Craft - Day 1' },
+  { val: 'ai_verse', name: 'AI-Verse - Day 1' }
+];
+
+const day2Events = [
+  { val: 'codebyte', name: 'CODE BŸTE - Day 2' },
+  { val: 'quanta', name: 'QUANTA - Day 2' },
+  { val: 'spider_vault', name: 'SPIDER VAULT - Day 2' }
+];
+
+const allEvents = [...day1Events, ...day2Events];
+
 function updateEventSelects() {
- const passType = document.getElementById('pass_type').value;
- const selectionArea = document.getElementById('events-selection-area');
- selectionArea.innerHTML = '';
- 
- const day1Events = [
- {val: 'codeathon', name: 'Codeathon - Day 1'},
- {val: 'project_expo', name: 'Project Expo - Day 1'},
- {val: 'mindsynth', name: 'Intelligent Solution Design (MindSynth) - Day 1'}
- ];
+  const passType = document.getElementById('pass_type').value;
+  const selectionArea = document.getElementById('events-selection-area');
+  selectionArea.innerHTML = '';
 
- const day2Events = [
- {val: 'console_app', name: 'Console-Based App ️ - Day 2'},
- {val: 'arachnid', name: 'Reverse Engineering Challenge (Arachnid Cipher) ️ - Day 2'}
- ];
+  if (!passType) return;
 
- const allEvents = [...day1Events, ...day2Events];
+  const generateCheckboxes = (title, events, groupName) => {
+    return `
+      <div class="input-group">
+        <label>${title}</label>
+        <div class="checkbox-group" data-group="${groupName}">
+          ${events.map(e => `
+            <div class="checkbox-item">
+              <input type="checkbox" id="ev-${e.val}" name="selected_events[]" value="${e.val}" onchange="enforceSelectionLimits()">
+              <label for="ev-${e.val}">${e.name}</label>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  };
 
- let selectHTML = (title, options, name = "selected_events[]") => `
- <div class="input-group">
- <label>${title}</label>
- <select name="${name}" required>
- <option value="">-- Choose Event --</option>
- ${options.map(e => `<option value="${e.val}">${e.name}</option>`).join('')}
- </select>
- </div>
- `;
+  if (passType === 'royal') {
+    selectionArea.innerHTML = `
+      <div class="form-subtitle">Royal Pass (Choose 1 Event from Day 1 OR Day 2)</div>
+      ${generateCheckboxes('Select Your 1 Event', allEvents, 'royal')}
+    `;
+  } else if (passType === 'elite') {
+    selectionArea.innerHTML = `
+      <div class="form-subtitle">Elite Pass (Choose 1 Event from Day 1 AND 1 Event from Day 2)</div>
+      ${generateCheckboxes('Day 1 Events', day1Events, 'day1')}
+      ${generateCheckboxes('Day 2 Events', day2Events, 'day2')}
+    `;
+  }
+  
+  calculateTotal();
+}
 
- if (passType === 'royal') {
- // User must first pick the day to see events, or just show two separate groupings and enforce they pick one
- selectionArea.innerHTML = `
- <div class="form-subtitle">Royal Pass (Choose 1 Event from either Day 1 OR Day 2)</div>
- ${selectHTML('Select Your 1 Event', allEvents)}
- `;
- } else if (passType === 'elite') {
- selectionArea.innerHTML = `
- <div class="form-subtitle">Elite Pass (Choose 1 Event from Day 1 AND 1 Event from Day 2)</div>
- ${selectHTML('Select Event for Day 1', day1Events, "selected_events_day1")}
- ${selectHTML('Select Event for Day 2', day2Events, "selected_events_day2")}
- `;
- }
- 
- calculateTotal();
+function enforceSelectionLimits() {
+  const passType = document.getElementById('pass_type').value;
+  const checkboxes = document.querySelectorAll('#events-selection-area input[type="checkbox"]');
+  const checked = Array.from(checkboxes).filter(cb => cb.checked);
+
+  if (passType === 'royal') {
+    checkboxes.forEach(cb => {
+      if (!cb.checked) cb.disabled = (checked.length >= 1);
+      else cb.disabled = false; // Re-enable if checked, so user can uncheck
+    });
+  } else if (passType === 'elite') {
+    const day1Checkboxes = document.querySelectorAll('.checkbox-group[data-group="day1"] input');
+    const day2Checkboxes = document.querySelectorAll('.checkbox-group[data-group="day2"] input');
+    
+    const day1Checked = Array.from(day1Checkboxes).filter(cb => cb.checked);
+    const day2Checked = Array.from(day2Checkboxes).filter(cb => cb.checked);
+
+    day1Checkboxes.forEach(cb => {
+      if (!cb.checked) cb.disabled = (day1Checked.length >= 1);
+      else cb.disabled = false;
+    });
+    day2Checkboxes.forEach(cb => {
+      if (!cb.checked) cb.disabled = (day2Checked.length >= 1);
+      else cb.disabled = false;
+    });
+  }
 }
 
 // Pre-select Event from Modal
 function preSelectEvent(eventVal, passType) {
- const passSelect = document.getElementById('pass_type');
- if (passSelect) {
- passSelect.value = passType;
- updateEventSelects();
- 
- setTimeout(() => {
- const eventDropdowns = document.querySelectorAll('#events-selection-area select');
- if (eventDropdowns.length > 0) {
- if (passType === 'royal') {
- eventDropdowns[0].value = eventVal;
- } else if (passType === 'elite') {
- // For Elite, try to match it specifically. If it's a day 1 event, set first select.
- const day1Vals = ['codeathon', 'project_expo', 'mindsynth'];
- const day2Vals = ['console_app', 'arachnid'];
- 
- if (day1Vals.includes(eventVal)) eventDropdowns[0].value = eventVal;
- if (day2Vals.includes(eventVal)) eventDropdowns[1].value = eventVal;
- }
- }
- calculateTotal();
- }, 50);
- }
+  const passSelect = document.getElementById('pass_type');
+  if (passSelect) {
+    passSelect.value = passType;
+    updateEventSelects();
+    
+    setTimeout(() => {
+      const checkbox = document.querySelector(`#events-selection-area input[value="${eventVal}"]`);
+      if (checkbox) {
+        checkbox.checked = true;
+        enforceSelectionLimits();
+      }
+      calculateTotal();
+    }, 50);
+  }
 }
 
 // Calculate Total Pricing

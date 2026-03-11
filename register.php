@@ -24,14 +24,8 @@ try {
             showErrorPage("Incomplete Data", "Please fill in all required fields.");
         }
 
-        // Handle events selection — Royal uses selected_events[], Elite uses selected_events_day1 & selected_events_day2
-        if ($pass_type === 'elite') {
-            $day1 = trim($_POST['selected_events_day1'] ?? '');
-            $day2 = trim($_POST['selected_events_day2'] ?? '');
-            $selected_events = array_filter([$day1, $day2]); // remove empty values
-        } else {
-            $selected_events = isset($_POST['selected_events']) ? (array)$_POST['selected_events'] : [];
-        }
+        // Handle events selection — Both Royal and Elite now use selected_events[] via checkboxes
+        $selected_events = isset($_POST['selected_events']) ? (array)$_POST['selected_events'] : [];
         
         // Elite pass validation
         if ($pass_type === 'elite' && count($selected_events) !== 2) {
@@ -77,6 +71,7 @@ try {
         ]);
         
         $last_id = $pdo->lastInsertId();
+        
         
         // Generate and Store OTP
         $otp = sprintf("%06d", mt_rand(1, 999999));

@@ -17,13 +17,13 @@ require_once $phpmailer_base . 'SMTP.php';
  * Returns a human-readable name for an event ID.
  */
 function getEventDisplayName($eventId) {
- $events = [
- 'codeathon' => 'Codeathon (Day 1)',
- 'project_expo' => 'Project Expo (Day 1)',
- 'mindsynth' => 'MindSynth (Day 1)',
- 'console_app' => 'Console-Based App ️ (Day 2)',
- 'arachnid' => 'Arachnid Cipher ️ (Day 2)'
- ];
+    $events = [
+        'console_craft' => 'Console Craft (Day 1)',
+        'ai_verse' => 'AI-Verse (Day 1)',
+        'codebyte' => 'CODE BŸTE (Day 2)',
+        'quanta' => 'QUANTA (Day 2)',
+        'spider_vault' => 'SPIDER VAULT (Day 2)'
+    ];
  return isset($events[$eventId]) ? $events[$eventId] : ucfirst(str_replace('_', ' ', $eventId));
 }
 
