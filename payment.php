@@ -1,7 +1,7 @@
 <?php
-require_once 'includes/config.php';
+require_once 'config.php';
 secure_session_start();
-require_once 'includes/mailer.php';
+require_once 'mailer.php';
 
 try {
     $pdo = getDBConnection();
@@ -166,7 +166,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href=" style.css">
     <style>
         body {
             display: flex;
@@ -268,6 +268,6 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     </div>
 
     <!-- Keep background particles active for aesthetics -->
-    <script src="assets/js/script.js"></script>
+    <script src=" script.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
-require_once '../includes/config.php';
+require_once 'config.php';
 secure_session_start();
 send_security_headers();
-require_once '../includes/mailer.php';
+require_once 'mailer.php';
 
 // Verify login status
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {

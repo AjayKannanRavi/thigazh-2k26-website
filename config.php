@@ -13,7 +13,7 @@ define('ADMIN_USER', 'thigazh.positivity');
 define('ADMIN_PASS', 'BOYS@CSE');
 
 // File & Path Configuration
-define('BASE_PATH', dirname(__DIR__));
+define('BASE_PATH', __DIR__);
 define('UPLOAD_DIR', BASE_PATH . '/uploads/');
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
 $self = isset($_SERVER['PHP_SELF']) ? dirname($_SERVER['PHP_SELF']) : '';

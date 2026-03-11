@@ -1,4 +1,4 @@
-<?php require_once 'includes/config.php'; ?>
+<?php require_once 'config.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <header class="navbar">
         <div class="nav-logo-container" style="position: relative; display: inline-block">
             <!-- Replace 'logo.png' with your actual image path -->
-            <img src="assets/images/logo.png" alt="THIGAZH Logo" class="nav-logo-img" />
+            <img src="images/logo.png" alt="THIGAZH Logo" class="nav-logo-img" />
         </div>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -52,7 +52,7 @@
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <video id="spiderman-vid" autoplay loop muted playsinline>
-                <source src="assets/spider-man-marvel-rivals.1920x1080.mp4" type="video/mp4">
+                <source src="spider-man-marvel-rivals.1920x1080.mp4" type="video/mp4">
             </video>
             <!-- Hero Web Decorators -->
             <!-- Classic Top Center Spider Web -->
@@ -731,7 +731,7 @@
     </div>
 
     <!-- Script -->
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
