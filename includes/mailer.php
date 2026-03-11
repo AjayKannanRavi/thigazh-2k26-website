@@ -18,8 +18,8 @@ require_once $phpmailer_base . 'SMTP.php';
  */
 function getEventDisplayName($eventId) {
     $events = [
-        'console_craft' => 'Console Craft (Day 1)',
-        'ai_verse' => 'AI-Verse (Day 1)',
+        'console_craft' => 'CONSOLE CRAFT (Day 1)',
+        'ai_verse' => 'AI-VERSE (Day 1)',
         'codebyte' => 'CODE BŸTE (Day 2)',
         'quanta' => 'QUANTA (Day 2)',
         'spider_vault' => 'SPIDER VAULT (Day 2)'

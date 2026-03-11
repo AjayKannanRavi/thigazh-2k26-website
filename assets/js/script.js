@@ -99,8 +99,8 @@ function selectPass(passType) {
 }
 
 const day1Events = [
-  { val: 'console_craft', name: 'Console Craft - Day 1' },
-  { val: 'ai_verse', name: 'AI-Verse - Day 1' }
+  { val: 'console_craft', name: 'CONSOLE CRAFT - Day 1' },
+  { val: 'ai_verse', name: 'AI-VERSE - Day 1' }
 ];
 
 const day2Events = [

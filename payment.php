@@ -37,7 +37,12 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
     $pay_id = (int)$_POST['pay_id'];
-    $transaction_id = htmlspecialchars($_POST['transaction_id']);
+    $transaction_id = trim(htmlspecialchars($_POST['transaction_id']));
+    
+    // Server-side validation: Greater than 10 digits (at least 11 characters)
+    if (strlen($transaction_id) < 11) {
+        showErrorPage("Invalid Transaction ID", "The Transaction ID must be at least 11 digits long. Please double-check your payment confirmation.");
+    }
     
     $screenshot_path = null;
     if (isset($_FILES['payment_screenshot']) && $_FILES['payment_screenshot']['error'] == 0) {
@@ -56,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         $target_file = $upload_dir . $filename;
         
         if (move_uploaded_file($_FILES['payment_screenshot']['tmp_name'], $target_file)) {
-            $screenshot_path = $target_file;
+            $screenshot_path = 'uploads/' . $filename;
         } else {
             showErrorPage("Upload Failed", "Failed to upload your payment screenshot. Please try again or check the file size.");
         }
@@ -273,7 +278,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
             
             <div class="input-group" style="margin-top: 1rem; text-align: left;">
                 <label for="transaction_id">Transaction ID / UTR Number</label>
-                <input type="text" id="transaction_id" name="transaction_id" required placeholder="e.g. 123456789012">
+                <input type="text" id="transaction_id" name="transaction_id" required minlength="11" placeholder="e.g. 123456789012" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
             </div>
 
             <div class="input-group" style="text-align: left; margin-bottom: 2rem;">

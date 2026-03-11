@@ -1201,20 +1201,11 @@ select option {
   flex-wrap: wrap;
 }
 
-.poster {
-  flex: 1;
-  min-width: 250px;
-  height: 350px;
-  background: #111;
-  border: 2px dashed var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .details {
-  flex: 2;
-  min-width: 300px;
+  flex: 1;
+  width: 100%;
 }
 
 .details p {
@@ -1830,10 +1821,7 @@ select option {
   .modal-body {
     flex-direction: column !important;
   }
-  .poster {
-    height: 200px !important;
-    width: 100% !important;
-  }
+
 
   /* Responsive SVGs */
   .corner-web {

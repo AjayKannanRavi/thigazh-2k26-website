@@ -165,11 +165,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label>Select Events</label>
             <div class="event-grid">
-                <div class="event-item"><input type="checkbox" name="selected_events[]" value="codeathon"> Codeathon (Day 1)</div>
-                <div class="event-item"><input type="checkbox" name="selected_events[]" value="project_expo"> Project Expo (Day 1)</div>
-                <div class="event-item"><input type="checkbox" name="selected_events[]" value="mindsynth"> MindSynth (Day 1)</div>
-                <div class="event-item"><input type="checkbox" name="selected_events[]" value="console_app"> Console App (Day 2)</div>
-                <div class="event-item"><input type="checkbox" name="selected_events[]" value="arachnid"> Arachnid Cipher (Day 2)</div>
+                <div class="event-item"><input type="checkbox" name="selected_events[]" value="console_craft"> CONSOLE CRAFT (Day 1)</div>
+                <div class="event-item"><input type="checkbox" name="selected_events[]" value="ai_verse"> AI-VERSE (Day 1)</div>
+                <div class="event-item"><input type="checkbox" name="selected_events[]" value="codebyte"> CODE BŸTE (Day 2)</div>
+                <div class="event-item"><input type="checkbox" name="selected_events[]" value="quanta"> QUANTA (Day 2)</div>
+                <div class="event-item"><input type="checkbox" name="selected_events[]" value="spider_vault"> SPIDER VAULT (Day 2)</div>
             </div>
 
             <button type="submit" class="btn-submit">Add Record</button>

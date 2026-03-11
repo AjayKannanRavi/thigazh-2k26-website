@@ -426,11 +426,13 @@ try {
                             <td style="text-transform:uppercase;"><?= htmlspecialchars($reg['pass_type']) ?></td>
                             <td>
                                 <?php 
+                                    require_once '../includes/mailer.php'; // Ensure function is available
                                     $events = json_decode($reg['selected_events'], true);
                                     if(is_array($events)) {
-                                        echo implode(', <br>', array_map('htmlspecialchars', $events));
+                                        $display_names = array_map('getEventDisplayName', $events);
+                                        echo implode(', <br>', array_map('htmlspecialchars', $display_names));
                                     } else {
-                                        echo htmlspecialchars($reg['selected_events']);
+                                        echo htmlspecialchars(getEventDisplayName($reg['selected_events']));
                                     }
                                 ?>
                             </td>
@@ -445,8 +447,16 @@ try {
                             </td>
                             <td><?= htmlspecialchars($reg['transaction_id'] ?? 'N/A') ?></td>
                             <td>
-                                <?php if (!empty($reg['screenshot_path'])): ?>
-                                    <a href="<?= htmlspecialchars($reg['screenshot_path']) ?>" target="_blank" class="screenshot-btn">View Image</a>
+                                <?php if (!empty($reg['screenshot_path'])): 
+                                    $imgPath = $reg['screenshot_path'];
+                                    // Handle legacy absolute paths by extracting filename
+                                    if (strpos($imgPath, 'thigazh-2k26-website') !== false) {
+                                        $imgPath = 'uploads/' . basename($imgPath);
+                                    }
+                                    // Ensure relative path from admin/ directory
+                                    $imageUrl = '../' . (strpos($imgPath, 'uploads/') === 0 ? $imgPath : 'uploads/' . $imgPath);
+                                ?>
+                                    <a href="<?= htmlspecialchars($imageUrl) ?>" target="_blank" class="screenshot-btn">View Image</a>
                                 <?php else: ?>
                                     <span style="color:#555;">No Image</span>
                                 <?php endif; ?>

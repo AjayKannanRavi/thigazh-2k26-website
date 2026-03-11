@@ -95,9 +95,9 @@ try {
             if (is_array($events)) {
                 foreach ($events as $event) {
                     if (is_array($event)) {
-                        foreach ($event as $e) $event_list .= "<li>" . htmlspecialchars($e) . "</li>";
+                        foreach ($event as $e) $event_list .= "<li>" . getEventDisplayName($e) . "</li>";
                     } else {
-                        $event_list .= "<li>" . htmlspecialchars($event) . "</li>";
+                        $event_list .= "<li>" . getEventDisplayName($event) . "</li>";
                     }
                 }
             }
