@@ -26,6 +26,43 @@ if ($reg['is_verified']) {
 }
 
 $error = '';
+$success = '';
+
+// RESEND OTP LOGIC
+if (isset($_GET['resend']) && $_GET['resend'] == 1) {
+    // Generate new OTP
+    $otp = sprintf("%06d", mt_rand(100000, 999999));
+    $expires = date('Y-m-d H:i:s', strtotime('+10 minutes'));
+    
+    // Insert new OTP
+    $otp_stmt = $pdo->prepare("INSERT INTO otp_verifications (registration_id, otp_code, expires_at) VALUES (:reg_id, :otp, :expires)");
+    $otp_stmt->execute(['reg_id' => $id, 'otp' => $otp, 'expires' => $expires]);
+    
+    // Fetch user details for email
+    $user_stmt = $pdo->prepare("SELECT leader_name, email FROM registrations WHERE id = :id");
+    $user_stmt->execute(['id' => $id]);
+    $user = $user_stmt->fetch();
+    
+    if ($user) {
+        $subject = "Your New Verification Code - THIGAZH 2K26";
+        $body = "
+            <h2>New Registration OTP</h2>
+            <p>You requested a new verification code for THIGAZH 2K26, <strong>{$user['leader_name']}</strong>.</p>
+            <p>Your new verification code is:</p>
+            <div style='background: #1a1a1a; padding: 20px; text-align: center; border: 1px solid #ff003c; border-radius: 4px;'>
+                <span style='font-size: 32px; font-weight: bold; color: #ff003c; letter-spacing: 5px;'>$otp</span>
+            </div>
+            <p style='color: #888; font-size: 0.9rem;'>This OTP is valid for 10 minutes. If you didn't request this, please ignore this email.</p>
+        ";
+        
+        if (sendThigazhMail($user['email'], $user['leader_name'], $subject, $body)) {
+            $success = "A new verification code has been sent to your email.";
+        } else {
+            $error = "Failed to send new OTP. Please check your email address or try again later.";
+        }
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $entered_otp = trim($_POST['otp'] ?? '');
@@ -155,13 +192,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="error"><?php echo $error; ?></div>
         <?php endif; ?>
 
+        <?php if ($success): ?>
+            <div style="color: #00e5ff; font-weight: bold; margin-bottom: 1rem;"><?php echo $success; ?></div>
+        <?php endif; ?>
+
         <form method="POST">
             <input type="text" name="otp" class="otp-input" maxlength="6" pattern="\d{6}" required placeholder="000000" autocomplete="one-time-code">
             <button type="submit" class="btn-verify">Verify OTP</button>
         </form>
 
         <div class="footer-links">
-            <p>Didn't receive code? <a href="javascript:location.reload()">Resend OTP</a></p>
+            <p>Didn't receive code? <a href="?id=<?php echo $id; ?>&resend=1">Resend OTP</a></p>
             <a href="index.php#registration">Change Email</a>
         </div>
     </div>

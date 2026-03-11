@@ -24,6 +24,19 @@ try {
             showErrorPage("Incomplete Data", "Please fill in all required fields.");
         }
 
+        // CHECK FOR DUPLICATE EMAIL
+        $check_stmt = $pdo->prepare("SELECT id, is_verified FROM registrations WHERE email = :email LIMIT 1");
+        $check_stmt->execute(['email' => $email]);
+        $existing = $check_stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($existing) {
+            if ($existing['is_verified']) {
+                showErrorPage("Already Registered", "This email (<strong>$email</strong>) is already registered and verified for THIGAZH 2K26. Each participant can only register once.");
+            } else {
+                showErrorPage("Registration Pending", "A registration is already in progress for this email (<strong>$email</strong>). Please check your inbox for the verification code to complete it, or <a href='verify_otp.php?id={$existing['id']}'>click here to verify now</a>.");
+            }
+        }
+
         // Handle events selection — Both Royal and Elite now use selected_events[] via checkboxes
         $selected_events = isset($_POST['selected_events']) ? (array)$_POST['selected_events'] : [];
         

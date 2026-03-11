@@ -1283,6 +1283,77 @@ select option {
   margin-bottom: 0.5rem;
 }
 
+/* Premium Contact Styles */
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 0, 60, 0.05);
+  border-left-color: var(--neon-red);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contact-dept {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.contact-phone {
+  font-size: 0.85rem;
+  color: var(--neon-red);
+  font-family: var(--font-ui);
+  display: block;
+  margin-top: 2px;
+}
+
+.call-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--neon-red);
+  color: white !important;
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 60, 0.2);
+}
+
+.call-btn:hover {
+  background: white;
+  color: var(--neon-red) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.call-btn svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: 1.5rem;
@@ -2182,6 +2253,51 @@ select option {
         padding: 0.8rem;
     }
     .checkbox-item label {
+        font-size: 0.85rem;
+    }
+    
+    .footer-contacts {
+        gap: 2.5rem;
+        min-width: 0; /* Remove restriction for mobile */
+    }
+    .contact-group {
+        min-width: 100%; /* Take full width to prevent side-by-side clipping */
+    }
+    .contact-item {
+        padding: 1rem;
+        margin-bottom: 1.2rem;
+        flex-wrap: wrap; /* Allow stacking on very small screens */
+        gap: 1rem;
+    }
+    .contact-info {
+        flex: 1;
+        min-width: 150px; /* Ensure text doesn't get too squashed before stacking */
+    }
+    .contact-name {
+        font-size: 0.95rem;
+    }
+    .contact-phone {
+        font-size: 0.85rem !important;
+        margin-top: 6px;
+        letter-spacing: 1.2px;
+    }
+    .call-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+        width: 100%; /* Full width button on mobile for better touch target */
+        justify-content: center;
+    }
+}
+
+/* Extra tight screens (unlikely but safe) */
+@media (max-width: 400px) {
+    .main-footer {
+        padding: 2rem 0.5rem;
+    }
+    .contact-item {
+        padding: 0.8rem;
+    }
+    .contact-name {
         font-size: 0.85rem;
     }
 }

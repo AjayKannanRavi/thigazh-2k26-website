@@ -66,7 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
             showErrorPage("Upload Failed", "Failed to upload your payment screenshot. Please try again or check the file size.");
         }
     } else {
-        showErrorPage("Screenshot Missing", "Please upload a clear screenshot of your payment confirmation to proceed.");
+        $error_msg = "Please upload a clear screenshot of your payment confirmation to proceed.";
+        if (isset($_FILES['payment_screenshot']) && $_FILES['payment_screenshot']['error'] != 0) {
+            $error_msg .= " (Error code: " . $_FILES['payment_screenshot']['error'] . ")";
+        }
+        showErrorPage("Screenshot Missing", $error_msg);
     }
 
     $stmt = $pdo->prepare("UPDATE registrations SET payment_status = 'Pending Verification', transaction_id = :txn_id, screenshot_path = :screenshot WHERE id = :id");
@@ -277,13 +281,14 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
             <input type="hidden" name="pay_id" value="<?= $reg['id'] ?>">
             
             <div class="input-group" style="margin-top: 1rem; text-align: left;">
-                <label for="transaction_id">Transaction ID / UTR Number</label>
+                <label for="transaction_id">Transaction ID / UTR Number <span style="color: var(--neon-red);">*</span></label>
                 <input type="text" id="transaction_id" name="transaction_id" required minlength="11" placeholder="e.g. 123456789012" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
             </div>
 
             <div class="input-group" style="text-align: left; margin-bottom: 2rem;">
-                <label for="payment_screenshot">Upload Payment Screenshot (JPG/PNG)</label>
-                <input type="file" id="payment_screenshot" name="payment_screenshot" accept="image/*" required style="padding: 0.5rem; background: rgba(255,255,255,0.05); color: white; border: 2px solid #555; width: 100%; font-family: inherit; box-sizing: border-box;">
+                <label for="payment_screenshot">Upload Payment Screenshot (JPG/PNG) <span style="color: var(--neon-red);">*</span></label>
+                <input type="file" id="payment_screenshot" name="payment_screenshot" accept="image/*" required style="padding: 0.5rem; background: rgba(255,255,255,0.05); color: white; border: 2px solid #555; width: 100%; font-family: inherit; box-sizing: border-box;" onchange="validateFileSize(this)">
+                <small id="file-error" style="color: var(--neon-red); display: none; margin-top: 0.5rem;"></small>
             </div>
 
             <button type="submit" class="btn primary-btn g-btn" style="width:100%">SUBMIT PAYMENT DETAILS</button>
@@ -292,6 +297,19 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
 
     <!-- Keep background particles active for aesthetics -->
     <script src="assets/js/script.js"></script>
+    <script>
+        function validateFileSize(input) {
+            const file = input.files[0];
+            const errorElement = document.getElementById('file-error');
+            if (file && file.size > 5 * 1024 * 1024) { // 5MB limit
+                errorElement.innerText = "File size must be less than 5MB.";
+                errorElement.style.display = "block";
+                input.value = ""; // Clear the selection
+            } else {
+                errorElement.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

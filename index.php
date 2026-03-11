@@ -661,15 +661,75 @@
  <div class="footer-contacts">
  <div class="contact-group">
  <h4>Staff Coordinators</h4>
- <p>Dr. Example Name (CSE) - 9876543210</p>
- <p>Prof. Example Name (IT) - 9876543211</p>
+ <div class="contact-item">
+ <div class="contact-info">
+ <span class="contact-name">Dr. Example Name</span>
+ <span class="contact-dept">CSE - Staff Coordinator</span>
+ <span class="contact-phone">9876543210</span>
+ </div>
+ <a href="tel:9876543210" class="call-btn">
+ <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ CALL
+ </a>
+ </div>
+ <div class="contact-item">
+ <div class="contact-info">
+ <span class="contact-name">Prof. Example Name</span>
+ <span class="contact-dept">IT - Staff Coordinator</span>
+ <span class="contact-phone">9876543211</span>
+ </div>
+ <a href="tel:9876543211" class="call-btn">
+ <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ CALL
+ </a>
+ </div>
  </div>
  <div class="contact-group">
  <h4>Student Coordinators</h4>
- <p>M.Boomika (CSE) - 6369661751</p>
- <p>P. Mukunthan (AI & DS) - 8778966374</p>
- <p>P.R. Akilan (M.Tech) - 9597139182</p>
- <p>P. Subash (IT) - 8248758492</p>
+ <div class="contact-item">
+ <div class="contact-info">
+ <span class="contact-name">M.Boomika</span>
+ <span class="contact-dept">CSE - Student Coordinator</span>
+ <span class="contact-phone">6369661751</span>
+ </div>
+ <a href="tel:6369661751" class="call-btn">
+ <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ CALL
+ </a>
+ </div>
+ <div class="contact-item">
+ <div class="contact-info">
+ <span class="contact-name">P. Mukunthan</span>
+ <span class="contact-dept">AI & DS - Student Coordinator</span>
+ <span class="contact-phone">8778966374</span>
+ </div>
+ <a href="tel:8778966374" class="call-btn">
+ <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ CALL
+ </a>
+ </div>
+ <div class="contact-item">
+ <div class="contact-info">
+ <span class="contact-name">P.R. Akilan</span>
+ <span class="contact-dept">M.Tech CSE - Student Coordinator</span>
+ <span class="contact-phone">9597139182</span>
+ </div>
+ <a href="tel:9597139182" class="call-btn">
+ <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ CALL
+ </a>
+ </div>
+ <div class="contact-item">
+ <div class="contact-info">
+ <span class="contact-name">P. Subash</span>
+ <span class="contact-dept">IT - Student Coordinator</span>
+ <span class="contact-phone">8248758492</span>
+ </div>
+ <a href="tel:8248758492" class="call-btn">
+ <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+ CALL
+ </a>
+ </div>
 
  </div>
  </div>

@@ -807,3 +807,29 @@
 2026-03-11 22:19:59 [CALL] sendThigazhMail triggered for: yukeshwaranreva@gmail.com
 
 2026-03-11 22:20:04 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-11 22:37:55 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+2026-03-11 22:37:58 [ERROR] SMTP Error: Could not authenticate.
+
+2026-03-11 22:40:05 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+2026-03-11 22:40:08 [ERROR] SMTP Error: Could not authenticate.
+
+2026-03-11 22:52:29 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-11 22:52:58 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-11 22:53:03 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-11 22:53:42 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-11 22:53:48 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-11 22:57:58 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-11 22:58:22 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-11 22:58:29 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-11 22:59:51 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-11 22:59:56 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
