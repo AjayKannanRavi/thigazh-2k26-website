@@ -12,6 +12,20 @@ try {
     
     $id = isset($_GET['id']) ? (int)$_GET['id'] : (int)$_POST['pay_id'];
     
+    // VERIFICATION CHECK: Ensure user is verified via OTP
+    $stmt = $pdo->prepare("SELECT is_verified FROM registrations WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    $reg_check = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$reg_check) {
+        showErrorPage("Registration Not Found", "We couldn't find your registration record.");
+    }
+    
+    if (!$reg_check['is_verified']) {
+        header("Location: verify_otp.php?id=" . $id);
+        exit;
+    }
+    
 } catch(PDOException $e) {
     showErrorPage("Database Error", $e->getMessage());
 }
@@ -56,11 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         $event_list = "<ul>";
         if (is_array($events)) {
             foreach ($events as $event) {
-                // If it's a nested array (like Elite pass day1/day2), flatten it
                 if (is_array($event)) {
-                    foreach ($event as $e) $event_list .= "<li>" . htmlspecialchars($e) . "</li>";
+                    foreach ($event as $e) $event_list .= "<li>" . getEventDisplayName($e) . "</li>";
                 } else {
-                    $event_list .= "<li>" . htmlspecialchars($event) . "</li>";
+                    $event_list .= "<li>" . getEventDisplayName($event) . "</li>";
                 }
             }
         }

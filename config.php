@@ -137,4 +137,33 @@ function showErrorPage($title, $message) {
     </html>
     ");
 }
+
+/**
+ * Starts a session with secure cookie parameters.
+ */
+function secure_session_start() {
+    if (session_status() === PHP_SESSION_NONE) {
+        // Set secure cookie parameters
+        session_set_cookie_params([
+            'lifetime' => 0, // Session cookie
+            'path' => '/',
+            'domain' => $_SERVER['HTTP_HOST'],
+            'secure' => isset($_SERVER['HTTPS']), // Only send over HTTPS if available
+            'httponly' => true, // Prevent JS access
+            'samesite' => 'Lax' // CSRF protection
+        ]);
+        session_start();
+    }
+}
+
+/**
+ * Sends standard security headers to the browser.
+ */
+function send_security_headers() {
+    header("X-Frame-Options: SAMEORIGIN");
+    header("X-XSS-Protection: 1; mode=block");
+    header("X-Content-Type-Options: nosniff");
+    header("Referrer-Policy: strict-origin-when-cross-origin");
+    header("Content-Security-Policy: default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:;");
+}
 ?>

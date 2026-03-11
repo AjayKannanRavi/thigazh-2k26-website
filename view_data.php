@@ -1,13 +1,14 @@
 <?php
-session_start();
 require_once 'config.php';
+secure_session_start();
+send_security_headers();
 require_once 'mailer.php';
 
-// --- 1. PREVENT BROWSER CACHING SECURELY ---
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');
-header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+// Verify login status
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
 
 // --- 2. SESSION TIMEOUT SECURITY ---
 $timeout_duration = 7200;
@@ -52,9 +53,9 @@ try {
             if (is_array($events)) {
                 foreach ($events as $event) {
                     if (is_array($event)) {
-                        foreach ($event as $e) $event_list .= "<li>" . htmlspecialchars($e) . "</li>";
+                        foreach ($event as $e) $event_list .= "<li>" . getEventDisplayName($e) . "</li>";
                     } else {
-                        $event_list .= "<li>" . htmlspecialchars($event) . "</li>";
+                        $event_list .= "<li>" . getEventDisplayName($event) . "</li>";
                     }
                 }
             }

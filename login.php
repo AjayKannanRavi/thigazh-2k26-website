@@ -1,6 +1,7 @@
 <?php
-session_start();
 require_once 'config.php';
+secure_session_start();
+send_security_headers();
 
 // Check if already logged in
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
@@ -15,17 +16,22 @@ if (isset($_GET['msg']) && $_GET['msg'] === 'timeout') {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $password = $_POST['password'];
 
-    // Hardcoded Admin Credentials
-    $admin_user = 'thigazh.positivity';
-    $admin_pass = 'BOYS@CSE'; // You can change this to a stronger password
+    $pdo = getDBConnection();
+    $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :username");
+    $stmt->execute(['username' => $username]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($username === $admin_user && $password === $admin_pass) {
-        $_SESSION['admin_logged_in'] = true;
-        $_SESSION['LAST_ACTIVITY'] = time(); // Reset activity time on fresh login
+    if ($user && password_verify($password, $user['password_hash'])) {
+        // Success! Regenerate session ID to prevent fixation
+        session_regenerate_id(true);
         
-        // Redirect to admin panel
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_id'] = $user['id'];
+        $_SESSION['admin_username'] = $user['username'];
+        $_SESSION['LAST_ACTIVITY'] = time();
+        
         header("Location: view_data.php");
         exit;
     } else {

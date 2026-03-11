@@ -21,11 +21,12 @@ try {
         
         $selected_events = [];
         if ($pass_type === 'elite') {
-             // For Elite pass, gather both daily selections into the main array
-             if (isset($_POST['selected_events_day1'])) $selected_events[] = $_POST['selected_events_day1'];
-             if (isset($_POST['selected_events_day2'])) $selected_events[] = $_POST['selected_events_day2'];
+             // For Elite pass, capture both daily selections
+             if (!empty($_POST['selected_events_day1'])) $selected_events[] = $_POST['selected_events_day1'];
+             if (!empty($_POST['selected_events_day2'])) $selected_events[] = $_POST['selected_events_day2'];
         } else {
-             $selected_events = isset($_POST['selected_events']) ? $_POST['selected_events'] : [];
+             // For Royal pass or others, selected_events[] is an array
+             $selected_events = isset($_POST['selected_events']) ? (array)$_POST['selected_events'] : [];
         }
         
         $events_json = json_encode($selected_events);
@@ -78,9 +79,38 @@ try {
         $last_id = $pdo->lastInsertId();
         error_log("Insert successful. ID: $last_id");
         
-        // Redirect directly to payment page
-        error_log("Redirecting to payment.php for ID: $last_id");
-        header("Location: payment.php?id=" . $last_id);
+        // Generate OTP
+        $otp = sprintf("%06d", random_int(0, 999999));
+        $expires_at = date('Y-m-d H:i:s', strtotime('+10 minutes'));
+        
+        // Save OTP
+        $otp_stmt = $pdo->prepare("INSERT INTO otp_verifications (registration_id, otp_code, expires_at) VALUES (:reg_id, :otp, :expires)");
+        $otp_stmt->execute([
+            'reg_id' => $last_id,
+            'otp' => $otp,
+            'expires' => $expires_at
+        ]);
+        
+        // Send OTP Email
+        $subject = "OTP Verification - THIGAZH 2K26";
+        $body = "
+            <p>Welcome to <b>THIGAZH 2K26</b>!</p>
+            <p>To continue with your registration for <b>Team: $team_name</b>, please verify your email using the following One-Time Password (OTP):</p>
+            <div style='text-align: center; margin: 30px 0;'>
+                <span style='font-size: 32px; font-family: \"Orbitron\", sans-serif; color: #ff003c; letter-spacing: 10px; border: 2px solid #ff003c; padding: 10px 20px; box-shadow: 0 0 15px rgba(255, 0, 60, 0.4);'>$otp</span>
+            </div>
+            <p style='color: #888; font-size: 0.9rem;'>This OTP is valid for 10 minutes. Please do not share this code with anyone.</p>
+        ";
+        
+        $sent = sendThigazhMail($email, $leader_name, $subject, $body);
+        
+        if (!$sent) {
+            error_log("Failed to send OTP email to $email");
+            // We still redirect, but user might be stuck if mail doesn't arrive.
+        }
+        
+        // Redirect to OTP verification page
+        header("Location: verify_otp.php?id=" . $last_id);
         exit;
     } else {
         // Redirect to index.html if accessed directly via GET

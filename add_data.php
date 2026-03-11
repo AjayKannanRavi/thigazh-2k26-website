@@ -1,6 +1,7 @@
 <?php
-session_start();
 require_once 'config.php';
+secure_session_start();
+send_security_headers();
 require_once 'mailer.php';
 
 // Verify login status
