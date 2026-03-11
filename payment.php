@@ -166,7 +166,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href=" style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         body {
             display: flex;
@@ -233,12 +233,30 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     
     <div class="payment-card comic-panel">
         <h2 class="glitch" data-text="PAYMENT SUMMARY">PAYMENT SUMMARY</h2>
-        
-        <div class="payment-details">
+             <div class="payment-details">
             <p><strong>Team Name:</strong> <?= htmlspecialchars($reg['team_name']) ?></p>
             <p><strong>Leader:</strong> <?= htmlspecialchars($reg['leader_name']) ?></p>
+            <?php if (!empty($reg['member2'])): ?>
+            <p><strong>Member 2:</strong> <?= htmlspecialchars($reg['member2']) ?></p>
+            <?php endif; ?>
+            <?php if (!empty($reg['member3'])): ?>
+            <p><strong>Member 3:</strong> <?= htmlspecialchars($reg['member3']) ?></p>
+            <?php endif; ?>
+            <?php if (!empty($reg['member4'])): ?>
+            <p><strong>Member 4:</strong> <?= htmlspecialchars($reg['member4']) ?></p>
+            <?php endif; ?>
             <p><strong>Pass Type:</strong> <?= strtoupper(htmlspecialchars($reg['pass_type'])) ?> PASS</p>
-            <p><strong>Team Size:</strong> <?= ($reg['amount'] / ($reg['pass_type'] === 'royal' ? 250 : 400)) ?> Members</p>
+            <p><strong>College:</strong> <?= htmlspecialchars($reg['college']) ?></p>
+            <?php
+                $events = json_decode($reg['selected_events'], true);
+                if (!empty($events)):
+                    $event_names = [];
+                    foreach ((array)$events as $ev) {
+                        $event_names[] = ucwords(str_replace('_', ' ', is_array($ev) ? implode(', ', $ev) : $ev));
+                    }
+            ?>
+            <p><strong>Events:</strong> <?= htmlspecialchars(implode(', ', $event_names)) ?></p>
+            <?php endif; ?>
         </div>
         
         <div class="payment-amount">
@@ -260,7 +278,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
 
             <div class="input-group" style="text-align: left; margin-bottom: 2rem;">
                 <label for="payment_screenshot">Upload Payment Screenshot (JPG/PNG)</label>
-                <input type="file" id="payment_screenshot" name="payment_screenshot" accept="image/*" required style="padding: 0.5rem; background: rgba(255,255,255,0.05); color: white; border: 2px solid var(--text-muted); width: 100%; font-family: var(--font-body);">
+                <input type="file" id="payment_screenshot" name="payment_screenshot" accept="image/*" required style="padding: 0.5rem; background: rgba(255,255,255,0.05); color: white; border: 2px solid #555; width: 100%; font-family: inherit; box-sizing: border-box;">
             </div>
 
             <button type="submit" class="btn primary-btn g-btn" style="width:100%">SUBMIT PAYMENT DETAILS</button>
@@ -268,6 +286,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     </div>
 
     <!-- Keep background particles active for aesthetics -->
-    <script src=" script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
+
 </html>
