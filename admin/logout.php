@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../includes/config.php';
 secure_session_start();
 send_security_headers();
 
@@ -19,6 +19,6 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 
 // Redirect to login page
-header("Location: login.php");
+header("Location: ../index.php");
 exit;
 ?>

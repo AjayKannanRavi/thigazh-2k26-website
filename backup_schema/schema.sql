@@ -39,3 +39,13 @@ CREATE TABLE IF NOT EXISTS admins (
     email VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS rate_limits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ip_address VARCHAR(45) NOT NULL,
+    action_key VARCHAR(50) NOT NULL,
+    attempt_count INT DEFAULT 1,
+    last_attempt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX (ip_address, action_key)
+);
+

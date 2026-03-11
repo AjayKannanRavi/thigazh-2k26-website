@@ -1,8 +1,8 @@
 <?php
-require_once 'config.php';
+require_once '../includes/config.php';
 secure_session_start();
 send_security_headers();
-require_once 'mailer.php';
+require_once '../includes/mailer.php';
 
 // Verify login status
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
@@ -88,7 +88,7 @@ try {
         }
         
         // Refresh the page to show the update
-        header("Location: view_data.php");
+        header("Location: index.php");
         exit;
     }
 
@@ -210,7 +210,7 @@ try {
         $delStmt = $pdo->prepare("DELETE FROM registrations WHERE id = :id");
         $delStmt->execute(['id' => $delete_id]);
         
-        header("Location: view_data.php");
+        header("Location: index.php");
         exit;
     }
 
@@ -358,7 +358,7 @@ try {
     <h1 class="glitch" data-text="Admin Dashboard">Admin Dashboard</h1>
 
     <div class="controls-container">
-        <form class="search-form" method="GET" action="view_data.php">
+        <form class="search-form" method="GET" action="index.php">
             <input type="text" name="search" class="search-input" placeholder="Search pass, ID, team, leader..." value="<?= htmlspecialchars($search) ?>">
             <select name="status_filter" class="status-select">
                 <option value="">All Statuses</option>
@@ -368,7 +368,7 @@ try {
             </select>
             <button type="submit" class="btn-action">Filter</button>
             <?php if ($search !== '' || $status_filter !== ''): ?>
-                <a href="view_data.php" class="btn-action" style="background: #ff003c; color: #fff;">Clear</a>
+                <a href="index.php" class="btn-action" style="background: #ff003c; color: #fff;">Clear</a>
             <?php endif; ?>
         </form>
         
@@ -377,11 +377,11 @@ try {
             $export_params = ['export' => 'excel'];
             if ($search !== '') $export_params['search'] = $search;
             if ($status_filter !== '') $export_params['status_filter'] = $status_filter;
-            $export_url = 'view_data.php?' . http_build_query($export_params);
+            $export_url = 'index.php?' . http_build_query($export_params);
         ?>
-        <a href="add_data.php" class="btn-action" style="background: #ff003c; color: #fff;">+ Add Record</a>
+        <a href="add.php" class="btn-action" style="background: #ff003c; color: #fff;">+ Add Record</a>
         <a href="<?= htmlspecialchars($export_url) ?>" class="btn-action btn-export" style="background: #00ff88;">Export Excel</a>
-        <a href="view_data.php?export=sql" class="btn-action" style="background: #00e5ff; color: #000;">Backup SQL</a>
+        <a href="index.php?export=sql" class="btn-action" style="background: #00e5ff; color: #000;">Backup SQL</a>
         <a href="logout.php" class="btn-action" style="background: #333; color: #fff;">Logout</a>
     </div>
 
@@ -460,7 +460,7 @@ try {
                             </td>
                             <td><small><?= $reg['created_at'] ?></small></td>
                             <td>
-                                <a href="edit_data.php?id=<?= $reg['id'] ?>" class="verify-btn" style="background: #ffcc00; color: #000; margin-bottom: 5px; display: block; text-align: center;">Edit</a>
+                                <a href="edit.php?id=<?= $reg['id'] ?>" class="verify-btn" style="background: #ffcc00; color: #000; margin-bottom: 5px; display: block; text-align: center;">Edit</a>
                                 <form method="POST" style="margin: 0;">
                                     <input type="hidden" name="delete_id" value="<?= $reg['id'] ?>">
                                     <button type="submit" class="verify-btn" style="background: #ff003c; color: #fff; width: 100%;" onclick="return confirm('Are you sure you want to delete this registration? This cannot be undone.');">Delete</button>

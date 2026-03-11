@@ -1,12 +1,13 @@
 <?php
-require_once 'config.php';
-require_once 'mailer.php';
+require_once 'includes/config.php';
+secure_session_start();
+require_once 'includes/mailer.php';
 
 $pdo = getDBConnection();
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if (!$id) {
-    header("Location: index.html");
+    header("Location: index.php");
     exit;
 }
 
@@ -26,7 +27,8 @@ if ($reg['is_verified']) {
 
 $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $entered_otp = trim($_POST['otp']);
+
+    $entered_otp = trim($_POST['otp'] ?? '');
     
     // Validate OTP
     $stmt = $pdo->prepare("SELECT * FROM otp_verifications WHERE registration_id = :id AND otp_code = :otp AND expires_at > NOW() ORDER BY created_at DESC LIMIT 1");
@@ -158,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="footer-links">
             <p>Didn't receive code? <a href="javascript:location.reload()">Resend OTP</a></p>
-            <a href="index.html#registration">Change Email</a>
+            <a href="index.php#registration">Change Email</a>
         </div>
     </div>
 </body>

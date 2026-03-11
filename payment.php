@@ -1,12 +1,17 @@
 <?php
-require_once 'config.php';
-require_once 'mailer.php';
+require_once 'includes/config.php';
+secure_session_start();
+require_once 'includes/mailer.php';
 
 try {
     $pdo = getDBConnection();
     
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // CSRF logic removed as requested
+    }
+    
     if (!isset($_GET['id']) && !isset($_POST['pay_id'])) {
-        header("Location: register.php");
+        header("Location: index.php");
         exit;
     }
     
@@ -40,7 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
-        $filename = "pay_" . $pay_id . "_" . time() . "_" . basename($_FILES['payment_screenshot']['name']);
+        // Basic image validation
+        $allowed_ext = ['jpg', 'jpeg', 'png'];
+        $file_ext = strtolower(pathinfo($_FILES['payment_screenshot']['name'], PATHINFO_EXTENSION));
+        if (!in_array($file_ext, $allowed_ext)) {
+            showErrorPage("Invalid File", "Only JPG, JPEG, and PNG files are allowed.");
+        }
+
+        $filename = "pay_" . $pay_id . "_" . time() . "." . $file_ext;
         $target_file = $upload_dir . $filename;
         
         if (move_uploaded_file($_FILES['payment_screenshot']['tmp_name'], $target_file)) {
@@ -122,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
     
     echo "<script>
         alert('Payment Details Submitted! Your registration is now pending verification.');
-        window.location.href = 'index.html';
+        window.location.href = 'index.php';
     </script>";
     exit;
 }
@@ -154,7 +166,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         body {
             display: flex;
@@ -256,6 +268,6 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
     </div>
 
     <!-- Keep background particles active for aesthetics -->
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

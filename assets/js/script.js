@@ -146,23 +146,27 @@ function updateEventSelects() {
 
 // Pre-select Event from Modal
 function preSelectEvent(eventVal, passType) {
-    // Select the pass type
     const passSelect = document.getElementById('pass_type');
     if (passSelect) {
         passSelect.value = passType;
-        // Trigger the update for the event dropdowns
         updateEventSelects();
         
-        // Find the newly generated dropdown for the events and set its value
         setTimeout(() => {
             const eventDropdowns = document.querySelectorAll('#events-selection-area select');
             if (eventDropdowns.length > 0) {
-                // If it's a Royal pass, there's only one select dropdown to update
                 if (passType === 'royal') {
                     eventDropdowns[0].value = eventVal;
+                } else if (passType === 'elite') {
+                    // For Elite, try to match it specifically. If it's a day 1 event, set first select.
+                    const day1Vals = ['codeathon', 'project_expo', 'mindsynth'];
+                    const day2Vals = ['console_app', 'arachnid'];
+                    
+                    if (day1Vals.includes(eventVal)) eventDropdowns[0].value = eventVal;
+                    if (day2Vals.includes(eventVal)) eventDropdowns[1].value = eventVal;
                 }
             }
-        }, 50); // Small timeout to ensure DOM update is complete
+            calculateTotal();
+        }, 50);
     }
 }
 

@@ -1,8 +1,8 @@
 <?php
-require_once 'config.php';
+require_once '../includes/config.php';
 secure_session_start();
 send_security_headers();
-require_once 'mailer.php';
+require_once '../includes/mailer.php';
 
 // Verify login status
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
@@ -32,7 +32,7 @@ try {
     $pdo = getDBConnection();
     
     if (!isset($_GET['id'])) {
-        header("Location: view_data.php");
+        header("Location: index.php");
         exit;
     }
     
@@ -138,7 +138,7 @@ try {
             }
         }
         
-        echo "<script>alert('Record updated successfully!'); window.location.href = 'view_data.php';</script>";
+        echo "<script>alert('Record updated successfully!'); window.location.href = 'index.php';</script>";
         exit;
     }
 
@@ -326,7 +326,7 @@ try {
             </div>
 
             <button type="submit" class="btn primary-btn">Save Changes</button>
-            <a href="view_data.php" class="btn back-btn">Cancel</a>
+            <a href="index.php" class="btn back-btn">Cancel</a>
         </form>
     </div>
 </body>

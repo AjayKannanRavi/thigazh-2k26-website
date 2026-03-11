@@ -5,9 +5,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Require PHPMailer files using absolute paths
-require __DIR__ . '/PHPMailer/src/Exception.php';
-require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/PHPMailer/src/SMTP.php';
+$phpmailer_base = __DIR__ . '/PHPMailer/src/';
+if (!file_exists($phpmailer_base . 'Exception.php')) {
+    die("PHPMailer files not found in: " . $phpmailer_base);
+}
+require_once $phpmailer_base . 'Exception.php';
+require_once $phpmailer_base . 'PHPMailer.php';
+require_once $phpmailer_base . 'SMTP.php';
 
 /**
  * Returns a human-readable name for an event ID.
@@ -65,7 +69,7 @@ function getThigazhEmailTemplate($title, $content) {
 }
 
 function sendThigazhMail($to_email, $to_name, $subject, $body_content, $is_html_content = true) {
-    file_put_contents('mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
+    file_put_contents(__DIR__ . '/../mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
     $mail = new PHPMailer(true);
     try {
         // SMTP Configuration
@@ -95,7 +99,7 @@ function sendThigazhMail($to_email, $to_name, $subject, $body_content, $is_html_
         return true;
     } catch (Exception $e) {
         error_log("Mail Error: {$mail->ErrorInfo}");
-        file_put_contents('mail_log.txt', date('Y-m-d H:i:s') . " [ERROR] " . $e->getMessage() . "\n", FILE_APPEND);
+        file_put_contents(__DIR__ . '/../mail_log.txt', date('Y-m-d H:i:s') . " [ERROR] " . $e->getMessage() . "\n", FILE_APPEND);
         return false;
     }
 }

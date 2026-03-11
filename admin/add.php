@@ -1,8 +1,8 @@
 <?php
-require_once 'config.php';
+require_once '../includes/config.php';
 secure_session_start();
 send_security_headers();
-require_once 'mailer.php';
+require_once '../includes/mailer.php';
 
 // Verify login status
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
 
         $msg = "<p style='color: #00ff88; text-align:center;'>Record added successfully!</p>";
-        header("refresh:2;url=view_data.php");
+        header("refresh:2;url=index.php");
     } catch (PDOException $e) {
         $msg = "<p style='color: #ff003c; text-align:center;'>Error: " . $e->getMessage() . "</p>";
     }
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Registration | Admin</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body { background: #050505; color: white; padding: 20px; }
         .admin-form { max-width: 800px; margin: 0 auto; background: #111; padding: 30px; border: 1px solid #ff003c; border-radius: 8px; }
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="admin-form">
-        <a href="view_data.php" class="back-link">← Back to Dashboard</a>
+        <a href="index.php" class="back-link">← Back to Dashboard</a>
         <h2 style="color: #ff003c; text-align: center; margin-bottom: 30px;">Add New Registration</h2>
         
         <?= $msg ?>

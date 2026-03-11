@@ -1,11 +1,11 @@
 <?php
-require_once 'config.php';
+require_once '../includes/config.php';
 secure_session_start();
 send_security_headers();
 
 // Check if already logged in
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header("Location: view_data.php");
+        header("Location: index.php");
     exit;
 }
 
@@ -15,24 +15,20 @@ if (isset($_GET['msg']) && $_GET['msg'] === 'timeout') {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = $_POST['password'];
 
-    $pdo = getDBConnection();
-    $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = :username");
-    $stmt->execute(['username' => $username]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
 
-    if ($user && password_verify($password, $user['password_hash'])) {
+    // Use encapsulated credentials from config.php
+    if ($username === ADMIN_USER && $password === ADMIN_PASS) {
         // Success! Regenerate session ID to prevent fixation
         session_regenerate_id(true);
         
         $_SESSION['admin_logged_in'] = true;
-        $_SESSION['admin_id'] = $user['id'];
-        $_SESSION['admin_username'] = $user['username'];
+        $_SESSION['admin_username'] = ADMIN_USER;
         $_SESSION['LAST_ACTIVITY'] = time();
         
-        header("Location: view_data.php");
+        header("Location: index.php");
         exit;
     } else {
         $error = "Invalid username or password!";

@@ -8,8 +8,12 @@ define('DB_NAME', 'thigazh_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
+// Admin Credentials (Encapsulated)
+define('ADMIN_USER', 'thigazh.positivity');
+define('ADMIN_PASS', 'BOYS@CSE');
+
 // File & Path Configuration
-define('BASE_PATH', __DIR__);
+define('BASE_PATH', dirname(__DIR__));
 define('UPLOAD_DIR', BASE_PATH . '/uploads/');
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
 $self = isset($_SERVER['PHP_SELF']) ? dirname($_SERVER['PHP_SELF']) : '';
@@ -139,31 +143,19 @@ function showErrorPage($title, $message) {
 }
 
 /**
- * Starts a session with secure cookie parameters.
+ * Starts a session.
  */
 function secure_session_start() {
     if (session_status() === PHP_SESSION_NONE) {
-        // Set secure cookie parameters
-        session_set_cookie_params([
-            'lifetime' => 0, // Session cookie
-            'path' => '/',
-            'domain' => $_SERVER['HTTP_HOST'],
-            'secure' => isset($_SERVER['HTTPS']), // Only send over HTTPS if available
-            'httponly' => true, // Prevent JS access
-            'samesite' => 'Lax' // CSRF protection
-        ]);
         session_start();
     }
 }
 
 /**
- * Sends standard security headers to the browser.
+ * Sends security headers (Disabled).
  */
 function send_security_headers() {
-    header("X-Frame-Options: SAMEORIGIN");
-    header("X-XSS-Protection: 1; mode=block");
-    header("X-Content-Type-Options: nosniff");
-    header("Referrer-Policy: strict-origin-when-cross-origin");
-    header("Content-Security-Policy: default-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:;");
+    // Disabled
 }
+
 ?>

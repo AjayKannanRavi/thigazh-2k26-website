@@ -1,3 +1,4 @@
+<?php require_once 'includes/config.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     <header class="navbar">
         <div class="nav-logo-container" style="position: relative; display: inline-block">
             <!-- Replace 'logo.png' with your actual image path -->
-            <img src="images/logo.png" alt="THIGAZH Logo" class="nav-logo-img" />
+            <img src="assets/images/logo.png" alt="THIGAZH Logo" class="nav-logo-img" />
         </div>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -730,8 +731,7 @@
     </div>
 
     <!-- Script -->
-    <script src="script.js"></script>
-    <script src="spider-anim.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
