@@ -7,29 +7,35 @@ try {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
-        $team_name = htmlspecialchars($_POST['team_name'] ?? '');
-        $leader_name = htmlspecialchars($_POST['leader_name']);
-        $member2 = htmlspecialchars($_POST['member2']);
-        $member2_phone = isset($_POST['member2_phone']) ? htmlspecialchars($_POST['member2_phone']) : '';
-        $member3 = htmlspecialchars($_POST['member3']);
-        $member4 = htmlspecialchars($_POST['member4']);
-        $college = htmlspecialchars($_POST['college']);
-        $department = htmlspecialchars($_POST['department']);
-        $phone = trim($_POST['phone'] ?? '');
-        $email = trim($_POST['email'] ?? '');
-        $pass_type = htmlspecialchars($_POST['pass_type'] ?? ''); 
+        $team_name    = htmlspecialchars($_POST['team_name']    ?? '');
+        $leader_name  = htmlspecialchars($_POST['leader_name']  ?? '');
+        $member2      = htmlspecialchars($_POST['member2']      ?? '');
+        $member2_phone= htmlspecialchars($_POST['member2_phone']?? '');
+        $member3      = htmlspecialchars($_POST['member3']      ?? '');
+        $member4      = htmlspecialchars($_POST['member4']      ?? '');
+        $college      = htmlspecialchars($_POST['college']      ?? '');
+        $department   = htmlspecialchars($_POST['department']   ?? '');
+        $phone        = trim($_POST['phone']    ?? '');
+        $email        = trim($_POST['email']    ?? '');
+        $pass_type    = htmlspecialchars($_POST['pass_type']    ?? '');
 
         // Validate basic inputs
         if (empty($leader_name) || empty($college) || empty($phone) || empty($email) || empty($pass_type)) {
             showErrorPage("Incomplete Data", "Please fill in all required fields.");
         }
 
-        // Handle events selection
-        $selected_events = isset($_POST['selected_events']) ? $_POST['selected_events'] : [];
+        // Handle events selection — Royal uses selected_events[], Elite uses selected_events_day1 & selected_events_day2
+        if ($pass_type === 'elite') {
+            $day1 = trim($_POST['selected_events_day1'] ?? '');
+            $day2 = trim($_POST['selected_events_day2'] ?? '');
+            $selected_events = array_filter([$day1, $day2]); // remove empty values
+        } else {
+            $selected_events = isset($_POST['selected_events']) ? (array)$_POST['selected_events'] : [];
+        }
         
         // Elite pass validation
         if ($pass_type === 'elite' && count($selected_events) !== 2) {
-            showErrorPage("Invalid Selection", "Elite pass requires exactly 2 events.");
+            showErrorPage("Invalid Selection", "Elite pass requires exactly 2 events (one from each day).");
         }
         
         // Royal pass validation
@@ -37,10 +43,17 @@ try {
             showErrorPage("Invalid Selection", "Royal pass requires exactly 1 event.");
         }
 
-        $events_json = json_encode($selected_events);
+        $events_json = json_encode(array_values($selected_events));
         
-        // Calculate amount based on pass type
-        $amount = ($pass_type === 'elite') ? 350 : 200;
+        // Calculate team size (leader always counts, add optional members)
+        $team_size = 1; // Leader
+        if (!empty($member2)) $team_size++;
+        if (!empty($member3)) $team_size++;
+        if (!empty($member4)) $team_size++;
+
+        // Calculate amount based on pass type × team size (matches frontend pricing)
+        $price_per_head = ($pass_type === 'elite') ? 400 : 250;
+        $amount = $team_size * $price_per_head;
 
         // Insert into database
         $sql = "INSERT INTO registrations (team_name, leader_name, member2, member2_phone, member3, member4, college, department, phone, email, pass_type, selected_events, amount) 

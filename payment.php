@@ -41,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
     
     $screenshot_path = null;
     if (isset($_FILES['payment_screenshot']) && $_FILES['payment_screenshot']['error'] == 0) {
-        $upload_dir = 'uploads/';
+        $upload_dir = __DIR__ . '/uploads/';
         if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
+            mkdir($upload_dir, 0755, true);
         }
         // Basic image validation
         $allowed_ext = ['jpg', 'jpeg', 'png'];
