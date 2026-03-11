@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <h2 class="hero-subtitle">
-                    Organized by the <span class="highlight">School of Computing</span>
+                    <span class="white-glow">Organized by the</span> <span class="highlight">School of Computing</span>
                 </h2>
                 <h3 class="hero-college">Erode Sengunthar Engineering College</h3>
                 <div class="hero-date-box">

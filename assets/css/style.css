@@ -570,11 +570,17 @@ nav a:hover {
   margin-bottom: 0.5rem;
 }
 
+.white-glow {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
 .highlight {
   color: var(--neon-red);
-  text-shadow: 0 0 10px var(--neon-red);
+  text-shadow: 0 0 10px var(--neon-red), 0 0 20px rgba(255, 0, 0, 0.5);
   font-weight: 900;
 }
+
 
 .hero-college {
   font-size: 1.8rem;
