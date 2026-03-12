@@ -833,3 +833,23 @@
 2026-03-11 22:59:51 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
 
 2026-03-11 22:59:56 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-12 10:20:59 [CALL] sendThigazhMail triggered for: gajiniprasanth291@gmail.com
+
+2026-03-12 10:21:50 [CALL] sendThigazhMail triggered for: gajiniprasanth291@gmail.com
+
+2026-03-12 10:21:56 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-12 10:22:22 [CALL] sendThigazhMail triggered for: gajiniprasanth291@gmail.com
+
+2026-03-12 10:22:27 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-12 10:34:04 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-12 10:35:04 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-12 10:35:11 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+
+2026-03-12 10:35:36 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-12 10:35:42 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com

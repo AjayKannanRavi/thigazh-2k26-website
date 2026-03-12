@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS registrations (
     selected_events JSON NOT NULL,
     amount INT NOT NULL DEFAULT 0,
     payment_status VARCHAR(20) DEFAULT 'Pending',
-    transaction_id VARCHAR(100) DEFAULT NULL,
+    transaction_id VARCHAR(100) DEFAULT NULL UNIQUE,
     screenshot_path VARCHAR(255) DEFAULT NULL,
     is_verified TINYINT(1) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

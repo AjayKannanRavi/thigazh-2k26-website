@@ -751,34 +751,29 @@
  <h2 class="glitch" data-text="CONSOLE CRAFT">CONSOLE CRAFT</h2>
  <div class="modal-body">
 
- <div class="details">
- <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
- <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Hey Coders! Your Friendly Multiverse Debugger is Calling!</strong></p>
- <p style="margin:0 0 1rem;">Looks like some brilliant problem-solvers are about to step into the Spiderverse of Logic. But remember… this arena is not about flashy interfaces or colorful screens — it’s about sharp thinking, clean code, and powerful problem solving. This is your dimension to design logic, craft algorithms, and prove your coding superpowers! 🧠⚡</p>
- <p style="margin:0 0 1rem;">Welcome to <strong>Console Craft</strong> – The Console-Based Coding Event under the grand technical symposium THIGAZH. Here, skilled coders from different dimensions of programming come together to transform complex problem statements into elegant console-based solutions.</p>
- 
- <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Multiverse Web:</p>
- <ul style="margin:0 0 1rem 1.3rem; padding:0;">
- <li>This mission can be undertaken solo or with a coding ally (1–2 members) — sometimes the strongest webs of logic are built together.</li>
- <li>Participants must solve console-based problem statements by designing efficient algorithms and structured program logic.</li>
- <li>Your solution should demonstrate clarity in design, optimized thinking, and clean coding practices. Weak logic won’t survive in this dimension.</li>
- <li>Be prepared to face multiple layers of evaluation that test your problem-solving approach, algorithm efficiency, coding structure, and debugging skills.</li>
- <li>A well-structured program with modular logic and proper handling of edge cases will strengthen your position in the coding multiverse.</li>
- <li>Problem statements may challenge your skills in data structures, algorithmic thinking, logical reasoning, and system design fundamentals.</li>
- <li>Participants must be ready to explain their coding approach and defend their logic if required by the jury council.</li>
- <li>Time in this dimension is limited — speed, accuracy, and clarity of logic will be your strongest allies.</li>
- </ul>
+  <div class="details">
+    <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
+      <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Attention Coders! Ready for a Web-Slinging Coding Adventure?</strong></p>
+      <p style="margin:0 0 1rem;">A new mission awaits in the world of Console Based Application Development. In this universe, your logic is your web and your code is your superpower. Whether you take the challenge alone or with a trusted coding partner, this event will push your logic, creativity, and development skills to the next level. Get ready to design, build, and bring your ideas to life!</p>
+      
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Web:</p>
+      <ul style="margin:0 0 1rem 1.3rem; padding:0;">
+        <li>Teams can have 1 or 2 members, because sometimes even heroes work better with a trusted ally.</li>
+        <li>The challenge unfolds in two exciting rounds to test both your planning and development abilities.</li>
+        <li><strong>Round 1: Architecture Design</strong> – Participants must analyze the given problem and design the structure and logic of the application.</li>
+        <li><strong>Round 2: Console-based Application Development</strong> – Participants will implement their design by building a working console-based application.</li>
+        <li>Bring your coding weapons: C, C++, Python, or Java, all are supported for this mission.</li>
+      </ul>
 
- <p style="margin:0 0 1rem;">So sharpen your algorithms, structure your thoughts, and prepare to craft solutions that cut through complexity.</p>
- 
- <p style="margin:0 0 1rem;">Remember… in the Spiderverse of coding, every great system begins with a well-designed line of logic. 🕸️</p>
- <p style="margin:0;">Step in, showcase your brilliance, and let your code swing beyond limits! 🚀</p>
- </div>
- <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('console_craft', 'royal'); closeModal('modal-consolecraft')">Register for this Event</a>
- </div>
- </div>
- </div>
+      <p style="margin:0 0 1rem;">So tighten your web of logic, craft your code carefully, and build powerful console applications like a true Spider-Verse hero. Debug swiftly, think creatively, and swing through every challenge!</p>
+      <p style="margin:0;">Gear up, code smart, unleash your coding superpowers, and let your code do the swinging! 🕸️💻</p>
+    </div>
+  <a href="#registration" class="btn primary-btn"
+  onclick="preSelectEvent('console_craft', 'royal'); closeModal('modal-consolecraft')">Register for this Event</a>
+  </div>
+  </div>
+  </div>
+  </div>
 
  <!-- Modal: AI-Verse (Day 1) -->
  <div id="modal-aiverse" class="modal">
@@ -787,29 +782,28 @@
  <h2 class="glitch" data-text="AI-VERSE">AI-VERSE</h2>
    <div class="modal-body">
 
- <div class="details">
- <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
- <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Calling All Innovators! Spider-Man Has a Challenge for You!</strong></p>
- <p style="margin:0 0 1rem;">Looks like some brilliant minds are about to swing into <strong>AI VERSE</strong>, an Intelligent Solution Design challenge. But listen carefully… this mission isn’t about random coding. It’s about building smart AI solutions that can tackle real-world problems.</p>
- <p style="margin:0 0 1rem;">So assemble your team, fire up your creativity, and get ready to design something truly intelligent.</p>
- 
- <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules Spun from the Web:</p>
- <ul style="margin:0 0 1rem 1.3rem; padding:0;">
- <li><strong>Team Participation</strong> – Teams can consist of 1 to 4 members working together to create an AI-driven solution.</li>
- <li><strong>Problem-Based Challenge</strong> – Each team will receive a real-world problem theme on spot of their choice that requires an innovative AI approach.</li>
- <li><strong>Build an Intelligent Solution</strong> – Design a model, system architecture, or prototype capable of generating meaningful insights or predictions based on the chosen theme.</li>
- <li><strong>Responsible AI Matters</strong> – Your solution should follow ethical AI practices, transparency, and model reliability.</li>
- <li><strong>Presentation Round</strong> – Teams must clearly explain their methodology, AI approach, and the results produced by their model.</li>
- </ul>
+  <div class="details">
+    <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
+      <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Attention Innovators! Ready to Swing into the AI-Verse?</strong></p>
+      <p style="margin:0 0 1rem;">A new mission awaits in the world of Intelligent Solution Design. In this universe, your data is your web and your algorithms are your superpower. Whether you arrive with a team of creative thinkers or a bold AI idea, this event will push your innovation, analytical thinking, and problem-solving abilities to the next level. Get ready to design intelligent systems, build smart models, and bring powerful AI ideas to life!</p>
+      
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Web:</p>
+      <ul style="margin:0 0 1rem 1.3rem; padding:0;">
+        <li>Teams can have 1 to 4 members, because sometimes even heroes build stronger innovations with a trusted squad.</li>
+        <li>The challenge unfolds in two exciting rounds to test both your AI design thinking and implementation abilities.</li>
+        <li><strong>Round 1: Problem Analysis & AI Design</strong> – Participants must analyze the given real-world problem and design the AI approach, model idea, or system architecture that can solve it.</li>
+        <li><strong>Round 2: Intelligent Solution Development</strong> – Teams will implement their idea by building a prototype, model workflow, or AI-based solution that generates meaningful insights or predictions.</li>
+        <li>Participants must also be ready to explain their AI methodology, model design, and results during the evaluation round.</li>
+      </ul>
 
- <p style="margin:0 0 1rem;">Prepare to analyse data, design intelligent models, and transform ideas into powerful AI solutions. Remember, true AI innovation comes with the responsibility to build it ethically.</p>
- 
- <p style="margin:0 0 1rem;">So bring your creativity, trust your algorithms, and get ready to build the future with AI! 🕸️</p>
- <p style="margin:0; font-style: italic; font-size: 0.85rem; color: var(--neon-red);">Note: Usage of AI is permitted from the second phase of the competition, but participants must know how to make changes in their code on-spot on request.</p>
- </div>
- <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('ai_verse', 'royal'); closeModal('modal-aiverse')">Register for this Event</a>
- </div>
+      <p style="margin:0 0 1rem;">Note: Usage of AI tools is permitted only from the second phase of the competition, and participants must be able to modify or explain their code on request.</p>
+
+      <p style="margin:0 0 1rem;">So tighten your web of logic, train your models wisely, and build intelligent solutions like a true Spider-Verse innovator. Analyze deeply, think creatively, and swing through every challenge with confidence!</p>
+      <p style="margin:0;">Gear up, innovate smart, unleash your AI superpowers, and let your ideas swing across the AI-Verse! 🕸️🤖🚀</p>
+    </div>
+  <a href="#registration" class="btn primary-btn"
+  onclick="preSelectEvent('ai_verse', 'royal'); closeModal('modal-aiverse')">Register for this Event</a>
+  </div>
  </div>
  </div>
  </div>
@@ -828,14 +822,14 @@
  
  <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Web:</p>
  <ul style="margin:0 0 1rem 1.3rem; padding:0;">
- <li>My web only allows individual participation — prove your own superpowers!</li>
+ <li>My web only allows individual participation prove your own superpowers!</li>
  <li>The challenge has 3 thrilling rounds to test your logic, speed, and coding instincts.</li>
- <li>Bring your favorite weapons: <strong>C, C++, Python, or Java</strong> — my web supports them all.</li>
+ <li>Bring your favorite weapons: <strong>C, C++, Python, or Java</strong> - my web supports them all.</li>
  </ul>
 
  <p style="margin:0 0 1rem;">So gear up, sharpen your algorithms, and get ready to debug like a superhero and solve problems faster than I swing through the city!</p>
  
- <p style="margin:0 0 1rem;">Remember… <em>with great power comes great responsibility</em> — and a lot of fun! 🕸️</p>
+ <p style="margin:0 0 1rem;">Remember… <em>with great power comes great responsibility</em> and a lot of fun! 🕸️</p>
  <p style="margin:0;">Swing in, code hard, and most importantly enjoy the challenge!</p>
  </div>
  <a href="#registration" class="btn primary-btn"
@@ -850,32 +844,33 @@
  <div class="modal-content comic-panel">
  <span class="close" onclick="closeModal('modal-quanta')">&times;</span>
  <h2 class="glitch" data-text="QUANTA">QUANTA</h2>
- <div class="modal-body">
+   <div class="modal-body">
 
- <div class="details">
- <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
- <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Hey Innovators! Your Friendly Multiverse Guide is Calling!</strong></p>
- <p style="margin:0 0 1rem;">Looks like some visionary creators are about to step into the Spiderverse of Innovation. But remember… this arena is not just about ideas — it’s about transforming imagination into impactful reality. This is your dimension to build, present, and prove your technological superpowers! 🧠⚡</p>
- <p style="margin:0 0 1rem;">Welcome to <strong>QUANTA</strong> – The Project Expo under the grand technical symposium “THIGAZH.” Here, brilliant minds from different dimensions of technology converge to showcase futuristic solutions, disruptive prototypes, and engineering marvels.</p>
- 
- <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Multiverse Web:</p>
- <ul style="margin:0 0 1rem 1.3rem; padding:0;">
- <li>This mission can be undertaken by a small squad of innovators (2–4 members) — collaboration creates stronger webs of innovation.</li>
- <li>Your project must demonstrate original thinking, technical depth, and real-world relevance. Ordinary ideas won’t survive in this dimension.</li>
- <li>Be prepared to face multiple layers of evaluation that will test your concept clarity, implementation strategy, scalability vision, and presentation intelligence.</li>
- <li>A working model, simulation, or system architecture will significantly strengthen your position in the multiverse grid.</li>
- <li>Your chosen domain can span across AI, Data Science, IoT, Cybersecurity, Software Systems, Embedded Technologies, or emerging innovations — the Spiderverse has no boundaries.</li>
- <li>Teams must be ready to defend their design decisions and respond to dynamic queries from the jury council.</li>
- <li>Time in this dimension is limited — precise communication and structured demonstration will be your strongest allies.</li>
- </ul>
+    <div class="details">
+    <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
+      <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Hey Innovators! Your Friendly Multiverse Guide is Calling!</strong></p>
+      <p style="margin:0 0 1rem;">Looks like some visionary creators are about to step into <strong>QUANTA</strong>, the Project Expo where innovation meets imagination. But remember… this arena is not just about presenting ideas it’s about transforming creativity into real technological impact. This is your dimension to build, demonstrate, and prove your engineering superpowers! 🧠⚡</p>
+      <p style="margin:0 0 1rem;">Welcome to <strong>QUANTA</strong> – The Project Expo under the grand technical symposium <strong>THIGAZH</strong>. Here, brilliant minds from different dimensions of technology come together to showcase futuristic solutions, disruptive prototypes, and groundbreaking innovations.</p>
+      
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Multiverse Web:</p>
+      <ul style="margin:0 0 1rem 1.3rem; padding:0;">
+        <li><strong>Team Participation</strong> – This mission can be undertaken by a squad of innovators (2–4 members), because powerful ideas often emerge from collaboration.</li>
+        <li><strong>Innovative Project</strong> – Your project must demonstrate original thinking, technical depth, and practical real-world relevance.</li>
+        <li><strong>Technical Evaluation</strong> – Teams will be evaluated based on concept clarity, implementation approach, scalability potential, and innovation value.</li>
+        <li><strong>Working Demonstration</strong> – A working prototype, simulation, or system architecture will significantly strengthen your position in the innovation grid.</li>
+        <li><strong>Domain Flexibility</strong> – Projects can belong to AI, Data Science, IoT, Cybersecurity, Software Systems, Embedded Systems, or any emerging technology domain.</li>
+        <li><strong>Presentation Round</strong> – Teams must clearly explain their project idea, working mechanism, and technological impact to the evaluation panel.</li>
+        <li><strong>Interactive Queries</strong> – Participants should be ready to defend their design choices and respond to questions from the jury council.</li>
+      </ul>
 
- <p style="margin:0 0 1rem;">So assemble your ideas, optimize your solutions, and get ready to present innovations that can ripple across dimensions.</p>
- 
- <p style="margin:0 0 1rem;">Remember… in the Spiderverse, every great innovation begins with a bold prototype. 🕸️</p>
- <p style="margin:0;">Step in, showcase your brilliance, and let your project swing beyond limits! 🚀</p>
- </div>
- <a href="#registration" class="btn primary-btn"
- onclick="preSelectEvent('quanta', 'royal'); closeModal('modal-quanta')">Register for this Event</a>
+      <p style="margin:0 0 1rem;">Time in this dimension is limited clear communication, confident presentation, and structured demonstrations will be your strongest allies.</p>
+      <p style="margin:0 0 1rem;">So assemble your ideas, refine your prototypes, and prepare to present innovations that can ripple across dimensions.</p>
+      <p style="margin:0 0 1rem;">Remember… in the Spiderverse of technology, every groundbreaking innovation begins with a bold prototype. 🕸️</p>
+      <p style="margin:0;">Step in, showcase your brilliance, and let your project swing beyond limits! 🚀</p>
+    </div>
+  <a href="#registration" class="btn primary-btn"
+  onclick="preSelectEvent('quanta', 'royal'); closeModal('modal-quanta')">Register for this Event</a>
+  </div>
  </div>
  </div>
  </div>
@@ -889,25 +884,25 @@
  <div class="modal-body">
 
  <div class="details">
- <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
- <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Calling All Innovators! Spider-Man Has a Challenge for You!</strong></p>
- <p style="margin:0 0 1rem;">Looks like some brilliant minds are about to swing into <strong>SPIDER VAULT</strong>, an Intelligent Solution Design challenge. But listen carefully… this mission isn’t about random coding. It’s about building smart AI solutions that can tackle real-world problems.</p>
- <p style="margin:0 0 1rem;">So assemble your team, fire up your creativity, and get ready to design something truly intelligent.</p>
- 
- <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules Spun from the Web:</p>
- <ul style="margin:0 0 1rem 1.3rem; padding:0;">
- <li><strong>Team Participation</strong> – Teams can consist of 1 to 4 members working together to create an AI-driven solution.</li>
- <li><strong>Problem-Based Challenge</strong> – Each team will receive a real-world problem theme on spot of their choice that requires an innovative AI approach.</li>
- <li><strong>Build an Intelligent Solution</strong> – Design a model, system architecture, or prototype capable of generating meaningful insights or predictions based on the chosen theme.</li>
- <li><strong>Responsible AI Matters</strong> – Your solution should follow ethical AI practices, transparency, and model reliability.</li>
- <li><strong>Presentation Round</strong> – Teams must clearly explain their methodology, AI approach, and the results produced by their model.</li>
- </ul>
+    <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
+      <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Calling All Problem Solvers! Spider-Man Has a Challenge for You!</strong></p>
+      <p style="margin:0 0 1rem;">Looks like some sharp minds are ready to enter <strong>SPIDER VAULT</strong>, a Reverse Engineering Challenge. But listen carefully… this mission isn’t about building a program from scratch. It’s about decoding how a system works by analysing its outputs, datasets, or code fragments.</p>
+      <p style="margin:0 0 1rem;">Get ready to put your analytical thinking, debugging instincts, and logical reasoning to the test as you uncover the hidden mechanisms behind complex systems.</p>
+      
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules Spun from the Web:</p>
+      <ul style="margin:0 0 1rem 1.3rem; padding:0;">
+        <li><strong>Team Participation</strong> – Teams can consist of 1 to 2 members working together to crack the challenge.</li>
+        <li><strong>Reverse Engineering Task</strong> – Participants will be given outputs, datasets, or partial code fragments that must be carefully analysed.</li>
+        <li><strong>Find the Hidden Logic</strong> – Your goal is to determine the algorithm, process, or reasoning used to generate the results.</li>
+        <li><strong>Debug & Decode</strong> – Strong skills in pattern recognition, logical deduction, and debugging will help you break down the system.</li>
+        <li><strong>Explain Your Approach</strong> – Teams must clearly present the logic and reasoning used to reconstruct the hidden solution.</li>
+      </ul>
 
- <p style="margin:0 0 1rem;">Prepare to analyse data, design intelligent models, and transform ideas into powerful AI solutions. Remember, true AI innovation comes with the responsibility to build it ethically.</p>
- 
- <p style="margin:0 0 1rem;">So bring your creativity, trust your algorithms, and get ready to build the future with AI! 🕸️</p>
- <p style="margin:0; font-style: italic; font-size: 0.85rem; color: var(--neon-red);">Note: Usage of AI is permitted from the second phase of the competition, but participants must know how to make changes in their code on-spot on request.</p>
- </div>
+      <p style="margin:0 0 1rem;">Prepare to analyse patterns, trace logic paths, and break down complex systems step by step.</p>
+      <p style="margin:0 0 1rem;">Remember… the real challenge here isn’t just solving a problem it’s discovering how the problem was solved in the first place.</p>
+      <p style="margin:0 0 1rem;">So sharpen your logic, trust your instincts, and get ready to unlock the secrets hidden inside <strong>SPIDER VAULT</strong>. 🕸️🔐</p>
+      <p style="margin:0; font-style: italic; font-size: 0.85rem; color: var(--neon-red);">Note: Usage of AI tools is strictly not permitted during this event.</p>
+    </div>
  <a href="#registration" class="btn primary-btn"
  onclick="preSelectEvent('spider_vault', 'royal'); closeModal('modal-spidervault')">Register for this Event</a>
  </div>

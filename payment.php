@@ -44,6 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         showErrorPage("Invalid Transaction ID", "The Transaction ID must be at least 11 digits long. Please double-check your payment confirmation.");
     }
     
+    // Check for duplicate transaction ID
+    $check_stmt = $pdo->prepare("SELECT id FROM registrations WHERE transaction_id = :txn_id AND id != :id");
+    $check_stmt->execute(['txn_id' => $transaction_id, 'id' => $pay_id]);
+    if ($check_stmt->fetch()) {
+        showErrorPage("Duplicate Transaction ID", "This Transaction ID has already been submitted by another user. If you believe this is an error, please contact the help desk.");
+    }
+    
     $screenshot_path = null;
     if (isset($_FILES['payment_screenshot']) && $_FILES['payment_screenshot']['error'] == 0) {
         $upload_dir = __DIR__ . '/uploads/';
