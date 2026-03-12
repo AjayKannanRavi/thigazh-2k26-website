@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <?= $msg ?>
 
-        <form action="" method="POST">
+        <form action="add.php" method="POST">
             <div class="grid-2">
                 <div class="input-group">
                     <label>Team Name</label>

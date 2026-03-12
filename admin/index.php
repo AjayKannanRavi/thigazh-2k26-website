@@ -4,6 +4,12 @@ secure_session_start();
 send_security_headers();
 require_once '../includes/mailer.php';
 
+// Ensure trailing slash for correct relative path resolution
+if (is_dir($_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/') {
+    header("Location: " . $_SERVER['REQUEST_URI'] . "/");
+    exit;
+}
+
 // Verify login status
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: login.php");
@@ -92,8 +98,8 @@ try {
         exit;
     }
 
-    // Handle Export to Excel
-    if (isset($_GET['export']) && $_GET['export'] == 'excel') {
+    // Handle Export to Excel (GET only)
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['export']) && $_GET['export'] == 'excel') {
         // Prevent deprecation warnings from breaking the Excel file
         ini_set('display_errors', 0);
         error_reporting(0);
@@ -176,15 +182,20 @@ try {
         exit;
     }
 
-    // Handle Export to Excel
-    // Handle SQL Database Backup
-    if (isset($_GET['export']) && $_GET['export'] == 'sql') {
+    // Handle SQL Database Backup (GET only)
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['export']) && $_GET['export'] == 'sql') {
         // Prevent errors breaking the SQL download
         ini_set('display_errors', 0);
         error_reporting(0);
         
         $backup_file = "thigazh_db_backup_" . date('Y-m-d_H-i-s') . ".sql";
-        $command = "mysqldump --user={$user} --password={$pass} --host={$host} {$dbname} > /tmp/{$backup_file} 2>/dev/null";
+        // Correcting variables to use definitions from config.php
+        $db_host = DB_HOST;
+        $db_user = DB_USER;
+        $db_pass = DB_PASS;
+        $db_name = DB_NAME;
+        
+        $command = "mysqldump --user={$db_user} --password=" . escapeshellarg($db_pass) . " --host={$db_host} {$db_name} > /tmp/{$backup_file} 2>/dev/null";
         system($command);
         
         if (file_exists("/tmp/{$backup_file}")) {
@@ -462,7 +473,7 @@ try {
                                 <?php endif; ?>
                                 
                                 <?php if ($reg['payment_status'] === 'Pending Verification'): ?>
-                                    <form method="POST" style="margin-top: 5px;">
+                                    <form method="POST" action="index.php" style="margin-top: 5px;">
                                         <input type="hidden" name="verify_id" value="<?= $reg['id'] ?>">
                                         <button type="submit" class="verify-btn" onclick="return confirm('Are you sure you want to approve this payment?');">Approve</button>
                                     </form>
@@ -471,7 +482,7 @@ try {
                             <td><small><?= $reg['created_at'] ?></small></td>
                             <td>
                                 <a href="edit.php?id=<?= $reg['id'] ?>" class="verify-btn" style="background: #ffcc00; color: #000; margin-bottom: 5px; display: block; text-align: center;">Edit</a>
-                                <form method="POST" style="margin: 0;">
+                                <form method="POST" action="index.php" style="margin: 0;">
                                     <input type="hidden" name="delete_id" value="<?= $reg['id'] ?>">
                                     <button type="submit" class="verify-btn" style="background: #ff003c; color: #fff; width: 100%;" onclick="return confirm('Are you sure you want to delete this registration? This cannot be undone.');">Delete</button>
                                 </form>

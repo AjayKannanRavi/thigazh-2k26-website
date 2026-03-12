@@ -247,7 +247,7 @@ try {
 <body>
     <div class="form-container">
         <h1>Edit Registration #<?= $reg['id'] ?></h1>
-        <form method="POST">
+        <form method="POST" action="edit.php?id=<?= $reg['id'] ?>">
             <div class="grid-2">
                 <div class="input-group">
                     <label>Team Name</label>

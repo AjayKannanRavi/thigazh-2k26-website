@@ -222,17 +222,22 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
             text-shadow: 0 0 15px rgba(255,0,0,0.8);
         }
         .qr-placeholder {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             background: #fff;
-            margin: 1rem auto;
+            margin: 1.5rem auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #000;
-            font-family: var(--font-ui);
-            font-weight: bold;
-            border: 4px solid var(--electric-blue);
+            border: 4px solid var(--neon-red);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .qr-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .subtext {
             color: var(--text-muted);
@@ -280,9 +285,9 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
         </div>
 
         <div class="qr-placeholder">
-            [ QR CODE ]<br>Scan to Pay
+            <img src="assets/images/payment-qr.png" alt="Payment QR Code">
         </div>
-        <p class="subtext">Scan using any UPI App (GPay, PhonePe, Paytm)</p>
+        <p class="subtext" style="color: #fff; font-weight: 600;">Scan the QR code to pay using any UPI app</p>
         
         <form method="POST" enctype="multipart/form-data">
             <input type="hidden" name="pay_id" value="<?= $reg['id'] ?>">
