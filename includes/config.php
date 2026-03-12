@@ -15,6 +15,7 @@ define('ADMIN_PASS', 'BOYS@CSE');
 // File & Path Configuration
 define('BASE_PATH', dirname(__DIR__));
 define('UPLOAD_DIR', BASE_PATH . '/uploads/');
+define('LOG_PATH', BASE_PATH . '/logs/');
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
 $self = isset($_SERVER['PHP_SELF']) ? dirname($_SERVER['PHP_SELF']) : '';
 define('SITE_URL', (isset($_SERVER['HTTPS']) ? "https" : "http") . "://" . $host . $self);

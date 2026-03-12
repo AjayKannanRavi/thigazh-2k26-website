@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
         $sent_admin = sendThigazhMail($admin_email, "Admin - THIGAZH", $subject_admin, $body_admin);
 
         if (!$sent_user || !$sent_admin) {
-            echo "<script>alert('Warning: Some notification emails could not be sent. Check mail_log.txt for details.');</script>";
+            echo "<script>alert('Warning: Some notification emails could not be sent. Check logs/mail_log.txt for details.');</script>";
         }
     }
     

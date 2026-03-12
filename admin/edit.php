@@ -134,7 +134,7 @@ try {
             $sent_admin = sendThigazhMail($admin_email, "Admin - THIGAZH", $subject_admin, $body_admin);
             
             if (!$sent_user || !$sent_admin) {
-                echo "<script>alert('Warning: Some notification emails could not be sent. Check mail_log.txt if possible.');</script>";
+                echo "<script>alert('Warning: Some notification emails could not be sent. Check logs/mail_log.txt if possible.');</script>";
             }
         }
         

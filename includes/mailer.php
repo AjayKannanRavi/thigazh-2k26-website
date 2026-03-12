@@ -69,7 +69,7 @@ function getThigazhEmailTemplate($title, $content) {
 }
 
 function sendThigazhMail($to_email, $to_name, $subject, $body_content, $is_html_content = true) {
- file_put_contents(__DIR__ . '/../mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
+    file_put_contents(LOG_PATH . 'mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
  $mail = new PHPMailer(true);
  try {
  // SMTP Configuration
@@ -98,9 +98,9 @@ function sendThigazhMail($to_email, $to_name, $subject, $body_content, $is_html_
  $mail->send();
  return true;
  } catch (Exception $e) {
- error_log("Mail Error: {$mail->ErrorInfo}");
- file_put_contents('mail_log.txt', date('Y-m-d H:i:s') . " [ERROR] " . $e->getMessage() . "\n", FILE_APPEND);
- return false;
+    error_log("Mail Error: {$mail->ErrorInfo}");
+    file_put_contents(LOG_PATH . 'mail_log.txt', date('Y-m-d H:i:s') . " [ERROR] " . $e->getMessage() . "\n", FILE_APPEND);
+    return false;
  }
 }
 ?>
