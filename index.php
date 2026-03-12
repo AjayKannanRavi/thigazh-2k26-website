@@ -786,6 +786,7 @@
         <li><strong>Round 1: Architecture Design</strong> – Participants must analyze the given problem and design the structure and logic of the application.</li>
         <li><strong>Round 2: Console-based Application Development</strong> – Participants will implement their design by building a working console-based application.</li>
         <li>Bring your coding weapons: C, C++, Python, or Java, all are supported for this mission.</li>
+        <li><strong>Note: If you have a laptop, please bring it for the technical rounds.</strong></li>
       </ul>
 
       <p style="margin:0 0 1rem;">So tighten your web of logic, craft your code carefully, and build powerful console applications like a true Spider-Verse hero. Debug swiftly, think creatively, and swing through every challenge!</p>
@@ -817,6 +818,7 @@
         <li><strong>Round 1: Problem Analysis & AI Design</strong> – Participants must analyze the given real-world problem and design the AI approach, model idea, or system architecture that can solve it.</li>
         <li><strong>Round 2: Intelligent Solution Development</strong> – Teams will implement their idea by building a prototype, model workflow, or AI-based solution that generates meaningful insights or predictions.</li>
         <li>Participants must also be ready to explain their AI methodology, model design, and results during the evaluation round.</li>
+        <li><strong>Note: If you have a laptop, please bring it for the technical rounds.</strong></li>
       </ul>
 
       <p style="margin:0 0 1rem;">Note: Usage of AI tools is permitted only from the second phase of the competition, and participants must be able to modify or explain their code on request.</p>
@@ -884,6 +886,7 @@
         <li><strong>Domain Flexibility</strong> – Projects can belong to AI, Data Science, IoT, Cybersecurity, Software Systems, Embedded Systems, or any emerging technology domain.</li>
         <li><strong>Presentation Round</strong> – Teams must clearly explain their project idea, working mechanism, and technological impact to the evaluation panel.</li>
         <li><strong>Interactive Queries</strong> – Participants should be ready to defend their design choices and respond to questions from the jury council.</li>
+        <li><strong>Note: If you have a laptop, please bring it for demonstration and presentation.</strong></li>
       </ul>
 
       <p style="margin:0 0 1rem;">Time in this dimension is limited clear communication, confident presentation, and structured demonstrations will be your strongest allies.</p>
