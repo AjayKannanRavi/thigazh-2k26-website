@@ -4,8 +4,8 @@ secure_session_start();
 send_security_headers();
 
 // Check if already logged in
-if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-        header("Location: index.php");
+if (isset($_SESSION['thigazh_admin_logged_in']) && $_SESSION['thigazh_admin_logged_in'] === true) {
+    header("Location: index.php");
     exit;
 }
 
@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Success! Regenerate session ID to prevent fixation
         session_regenerate_id(true);
         
-        $_SESSION['admin_logged_in'] = true;
-        $_SESSION['admin_username'] = ADMIN_USER;
+        $_SESSION['thigazh_admin_logged_in'] = true;
+        $_SESSION['thigazh_admin_username'] = ADMIN_USER;
         $_SESSION['LAST_ACTIVITY'] = time();
         
         header("Location: index.php");

@@ -11,7 +11,7 @@ if (is_dir($_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI']) && substr($_SERV
 }
 
 // Verify login status
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+if (!isset($_SESSION['thigazh_admin_logged_in']) || $_SESSION['thigazh_admin_logged_in'] !== true) {
     header("Location: login.php");
     exit;
 }
@@ -28,11 +28,7 @@ if (isset($_SESSION['LAST_ACTIVITY'])) {
 }
 $_SESSION['LAST_ACTIVITY'] = time();
 
-// --- 3. VERIFY LOGIN STATUS ---
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header("Location: login.php");
-    exit;
-}
+// --- 3. VERIFY LOGIN STATUS REMOVED (Redundant) ---
 
 try {
     $pdo = getDBConnection();

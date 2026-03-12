@@ -5,7 +5,7 @@ send_security_headers();
 require_once '../includes/mailer.php';
 
 // Verify login status
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+if (!isset($_SESSION['thigazh_admin_logged_in']) || $_SESSION['thigazh_admin_logged_in'] !== true) {
     header("Location: login.php");
     exit;
 }

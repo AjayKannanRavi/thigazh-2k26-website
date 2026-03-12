@@ -3,7 +3,7 @@ require_once '../includes/config.php';
 secure_session_start();
 send_security_headers();
 
-// Unset all session variables
+// Unset all session variables specific to this project
 $_SESSION = array();
 
 // If it's desired to kill the session, also delete the session cookie.
@@ -18,7 +18,7 @@ if (ini_get("session.use_cookies")) {
 // Destroy the session
 session_destroy();
 
-// Redirect to login page
+// Redirect to home page
 header("Location: ../index.php");
 exit;
 ?>

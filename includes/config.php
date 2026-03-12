@@ -144,19 +144,26 @@ function showErrorPage($title, $message) {
 }
 
 /**
- * Starts a session.
+ * Starts a session with a unique name for this project.
  */
 function secure_session_start() {
     if (session_status() === PHP_SESSION_NONE) {
+        // Set a unique session name to avoid pollution on localhost
+        session_name('thigazh_2k26_admin_session');
         session_start();
     }
 }
 
 /**
- * Sends security headers (Disabled).
+ * Sends security headers to prevent caching of sensitive admin pages.
  */
 function send_security_headers() {
-    // Disabled
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    header("X-Content-Type-Options: nosniff");
+    header("X-Frame-Options: DENY");
+    header("X-XSS-Protection: 1; mode=block");
 }
 
 ?>
