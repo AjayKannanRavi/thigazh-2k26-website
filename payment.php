@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['pay_id'])) {
     $pay_id = (int)$_POST['pay_id'];
     $transaction_id = trim(htmlspecialchars($_POST['transaction_id']));
     
-    // Server-side validation: Greater than 10 digits (at least 11 characters)
+    // Server-side validation: Greater than 10 characters
     if (strlen($transaction_id) < 11) {
-        showErrorPage("Invalid Transaction ID", "The Transaction ID must be at least 11 digits long. Please double-check your payment confirmation.");
+        showErrorPage("Invalid Transaction ID", "The Transaction ID must be at least 11 characters long. Please double-check your payment confirmation.");
     }
     
     // Check for duplicate transaction ID
@@ -294,7 +294,7 @@ if ($reg['payment_status'] === 'Completed' || $reg['payment_status'] === 'Pendin
             
             <div class="input-group" style="margin-top: 1rem; text-align: left;">
                 <label for="transaction_id">Transaction ID / UTR Number <span style="color: var(--neon-red);">*</span></label>
-                <input type="text" id="transaction_id" name="transaction_id" required minlength="11" placeholder="e.g. 123456789012" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                <input type="text" id="transaction_id" name="transaction_id" required minlength="11" placeholder="e.g. 1234567890AB" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '')">
             </div>
 
             <div class="input-group" style="text-align: left; margin-bottom: 2rem;">

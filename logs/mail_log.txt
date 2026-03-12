@@ -911,3 +911,34 @@
 2026-03-12 12:23:07 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
 
 2026-03-12 12:23:13 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 14:27:01 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-12 14:28:04 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+
+2026-03-12 14:28:09 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 14:28:36 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
+2026-03-12 14:29:04 [ERROR] SMTP Error: Could not connect to SMTP host.
+
+2026-03-12 14:29:04 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 14:31:00 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-12 14:32:34 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-12 14:32:40 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 14:33:01 [CALL] sendThigazhMail triggered for: ajaykamali476@gmail.com
+
+2026-03-12 14:33:08 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 14:38:10 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-12 14:38:59 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-12 14:39:06 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 14:40:46 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-12 14:40:54 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
