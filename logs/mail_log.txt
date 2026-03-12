@@ -901,3 +901,13 @@
 2026-03-12 12:12:51 [CALL] sendThigazhMail triggered for: inbox.kiran123@gmail.com
 
 2026-03-12 12:12:57 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 12:20:53 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-12 12:22:41 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-12 12:22:48 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-12 12:23:07 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
+
+2026-03-12 12:23:13 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
