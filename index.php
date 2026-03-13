@@ -808,23 +808,29 @@
 
   <div class="details">
     <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
-      <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Attention Innovators! Ready to Swing into the AI-Verse?</strong></p>
-      <p style="margin:0 0 1rem;">A new mission awaits in the world of Intelligent Solution Design. In this universe, your data is your web and your algorithms are your superpower. Whether you arrive with a team of creative thinkers or a bold AI idea, this event will push your innovation, analytical thinking, and problem-solving abilities to the next level. Get ready to design intelligent systems, build smart models, and bring powerful AI ideas to life!</p>
+      <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Calling All Innovators! Spider-Man Has a Challenge for You!</strong></p>
+      <p style="margin:0 0 1rem;">Looks like some brilliant minds are ready to swing into <strong>AI VERSE</strong>, an Intelligent Solution Design Challenge. But listen carefully this mission isn't about random coding. It is about building smart AI solutions that can tackle real-world problems.</p>
+      <p style="margin:0 0 1rem;">So assemble your team, fire up your creativity and get ready to design something truly intelligent.</p>
       
-      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Web:</p>
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules Spun from the Web:</p>
       <ul style="margin:0 0 1rem 1.3rem; padding:0;">
-        <li>Teams can have 1 to 4 members, because sometimes even heroes build stronger innovations with a trusted squad.</li>
-        <li>The challenge unfolds in two exciting rounds to test both your AI design thinking and implementation abilities.</li>
-        <li><strong>Round 1: Problem Analysis & AI Design</strong> – Participants must analyze the given real-world problem and design the AI approach, model idea, or system architecture that can solve it.</li>
-        <li><strong>Round 2: Intelligent Solution Development</strong> – Teams will implement their idea by building a prototype, model workflow, or AI-based solution that generates meaningful insights or predictions.</li>
-        <li>Participants must also be ready to explain their AI methodology, model design, and results during the evaluation round.</li>
-        <li><strong>Note: If you have a laptop, please bring it for the technical rounds.</strong></li>
+        <li><strong>Team Participation</strong> – Teams can consist of 1 to 4 members working together to develop an AI-driven solution.</li>
+        <li><strong>Problem-Based Challenge</strong> – Each team will be given a real-world problem theme on the spot of their choice which requires an innovative AI-based approach.</li>
+        <li><strong>Build an Intelligent Solution</strong> – Teams must design a model or prototype capable of generating meaningful insights or predictions based on your chosen theme.</li>
+        <li><strong>Responsible AI Matters</strong> – Your solutions should follow ethical AI practices, transparency, and model reliability.</li>
+        <li><strong>Presentation Round</strong> – Teams must clearly explain their methodology, AI approach, and the results produced by their model.</li>
       </ul>
 
-      <p style="margin:0 0 1rem;">Note: Usage of AI tools is permitted only from the second phase of the competition, and participants must be able to modify or explain their code on request.</p>
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">Event Phases:</p>
+      <p style="margin:0 0 0.5rem;"><strong>🕷️ Phase 1 – Web Blueprint Round</strong></p>
+      <p style="margin:0 0 1rem;">This round will be conducted using pen and paper only, and electronic devices of any usage isn't allowed in this round. Teams must plan the AI solution architecture and workflow for the chosen problem theme. The proposed blueprint will be further evaluated by the jury.</p>
 
-      <p style="margin:0 0 1rem;">So tighten your web of logic, train your models wisely, and build intelligent solutions like a true Spider-Verse innovator. Analyze deeply, think creatively, and swing through every challenge with confidence!</p>
-      <p style="margin:0;">Gear up, innovate smart, unleash your AI superpowers, and let your ideas swing across the AI-Verse! 🕸️🤖🚀</p>
+      <p style="margin:0 0 0.5rem;"><strong>🕸️ Phase 2 – Web Builder Round</strong></p>
+      <p style="margin:0 0 1rem;">In this phase, the teams will develop their proposed AI solution as a working prototype. Participants may use LLMs and AI tools to assist in building and refining their system. Teams will then present their implementation, methodology, and results to the judging panel.</p>
+
+      <p style="margin:0 0 1rem;">Always remember that true AI innovation comes with the responsibility to build it ethically. Bring your creativity, trust your algorithms, and get ready to build the future with AI!</p>
+
+      <p style="margin:0; font-style: italic; font-size: 0.85rem; color: var(--neon-red);">Note: Kindly bring your own laptop for the event. Participants should be capable of making changes in their code on-spot on request</p>
     </div>
   <a href="#registration" class="btn primary-btn"
   onclick="preSelectEvent('ai_verse', 'royal'); closeModal('modal-aiverse')">Register for this Event</a>
@@ -874,25 +880,8 @@
     <div class="details">
     <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
       <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Hey Innovators! Your Friendly Multiverse Guide is Calling!</strong></p>
-      <p style="margin:0 0 1rem;">Looks like some visionary creators are about to step into <strong>QUANTA</strong>, the Project Expo where innovation meets imagination. But remember… this arena is not just about presenting ideas it’s about transforming creativity into real technological impact. This is your dimension to build, demonstrate, and prove your engineering superpowers! 🧠⚡</p>
-      <p style="margin:0 0 1rem;">Welcome to <strong>QUANTA</strong> – The Project Expo under the grand technical symposium <strong>THIGAZH</strong>. Here, brilliant minds from different dimensions of technology come together to showcase futuristic solutions, disruptive prototypes, and groundbreaking innovations.</p>
-      
-      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules from the Multiverse Web:</p>
-      <ul style="margin:0 0 1rem 1.3rem; padding:0;">
-        <li><strong>Team Participation</strong> – This mission can be undertaken by a squad of innovators (2–4 members), because powerful ideas often emerge from collaboration.</li>
-        <li><strong>Innovative Project</strong> – Your project must demonstrate original thinking, technical depth, and practical real-world relevance.</li>
-        <li><strong>Technical Evaluation</strong> – Teams will be evaluated based on concept clarity, implementation approach, scalability potential, and innovation value.</li>
-        <li><strong>Working Demonstration</strong> – A working prototype, simulation, or system architecture will significantly strengthen your position in the innovation grid.</li>
-        <li><strong>Domain Flexibility</strong> – Projects can belong to AI, Data Science, IoT, Cybersecurity, Software Systems, Embedded Systems, or any emerging technology domain.</li>
-        <li><strong>Presentation Round</strong> – Teams must clearly explain their project idea, working mechanism, and technological impact to the evaluation panel.</li>
-        <li><strong>Interactive Queries</strong> – Participants should be ready to defend their design choices and respond to questions from the jury council.</li>
-        <li><strong>Note: If you have a laptop, please bring it for demonstration and presentation.</strong></li>
-      </ul>
-
-      <p style="margin:0 0 1rem;">Time in this dimension is limited clear communication, confident presentation, and structured demonstrations will be your strongest allies.</p>
-      <p style="margin:0 0 1rem;">So assemble your ideas, refine your prototypes, and prepare to present innovations that can ripple across dimensions.</p>
-      <p style="margin:0 0 1rem;">Remember… in the Spiderverse of technology, every groundbreaking innovation begins with a bold prototype. 🕸️</p>
-      <p style="margin:0;">Step in, showcase your brilliance, and let your project swing beyond limits! 🚀</p>
+      <p style="margin:0 0 1rem;">Looks like some visionary creators are about to step into <strong>QUANTA</strong>, the Project Expo where imagination meets innovation.</p>
+      <p style="margin:0;">But remember… this arena is not just about presenting ideas — it’s about transforming creativity into real technological impact. This is your dimension to build, demonstrate, and prove your engineering superpower</p>
     </div>
   <a href="#registration" class="btn primary-btn"
   onclick="preSelectEvent('quanta', 'royal'); closeModal('modal-quanta')">Register for this Event</a>
@@ -912,22 +901,30 @@
  <div class="details">
     <div style="background: rgba(220,20,60,0.08); border-left: 3px solid var(--neon-red); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
       <p style="margin:0 0 1rem; font-size: 1.1rem;">🕸️ <strong>Calling All Problem Solvers! Spider-Man Has a Challenge for You!</strong></p>
-      <p style="margin:0 0 1rem;">Looks like some sharp minds are ready to enter <strong>SPIDER VAULT</strong>, a Reverse Engineering Challenge. But listen carefully… this mission isn’t about building a program from scratch. It’s about decoding how a system works by analysing its outputs, datasets, or code fragments.</p>
-      <p style="margin:0 0 1rem;">Get ready to put your analytical thinking, debugging instincts, and logical reasoning to the test as you uncover the hidden mechanisms behind complex systems.</p>
+      <p style="margin:0 0 1rem;">Looks like sharp minds are ready to enter <strong>SPIDER VAULT</strong>, a Reverse Engineering Challenge. But listen carefully this mission isn’t about building a program from scratch. It’s about decoding how a system works by analysing its outputs, datasets, or code fragments.</p>
+      <p style="margin:0 0 1rem;">Get ready to put your analytical thinking to the test and uncover the hidden logic behind complex systems.</p>
       
       <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">🕷️ Rules Spun from the Web:</p>
       <ul style="margin:0 0 1rem 1.3rem; padding:0;">
-        <li><strong>Team Participation</strong> – Teams can consist of 1 to 2 members working together to crack the challenge.</li>
-        <li><strong>Reverse Engineering Task</strong> – Participants will be given outputs, datasets, or partial code fragments that must be carefully analysed.</li>
-        <li><strong>Find the Hidden Logic</strong> – Your goal is to determine the algorithm, process, or reasoning used to generate the results.</li>
-        <li><strong>Debug & Decode</strong> – Strong skills in pattern recognition, logical deduction, and debugging will help you break down the system.</li>
-        <li><strong>Explain Your Approach</strong> – Teams must clearly present the logic and reasoning used to reconstruct the hidden solution.</li>
+        <li><strong>Team Participation</strong> – Teams can consist of 1 to 2 members working together to solve the challenge.</li>
+        <li><strong>Reverse Engineering Task</strong> – Participants will be given outputs, datasets, or partial code fragments to analyse.</li>
+        <li><strong>Find the Hidden Logic</strong> – Your goal is to determine the algorithm, method, or reasoning used to generate the result.</li>
+        <li><strong>Debug & Decode</strong> – Careful observation, debugging, and pattern recognition will be essential.</li>
+        <li><strong>Explain Your Approach</strong> – Teams must clearly explain the logic and reasoning used to reconstruct the solution.</li>
       </ul>
 
-      <p style="margin:0 0 1rem;">Prepare to analyse patterns, trace logic paths, and break down complex systems step by step.</p>
-      <p style="margin:0 0 1rem;">Remember… the real challenge here isn’t just solving a problem it’s discovering how the problem was solved in the first place.</p>
-      <p style="margin:0 0 1rem;">So sharpen your logic, trust your instincts, and get ready to unlock the secrets hidden inside <strong>SPIDER VAULT</strong>. 🕸️🔐</p>
-      <p style="margin:0; font-style: italic; font-size: 0.85rem; color: var(--neon-red);">Note: Usage of AI tools is strictly not permitted during this event.</p>
+      <p style="margin:0 0 0.5rem; color: var(--neon-red); font-weight: bold;">Event Phases:</p>
+      <p style="margin:0 0 0.5rem;"><strong>🕷️ Phase 1 – Web Decoder Round</strong></p>
+      <p style="margin:0 0 1rem;">Participants will solve intermediate-level reverse engineering challenges. Teams must analyse given outputs or partial code snippets and identify the logic or algorithm used to generate them.</p>
+
+      <p style="margin:0 0 0.5rem;"><strong>🕸️ Phase 2 – Web Breaker Round</strong></p>
+      <p style="margin:0 0 1rem;">This round consists of advanced reverse engineering challenges where participants must decode complex patterns, algorithms, or code fragments and reconstruct the complete logic behind the system.</p>
+
+      <p style="margin:0 0 1rem;">Prepare to analyse patterns, debug code, and break down complex systems step by step.</p>
+      <p style="margin:0 0 1rem;">Remember, the real challenge here isn’t just solving a problem, it’s figuring out how the problem was solved in the first place.</p>
+      <p style="margin:0 0 1rem;">So sharpen your logic, trust your instincts, and get ready to unlock the ciphers hidden inside <strong>SPIDER VAULT</strong>. 🕸️</p>
+
+      <p style="margin:0; font-style: italic; font-size: 0.85rem; color: var(--neon-red);">Note: Kindly bring your own laptop for the event. Usage of any AI tools or LLM is strictly not permitted during the challenge.</p>
     </div>
  <a href="#registration" class="btn primary-btn"
  onclick="preSelectEvent('spider_vault', 'royal'); closeModal('modal-spidervault')">Register for this Event</a>
