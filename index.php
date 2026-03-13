@@ -13,6 +13,26 @@
  href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Orbitron:wght@500;700;900&display=swap"
  rel="stylesheet" />
  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .hero-tagline {
+      font-family: var(--font-ui);
+      text-transform: uppercase;
+      color: var(--metallic-silver);
+      font-size: 1.2rem;
+      letter-spacing: 12px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      position: relative;
+      display: block;
+      animation: fadeInDown 1.5s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 0.9; transform: translateY(0); }
+    }
+  </style>
 </head>
 
 <body>
