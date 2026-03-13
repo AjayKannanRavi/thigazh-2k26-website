@@ -112,7 +112,8 @@
  </div>
  </div>
  </div>
- <h2 class="hero-subtitle">
+  <p class="hero-tagline">The Tech Innovation Fest</p>
+  <h2 class="hero-subtitle">
  <span class="white-glow">Organized by the</span> <span class="highlight">School of Computing</span>
  </h2>
  <h3 class="hero-college">Erode Sengunthar Engineering College</h3>
@@ -283,8 +284,8 @@
  <h2 class="section-title glitch" data-text="TOTAL PRIZE POOL">
  TOTAL PRIZE POOL
  </h2>
- <div class="prize-amount glitch-heavy" data-text="₹75K">
- ₹75K
+ <div class="prize-amount glitch-heavy" data-text="₹100K">
+ ₹100K
  </div>
  <p class="prize-subtext">
  Compete in teams of 1 to 4 members to claim ultimate glory.
@@ -786,7 +787,7 @@
         <li><strong>Round 1: Architecture Design</strong> – Participants must analyze the given problem and design the structure and logic of the application.</li>
         <li><strong>Round 2: Console-based Application Development</strong> – Participants will implement their design by building a working console-based application.</li>
         <li>Bring your coding weapons: C, C++, Python, or Java, all are supported for this mission.</li>
-        <li><strong>Note: If you have a laptop, please bring it for the technical rounds.</strong></li>
+        <li><strong>Note: Laptop is mandatory for the technical rounds.</strong></li>
       </ul>
 
       <p style="margin:0 0 1rem;">So tighten your web of logic, craft your code carefully, and build powerful console applications like a true Spider-Verse hero. Debug swiftly, think creatively, and swing through every challenge!</p>
