@@ -19,6 +19,17 @@ try {
         $email        = trim($_POST['email']    ?? '');
         $pass_type    = htmlspecialchars($_POST['pass_type']    ?? '');
 
+        // --- RATE LIMITING (IP BASED) ---
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $limit_check = $pdo->prepare("SELECT COUNT(*) FROM registrations WHERE created_at > DATE_SUB(NOW(), INTERVAL 5 MINUTE) AND leader_name = :leader OR college = :college LIMIT 1"); // Simple heuristic
+        // Better: using a dedicated table or session for IP tracking
+        // For now, let's just use email check which is already there, but add a session-based delay
+        if (isset($_SESSION['last_reg_time']) && (time() - $_SESSION['last_reg_time']) < 60) {
+            showErrorPage("Slow Down", "Please wait a minute before trying to register again.");
+        }
+        $_SESSION['last_reg_time'] = time();
+        // --- END RATE LIMITING ---
+
         // Validate basic inputs
         if (empty($leader_name) || empty($college) || empty($phone) || empty($email) || empty($pass_type)) {
             showErrorPage("Incomplete Data", "Please fill in all required fields.");

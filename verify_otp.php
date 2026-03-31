@@ -44,22 +44,29 @@ if (isset($_GET['resend']) && $_GET['resend'] == 1) {
     $user = $user_stmt->fetch();
     
     if ($user) {
-        $subject = "Your New Verification Code - THIGAZH 2K26";
-        $body = "
-            <h2>New Registration OTP</h2>
-            <p>You requested a new verification code for THIGAZH 2K26, <strong>{$user['leader_name']}</strong>.</p>
-            <p>Your new verification code is:</p>
-            <div style='background: #1a1a1a; padding: 20px; text-align: center; border: 1px solid #ff003c; border-radius: 4px;'>
-                <span style='font-size: 32px; font-weight: bold; color: #ff003c; letter-spacing: 5px;'>$otp</span>
-            </div>
-            <p style='color: #888; font-size: 0.9rem;'>This OTP is valid for 10 minutes. If you didn't request this, please ignore this email.</p>
-        ";
-        
-        if (sendThigazhMail($user['email'], $user['leader_name'], $subject, $body)) {
-            $success = "A new verification code has been sent to your email.";
+        // --- RATE LIMITING (RESEND COOLDOWN) ---
+        if (isset($_SESSION['last_resend_time']) && (time() - $_SESSION['last_resend_time']) < 60) {
+            $error = "Please wait 60 seconds before requesting another OTP.";
         } else {
-            $error = "Failed to send new OTP. Please check your email address or try again later.";
+            $_SESSION['last_resend_time'] = time();
+            $subject = "Your New Verification Code - THIGAZH 2K26";
+            $body = "
+                <h2>New Registration OTP</h2>
+                <p>You requested a new verification code for THIGAZH 2K26, <strong>{$user['leader_name']}</strong>.</p>
+                <p>Your new verification code is:</p>
+                <div style='background: #1a1a1a; padding: 20px; text-align: center; border: 1px solid #ff003c; border-radius: 4px;'>
+                    <span style='font-size: 32px; font-weight: bold; color: #ff003c; letter-spacing: 5px;'>$otp</span>
+                </div>
+                <p style='color: #888; font-size: 0.9rem;'>This OTP is valid for 10 minutes. If you didn't request this, please ignore this email.</p>
+            ";
+            
+            if (sendThigazhMail($user['email'], $user['leader_name'], $subject, $body)) {
+                $success = "A new verification code has been sent to your email.";
+            } else {
+                $error = "Failed to send new OTP. Please check your email address or try again later.";
+            }
         }
+        // --- END RATE LIMITING ---
     }
 }
 

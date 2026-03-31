@@ -72,35 +72,44 @@ function sendThigazhMail($to_email, $to_name, $subject, $body_content, $is_html_
     file_put_contents(LOG_PATH . 'mail_log.txt', "\n" . date('Y-m-d H:i:s') . " [CALL] sendThigazhMail triggered for: $to_email\n", FILE_APPEND);
  $mail = new PHPMailer(true);
  try {
- // SMTP Configuration
- $mail->isSMTP();
- $mail->Host = SMTP_HOST; 
- $mail->SMTPAuth = true;
- $mail->Username = SMTP_USER; 
- $mail->Password = SMTP_PASS; 
- $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
- $mail->Port = SMTP_PORT;
+    // SMTP Configuration
+    $mail->isSMTP();
+    $mail->Host = SMTP_HOST; 
+    $mail->SMTPAuth = true;
+    $mail->Username = SMTP_USER; 
+    $mail->Password = SMTP_PASS; 
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = SMTP_PORT;
 
- // Debugging
- $mail->SMTPDebug = 0; // Disable in-browser debug, log to file instead
+    // Debugging
+    $mail->SMTPDebug = 0; // Disable verbose debug output for production
 
- // Recipients
- $mail->setFrom(SMTP_USER, 'THIGAZH 2K26'); 
- $mail->addAddress($to_email, $to_name);
+    // SSL Options - Bypass verification if the server lacks updated certificates (common in college servers)
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
 
- // Content
- $mail->isHTML(true);
- $mail->Subject = $subject;
- 
- // Wrap the content in our professional template
- $mail->Body = getThigazhEmailTemplate($subject, $body_content);
+    // Recipients
+    $mail->setFrom(SMTP_USER, 'THIGAZH 2K26'); 
+    $mail->addAddress($to_email, $to_name);
 
- $mail->send();
- return true;
- } catch (Exception $e) {
-    error_log("Mail Error: {$mail->ErrorInfo}");
-    file_put_contents(LOG_PATH . 'mail_log.txt', date('Y-m-d H:i:s') . " [ERROR] " . $e->getMessage() . "\n", FILE_APPEND);
+    // Content
+    $mail->isHTML(true);
+    $mail->Subject = $subject;
+    
+    // Wrap the content in our professional template
+    $mail->Body = getThigazhEmailTemplate($subject, $body_content);
+
+    $mail->send();
+    file_put_contents(LOG_PATH . 'mail_log.txt', date('Y-m-d H:i:s') . " [SUCCESS] Mail sent to $to_email\n", FILE_APPEND);
+    return true;
+} catch (Exception $e) {
+    file_put_contents(LOG_PATH . 'mail_log.txt', date('Y-m-d H:i:s') . " [ERROR] Message: {$mail->ErrorInfo} | PHP Exception: " . $e->getMessage() . "\n", FILE_APPEND);
     return false;
- }
+}
 }
 ?>

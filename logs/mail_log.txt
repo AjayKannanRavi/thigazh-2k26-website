@@ -942,3 +942,15 @@
 2026-03-12 14:40:46 [CALL] sendThigazhMail triggered for: akilansandy1@gmail.com
 
 2026-03-12 14:40:54 [CALL] sendThigazhMail triggered for: thigazh2k26@gmail.com
+
+2026-03-14 15:20:17 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+2026-03-14 15:20:19 [ERROR] SMTP Error: Could not authenticate.
+
+2026-03-14 15:21:03 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+2026-03-14 15:21:05 [ERROR] SMTP Error: Could not authenticate.
+
+2026-03-14 15:24:27 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+2026-03-14 15:24:30 [ERROR] Message: SMTP Error: Could not authenticate. | PHP Exception: SMTP Error: Could not authenticate.
+
+2026-03-14 15:26:01 [CALL] sendThigazhMail triggered for: real.kiransurya@gmail.com
+2026-03-14 15:26:04 [ERROR] Message: SMTP Error: Could not authenticate. | PHP Exception: SMTP Error: Could not authenticate.

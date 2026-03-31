@@ -1,4 +1,7 @@
-<?php require_once 'includes/config.php'; ?>
+<?php 
+require_once 'includes/config.php'; 
+$registration_enabled = false; // Toggle this to true to enable registration
+?>
 <!doctype html>
 <html lang="en">
 
@@ -63,9 +66,11 @@
  <li><a href="#events">Events</a></li>
  <li><a href="#pricing">Passes</a></li>
   <li><a href="#location">Location</a></li>
+ <?php if ($registration_enabled): ?>
  <li>
  <a href="#registration" class="highlight-register-nav">Register</a>
  </li>
+ <?php endif; ?>
  </ul>
  </nav>
  </header>
@@ -138,12 +143,14 @@
  </h2>
  <h3 class="hero-college">Erode Sengunthar Engineering College</h3>
  <div class="hero-date-box">
- <div class="hero-month">APRIL</div>
- <div class="hero-days">01 - 02</div>
+ <div class="hero-month">COMING</div>
+ <div class="hero-days">SOON</div>
  </div>
  <div class="hero-actions">
  <a href="#events" class="btn primary-btn g-btn">EXPLORE EVENTS</a>
+ <?php if ($registration_enabled): ?>
  <a href="#registration" class="btn secondary-btn g-btn">REGISTER NOW</a>
+ <?php endif; ?>
  </div>
  </div>
  </section>
@@ -248,7 +255,7 @@
           </div>
           <div class="service-text">
             <h3>Registration</h3>
-            <p>Online registration will close on March 30th. Spot registration will be available for all events.</p>
+            <p>Registration status will be updated soon. Stay tuned for more details.</p>
           </div>
         </div>
 
@@ -459,7 +466,9 @@
  1 EVENT
  </div>
  <p>Access to ANY single event of your choice.</p>
+ <?php if ($registration_enabled): ?>
  <a href="#registration" class="btn secondary-btn" onclick="selectPass('royal')">Select Royal</a>
+ <?php endif; ?>
  </div>
 
  <!-- Pass 2 -->
@@ -472,7 +481,9 @@
  2 EVENTS
  </div>
  <p>Access to ONE event on Day 1 and ONE event on Day 2.</p>
+ <?php if ($registration_enabled): ?>
  <a href="#registration" class="btn primary-btn g-btn" onclick="selectPass('elite')">Select Elite</a>
+ <?php endif; ?>
  </div>
  </div>
  </section>
@@ -496,6 +507,7 @@
  SQUAD REGISTRATION
  </h2>
  <div class="container form-container comic-panel">
+ <?php if ($registration_enabled): ?>
  <form id="regForm" action="register.php" method="POST">
  <div class="input-group">
  <label for="team_name">Team Name</label>
@@ -624,6 +636,13 @@
  </button>
  <div id="form-msg"></div>
  </form>
+ <?php else: ?>
+ <div style="text-align: center; padding: 3rem;">
+ <h3 style="color: var(--neon-red); font-size: 2.8rem; font-family: var(--font-heading); text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">REGISTRATION OPENING SOON!</h3>
+ <p style="color: var(--text-light); font-size: 1.2rem; margin-top: 1rem; opacity: 0.8;">The technical arena is still being prepared. Keep your gears ready!</p>
+ </div>
+ <?php endif; ?>
+ </div>
  </div>
  </section>
 
@@ -695,7 +714,7 @@
  </div>
 <div class="contact-item">
  <div class="contact-info">
- <span class="contact-name">Ms. R. Narendran</span>
+ <span class="contact-name">Mr. R. Narendran</span>
  <span class="contact-dept">IT - Staff Coordinator</span>
  <span class="contact-phone">9944519941</span>
  </div>
